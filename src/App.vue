@@ -381,4 +381,6 @@
   </main>
 </template>
 
-<script setup></script>
+<script setup>
+import { ref, reactive, computed, watch } from 'vue'
+</script>
