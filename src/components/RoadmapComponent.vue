@@ -1,15 +1,16 @@
 <style scoped>
 #roadmap {
-  height: 15rem;
+  height: 18.5rem;
   background-color: var(--purpura);
   width: 90%;
-  margin: 2rem auto;
+  margin: 1rem auto;
   border-radius: 0.5rem;
   overflow: hidden;
   box-sizing: border-box;
   transition: 1s;
 }
 #roadmap h3 {
+  width: 100%;
   cursor: pointer;
 }
 #roadmap .road {
@@ -21,7 +22,8 @@
   max-height: 80rem;
 }
 #roadmap .road .sts {
-  height: 12rem;
+  height: 100%;
+  margin: 0.6rem 0;
 }
 #roadmap .road .sts p {
   font-size: 1.5rem;
@@ -59,7 +61,7 @@
 </style>
 
 <template>
-  <section @click="roadmap" id="roadmap" v-bind:style="roadmapStyle">
+  <section @click="roadmapOpen" id="roadmap" v-bind:style="roadmapStyles">
     <h3>Roadmap</h3>
     <div class="road" id="road">
       <div class="sts">
@@ -335,4 +337,20 @@
   </section>
 </template>
 
-<script setup></script>
+<script setup>
+import { ref, computed } from 'vue'
+
+const isOpen = ref(false)
+
+const roadmapOpen = () => {
+  isOpen.value = !isOpen.value
+}
+const roadmapStyles = computed(() => ({
+  height: isOpen.value ? '40rem' : '18.5rem',
+  overflow: isOpen.value ? 'scroll' : 'hidden',
+}))
+
+defineExpose({
+  roadmapOpen,
+})
+</script>

@@ -29,13 +29,13 @@ nav .menu-dch:hover {
   transform: translateX(-12.5rem);
 }
 nav .menu-izq h2 {
-  margin-left: 5rem;
+  margin-left: 2rem;
   opacity: 0;
   transition: 1s;
 }
 nav .menu-dch h2 {
   word-break: break-word;
-  margin-right: 5rem;
+  margin-right: 2.5rem;
   opacity: 0;
   transition: 1s;
 }

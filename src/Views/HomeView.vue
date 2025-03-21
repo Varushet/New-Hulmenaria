@@ -1,23 +1,31 @@
 <style scoped>
-.roadmap {
-  height: 40rem;
-  background-color: aliceblue;
-  margin: 5rem;
+.roadmapClass {
+  position: absolute;
+  background-color: aqua;
 }
 </style>
 
 <template>
   <div>
     <NavComponent></NavComponent>
-    <RoadmapComponent class="roadmap" @click="toggle"></RoadmapComponent>
+    <RoadmapComponent ref="roadmapRef" :class="{ roadmapClass: roadmapControl }"></RoadmapComponent>
     <FooterComponent></FooterComponent>
   </div>
 </template>
 
 <script setup>
+import { ref, onMounted } from 'vue'
 import NavComponent from '../components/NavComponent.vue'
 import RoadmapComponent from '../components/RoadmapComponent.vue'
 import FooterComponent from '@/components/FooterComponent.vue'
 
-const toggle = () => {}
+const roadmapRef = ref(null)
+const roadmapControl = ref(false)
+
+onMounted(() => {})
+const roadmapUp = () => {
+  roadmapRef.value?.roadmapOpen()
+
+  roadmapControl.value = !roadmapControl.value
+}
 </script>
