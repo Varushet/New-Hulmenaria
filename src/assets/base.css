@@ -59,7 +59,7 @@ body {
 
 h1 {
   /*Hulmenaria*/
-  font-size: 3rem;
+  font-size: 2rem;
   font-family: 'UnifrakturMaguntia';
   color: var(--dorado);
 }
@@ -76,7 +76,7 @@ h3 {
 }
 h4 {
   /*Article*/
-  font-size: 1.7rem;
+  font-size: 1.2rem;
   text-align: center;
   font-family: 'MedievalSharp';
   width: 20rem;
