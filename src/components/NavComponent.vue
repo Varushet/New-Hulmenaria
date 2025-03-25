@@ -6,6 +6,7 @@ nav {
   align-content: space-between;
   flex-direction: column;
   flex-wrap: wrap;
+  gap: 1rem 6rem;
   overflow: hidden;
 }
 nav [class*='menu'] {
@@ -13,8 +14,7 @@ nav [class*='menu'] {
   background-size: 100% 100%;
   height: 6rem;
   width: 16rem;
-  margin: 0.6rem 10%;
-  transform: translateX(-50%);
+  translate: -40%;
   display: flex;
   text-align: center;
   align-items: center;
@@ -22,10 +22,10 @@ nav [class*='menu'] {
   transition: 1s;
 }
 nav .menu-izq:hover {
-  transform: translateX(-3.5rem) !important;
+  transform: translateX(6rem) !important;
 }
 nav .menu-dch:hover {
-  transform: translateX(-12.5rem) !important;
+  transform: translateX(-6rem) !important;
 }
 nav .menu-izq h2 {
   margin-left: 2rem;
@@ -50,9 +50,9 @@ nav .menu-dch img {
 nav .menu-izq img {
   margin-right: 0.5rem;
 }
-@media screen and (max-width: 1900) {
+@media screen and (min-width: 4200px) {
   nav [class*='menu'] {
-    transform: translateX(0rem);
+    translate: 0%;
   }
 }
 </style>
@@ -97,9 +97,9 @@ const props = defineProps({
 })
 
 const menuIzq = computed(() => ({
-  transform: props.isRoadmapOpen ? 'translateX(-120%)' : '',
+  transform: props.isRoadmapOpen ? 'translateX(-60%)' : '',
 }))
 const menuDch = computed(() => ({
-  transform: props.isRoadmapOpen ? 'translateX(20%)' : '',
+  transform: props.isRoadmapOpen ? 'translateX(60%)' : '',
 }))
 </script>
