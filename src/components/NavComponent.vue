@@ -28,6 +28,12 @@ nav .menu-izq:hover {
 nav .menu-dch:hover {
   transform: translateX(-12.5rem);
 }
+nav .menu-dch img {
+  margin-left: 0.5rem;
+}
+nav .menu-izq img {
+  margin-right: 0.5rem;
+}
 nav .menu-izq h2 {
   margin-left: 2rem;
   opacity: 0;

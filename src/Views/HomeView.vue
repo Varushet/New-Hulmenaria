@@ -1,31 +1,42 @@
 <style scoped>
 .roadmapClass {
   position: absolute;
-  background-color: aqua;
+  top: 55%;
+  left: 50%;
+  translate: -50%;
+  transition: 1s;
+}
+.opened {
+  top: 12%;
+}
+.footerClass {
+  position: absolute;
+  bottom: -12rem;
 }
 </style>
 
 <template>
   <div>
     <NavComponent></NavComponent>
-    <RoadmapComponent ref="roadmapRef" :class="{ roadmapClass: roadmapControl }"></RoadmapComponent>
-    <FooterComponent></FooterComponent>
+    <RoadmapComponent
+      class="roadmapClass"
+      :class="{ opened: isRoadmapOpen }"
+      @click="roadmapUp"
+    ></RoadmapComponent>
+    <FooterComponent class="footerClass"></FooterComponent>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
 import NavComponent from '../components/NavComponent.vue'
 import RoadmapComponent from '../components/RoadmapComponent.vue'
 import FooterComponent from '@/components/FooterComponent.vue'
 
-const roadmapRef = ref(null)
-const roadmapControl = ref(false)
+import { ref } from 'vue'
 
-onMounted(() => {})
+const isRoadmapOpen = ref(false)
+
 const roadmapUp = () => {
-  roadmapRef.value?.roadmapOpen()
-
-  roadmapControl.value = !roadmapControl.value
+  isRoadmapOpen.value = !isRoadmapOpen.value
 }
 </script>

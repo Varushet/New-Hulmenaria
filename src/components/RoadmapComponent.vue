@@ -1,6 +1,6 @@
 <style scoped>
 #roadmap {
-  height: 18.5rem;
+  height: 19rem;
   background-color: var(--purpura);
   width: 90%;
   margin: 1rem auto;
@@ -346,11 +346,7 @@ const roadmapOpen = () => {
   isOpen.value = !isOpen.value
 }
 const roadmapStyles = computed(() => ({
-  height: isOpen.value ? '40rem' : '18.5rem',
+  height: isOpen.value ? '44rem' : '19rem',
   overflow: isOpen.value ? 'scroll' : 'hidden',
 }))
-
-defineExpose({
-  roadmapOpen,
-})
 </script>
