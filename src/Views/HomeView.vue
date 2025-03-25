@@ -17,11 +17,11 @@
 
 <template>
   <div>
-    <NavComponent></NavComponent>
+    <NavComponent :isRoadmapOpen="isRoadmapOpen"></NavComponent>
     <RoadmapComponent
       class="roadmapClass"
       :class="{ opened: isRoadmapOpen }"
-      @click="roadmapUp"
+      :roadmapClick="roadmapUp"
     ></RoadmapComponent>
     <FooterComponent class="footerClass"></FooterComponent>
   </div>

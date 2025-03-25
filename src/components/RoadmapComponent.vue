@@ -340,10 +340,18 @@
 <script setup>
 import { ref, computed } from 'vue'
 
+const props = defineProps({
+  roadmapClick: {
+    type: Function,
+    required: true,
+  },
+})
+
 const isOpen = ref(false)
 
 const roadmapOpen = () => {
   isOpen.value = !isOpen.value
+  props.roadmapClick()
 }
 const roadmapStyles = computed(() => ({
   height: isOpen.value ? '44rem' : '19rem',
