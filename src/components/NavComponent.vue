@@ -50,7 +50,7 @@ nav .menu-dch img {
 nav .menu-izq img {
   margin-right: 0.5rem;
 }
-@media screen and (min-width: 4200px) {
+@media screen and (min-width: 400px) {
   nav [class*='menu'] {
     translate: 0%;
   }
@@ -60,7 +60,7 @@ nav .menu-izq img {
 <template>
   <nav>
     <div class="menu-izq" :style="menuIzq">
-      <h2>PJ Sheet</h2>
+      <RouterLink to="/Sheet"><h2>PJ Sheet</h2></RouterLink>
       <img src="@/assets/img/ficha.png" alt="Character sheet" />
     </div>
     <div class="menu-izq" :style="menuIzq">
@@ -88,6 +88,7 @@ nav .menu-izq img {
 
 <script setup>
 import { ref, computed } from 'vue'
+import { RouterLink } from 'vue-router'
 
 const props = defineProps({
   isRoadmapOpen: {

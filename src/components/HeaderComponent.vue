@@ -1,5 +1,5 @@
 <style scoped>
-header {
+header a {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -12,13 +12,15 @@ header {
 
 <template>
   <header>
-    <div class="logo">
-      <img src="@/assets/img/logo.png" alt="Logo" />
-    </div>
-    <h1>Hulmenaria</h1>
-    <div class="logo">
-      <img src="@/assets/img/logo.png" alt="Logo" />
-    </div>
+    <RouterLink to="/">
+      <div class="logo">
+        <img src="@/assets/img/logo.png" alt="Logo" />
+      </div>
+      <h1>Hulmenaria</h1>
+      <div class="logo">
+        <img src="@/assets/img/logo.png" alt="Logo" />
+      </div>
+    </RouterLink>
   </header>
 </template>
 
