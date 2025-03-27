@@ -1,9 +1,12 @@
 <style scoped>
+header {
+  height: 5.5rem;
+}
 header a {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 2rem;
+  padding: 1rem;
 }
 .logo img {
   width: 4rem;

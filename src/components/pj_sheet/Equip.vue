@@ -3,11 +3,13 @@
 
 /*Botonera*/
 .equipo {
-  height: 100%;
+  height: 28rem;
+  padding: 1.5rem 0.5rem;
   display: grid;
-  grid-template: repeat(12, 1fr) / repeat(7, 1fr);
+  grid-template: repeat(14, 1fr) / repeat(7, 1fr);
+  box-sizing: border-box;
 }
-.equipo aside {
+.equipo section {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,7 +17,6 @@
 .equipo button {
   background: transparent;
   background-color: rgba(150, 80, 22, 0.405);
-  border: none;
   border-radius: 1rem;
 }
 .equipo button img {
@@ -28,144 +29,108 @@
   opacity: 1;
 }
 .largo,
-aside .largo img {
+section .largo img {
   height: 5rem;
 }
 .corto,
-aside .corto img {
-  height: 3rem;
+section .corto img {
+  height: 1.5rem;
 }
 .abalorio,
-aside .abalorio img {
+section .abalorio img {
   height: 2rem;
   width: 2rem;
 }
 
+.casilla-cabeza {
+  grid-area: 1/1/4/8;
+}
 .casilla-pircing-izq {
-  grid-area: 2/3/2/3;
-  background-color: rgba(0, 255, 255, 0.356);
+  grid-area: 1/3;
 }
 .casilla-pircing-dch {
-  grid-area: 2/5;
+  grid-area: 1/5;
 }
-.casilla-cabeza {
-  grid-area: 3/1/3/8;
-  background-color: rgba(0, 255, 255, 0.356);
-}
-.casilla-tatoo {
-  grid-area: 2/3/5/3;
-}
-
 .casilla-cara {
-  grid-area: 2/5/5/5;
+  grid-area: 3/5;
 }
-/* aside[class*='casilla'] {
-  position: relative;
-}
-
-
-
-.casilla-torso {
-  top: 30rem;
-  left: 35rem;
-}
-.casilla-cintura {
-  top: 42rem;
-  left: 35rem;
+.casilla-collar {
+  grid-area: 3/3;
 }
 .casilla-hombro-izq {
-  top: 18rem;
-  left: 22rem;
+  grid-area: 4/1/5/5;
 }
 .casilla-hombro-dch {
-  top: 18rem;
-  right: 22rem;
+  grid-area: 4/4/5/8;
+}
+.casilla-torso {
+  grid-area: 5/1/9/8;
 }
 .casilla-brazo-izq {
-  top: 30rem;
-  left: 20rem;
+  grid-area: 5/1/9/4;
 }
 .casilla-brazo-dch {
-  top: 30rem;
-  left: 50rem;
+  grid-area: 5/5/9/8;
 }
-.casilla-mano-izq {
-  top: 42rem;
-  left: 20rem;
+.casilla-tatoo {
+  grid-area: 5/3;
 }
-.casilla-mano-dch {
-  top: 42rem;
-  left: 50rem;
-}
-.casilla-pierna-izq {
-  top: 56rem;
-  left: 29rem;
-}
-.casilla-pierna-dch {
-  top: 56rem;
-  left: 41rem;
-}
-.casilla-pie-izq {
-  top: 68rem;
-  left: 29rem;
-}
-.casilla-pie-dch {
-  top: 68rem;
-  left: 41rem;
-}
-
-.casilla-collar {
-  top: 15rem;
-  left: 31rem;
-}
-
 .casilla-kenwa {
-  top: 28rem;
-  left: 45.5rem;
+  grid-area: 5/5;
 }
 .casilla-pulsera-izq {
-  top: 39rem;
-  left: 30.5rem;
+  grid-area: 8/3;
 }
 .casilla-pulsera-dch {
-  top: 39rem;
-  left: 45.5rem;
+  grid-area: 8/5;
+}
+.casilla-cintura {
+  grid-area: 9/1/9/8;
+}
+.casilla-mano-izq {
+  grid-area: 9/1/9/4;
+}
+.casilla-mano-dch {
+  grid-area: 9/5/9/8;
 }
 .casilla-anillo-izq {
-  top: 50rem;
-  left: 30.5rem;
+  grid-area: 9/5/12/5;
 }
 .casilla-anillo-dch {
-  top: 50rem;
-  left: 45.5rem;
+  grid-area: 9/3/12/3;
 }
-
-.casilla-arma {
-  bottom: 1rem;
-  left: 1rem;
+.casilla-pierna-izq {
+  grid-area: 10/1/14/7;
 }
-.casilla-escudo {
-  bottom: 1rem;
-  left: 20rem;
+.casilla-pierna-dch {
+  grid-area: 10/2/14/8;
+}
+.casilla-pie-izq {
+  grid-area: 14/1/14/7;
+}
+.casilla-pie-dch {
+  grid-area: 14/2/14/8;
 }
 .casilla-vaina {
-  bottom: 17rem;
-  left: 1rem;
+  grid-area: 11/1;
+}
+.casilla-arma {
+  grid-area: 13/1/15/1;
+}
+.casilla-escudo {
+  grid-area: 13/2/15/4;
 }
 .casilla-magic {
-  bottom: 1rem;
-  right: 20rem;
+  grid-area: 13/5/15/7;
 }
 .casilla-range {
-  bottom: 1rem;
-  right: 1rem;
+  grid-area: 13/7/15/7;
 }
 .casilla-carcaj {
-  bottom: 17rem;
-  right: 1rem;
+  grid-area: 11/7;
 }
 
-.casilla-arma button {
+/* .casilla-arma button {
   background-image: url(../assets/);
 }
 .casilla-escudo button {
@@ -173,68 +138,17 @@ aside .abalorio img {
 }
 .casilla-vaina button {
   background-image: url(../assets/);
-}
-
-.casilla-nombre {
-  width: 95%;
-  height: auto;
-}
-.casilla-texto {
-  width: 65%;
-  height: auto;
-}
-.casilla-numero {
-  width: 15%;
-  height: auto;
-}
-.casilla-peso {
-  width: 35%;
-  height: auto;
 } */
 
-.faltr {
-  align-items: center;
-  flex-wrap: wrap;
-  text-align: center;
-  grid-column: 1/8;
-}
-.faltr p {
-  width: 100%;
-}
-.faltr label {
-  height: 2.5rem;
-}
-.faltr input {
-  border: 1px solid black;
-}
-.faltr input[type='text'] {
-  width: 2rem;
-  border: dotted;
-  font-size: 30px;
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
 }
 </style>
 
 <template>
   <fieldset class="equipo" id="equipo">
-    <div class="faltr">
-      <p>Pouch:</p>
-      <label>Cb<input type="number" name="cb" /></label>
-      <label>Pt<input type="number" name="pt" /></label>
-      <label>Or<input type="number" name="or" /></label>
-      <label>Pl<input type="number" name="pl" /></label>
-      <label><input type="text" name="moneda1" /></label>
-      <label><input type="number" name="moneda1Cant" /></label>
-      <label><input type="text" name="moneda2" /></label>
-      <label><input type="number" name="moneda2Cant" /></label>
-      <label><input type="text" name="moneda3" /></label>
-      <label><input type="number" name="moneda3Cant" /></label>
-    </div>
-    <aside class="casilla-pircing-izq">
-      <button
-        type="button"
-        class="abalorio"
-        onclick="document.querySelector('#pircing-izq').showModal()"
-      >
+    <section class="casilla-pircing-izq">
+      <button type="button" class="abalorio" @click="showDialog('pircing-izq')">
         <img src="../assets/adornos/casilla.png" alt="" />
       </button>
       <dialog id="pircing-izq">
@@ -248,8 +162,8 @@ aside .abalorio img {
           <label class="casilla-peso">u<input type="number" name="izqPir_u" /></label>
         </div>
       </dialog>
-    </aside>
-    <aside class="casilla-pircing-dch">
+    </section>
+    <section class="casilla-pircing-dch">
       <button
         type="button"
         class="abalorio"
@@ -268,9 +182,9 @@ aside .abalorio img {
           <label class="casilla-peso">u<input type="number" name="dchPir_u" /></label>
         </div>
       </dialog>
-    </aside>
-    <aside class="casilla-cara">
-      <button type="button" class="abalorio" onclick="document.querySelector('#cara').showModal()">
+    </section>
+    <section class="casilla-cara">
+      <button type="button" class="abalorio" @click="showDialog('cara')">
         <img src="../assets/adornos/casilla.png" alt="" />
       </button>
       <dialog id="cara">
@@ -284,13 +198,9 @@ aside .abalorio img {
           <label class="casilla-peso">u<input type="number" name="cara_u" /></label>
         </div>
       </dialog>
-    </aside>
-    <aside class="casilla-collar">
-      <button
-        type="button"
-        class="abalorio"
-        onclick="document.querySelector('#collar').showModal()"
-      >
+    </section>
+    <section class="casilla-collar">
+      <button type="button" class="abalorio" @click="showDialog('collar')">
         <img src="../assets/adornos/casilla.png" alt="" />
       </button>
       <dialog id="collar">
@@ -304,9 +214,9 @@ aside .abalorio img {
           <label class="casilla-peso">u<input type="number" name="collar_u" /></label>
         </div>
       </dialog>
-    </aside>
-    <aside class="casilla-tatoo">
-      <button type="button" class="abalorio" onclick="document.querySelector('#tatoo').showModal()">
+    </section>
+    <section class="casilla-tatoo">
+      <button type="button" class="abalorio" @click="showDialog('tatoo')">
         <img src="../assets/adornos/casilla.png" alt="" />
       </button>
       <dialog id="tatoo">
@@ -320,9 +230,9 @@ aside .abalorio img {
           <label class="casilla-peso">u<input type="number" name="tatoo_u" /></label>
         </div>
       </dialog>
-    </aside>
-    <aside class="casilla-kenwa">
-      <button type="button" class="abalorio" onclick="document.querySelector('#kenwa').showModal()">
+    </section>
+    <section class="casilla-kenwa">
+      <button type="button" class="abalorio" @click="showDialog('kenwa')">
         <img src="../assets/adornos/casilla.png" alt="" />
       </button>
       <dialog id="kenwa">
@@ -336,13 +246,9 @@ aside .abalorio img {
           <label class="casilla-peso">u<input type="number" name="kenwa_u" /></label>
         </div>
       </dialog>
-    </aside>
-    <aside class="casilla-pulsera-izq">
-      <button
-        type="button"
-        class="abalorio"
-        onclick="document.querySelector('#pulsera-izq').showModal()"
-      >
+    </section>
+    <section class="casilla-pulsera-izq">
+      <button type="button" class="abalorio" @click="showDialog('pulsera-izq')">
         <img src="../assets/adornos/casilla.png" alt="" />
       </button>
       <dialog id="pulsera-izq">
@@ -356,13 +262,9 @@ aside .abalorio img {
           <label class="casilla-peso">u<input type="number" name="izqPulsera_u" /></label>
         </div>
       </dialog>
-    </aside>
-    <aside class="casilla-pulsera-dch">
-      <button
-        type="button"
-        class="abalorio"
-        onclick="document.querySelector('#pulsera-dch').showModal()"
-      >
+    </section>
+    <section class="casilla-pulsera-dch">
+      <button type="button" class="abalorio" @click="showDialog('pulsera-dch')">
         <img src="../assets/adornos/casilla.png" alt="" />
       </button>
       <dialog id="pulsera-dch">
@@ -376,13 +278,9 @@ aside .abalorio img {
           <label class="casilla-peso">u<input type="number" name="dchPulsera_u" /></label>
         </div>
       </dialog>
-    </aside>
-    <aside class="casilla-anillo-izq">
-      <button
-        type="button"
-        class="abalorio"
-        onclick="document.querySelector('#anillo-izq').showModal()"
-      >
+    </section>
+    <section class="casilla-anillo-izq">
+      <button type="button" class="abalorio" @click="showDialog('anillo-izq')">
         <img src="../assets/adornos/casilla.png" alt="" />
       </button>
       <dialog id="anillo-izq">
@@ -396,13 +294,9 @@ aside .abalorio img {
           <label class="casilla-peso">u<input type="number" name="izqAnillo_u" /></label>
         </div>
       </dialog>
-    </aside>
-    <aside class="casilla-anillo-dch">
-      <button
-        type="button"
-        class="abalorio"
-        onclick="document.querySelector('#anillo-dch').showModal()"
-      >
+    </section>
+    <section class="casilla-anillo-dch">
+      <button type="button" class="abalorio" @click="showDialog('anillo-dch')">
         <img src="../assets/adornos/casilla.png" alt="" />
       </button>
       <dialog id="anillo-dch">
@@ -416,9 +310,9 @@ aside .abalorio img {
           <label class="casilla-peso">u<input type="number" name="dchAnillo_u" /></label>
         </div>
       </dialog>
-    </aside>
-    <aside class="casilla-cabeza">
-      <button type="button" onclick="document.querySelector('#cabeza').showModal()">
+    </section>
+    <section class="casilla-cabeza">
+      <button type="button" @click="showDialog('cabeza')">
         <img src="../assets/adornos/casilla.png" alt="" />
       </button>
       <dialog id="cabeza">
@@ -435,9 +329,9 @@ aside .abalorio img {
           <label class="casilla-peso">%d<input type="number" name="cabeza_d" /></label>
         </div>
       </dialog>
-    </aside>
-    <aside class="casilla-torso">
-      <button type="button" onclick="document.querySelector('#torso').showModal()">
+    </section>
+    <section class="casilla-torso">
+      <button type="button" @click="showDialog('torso')">
         <img src="../assets/adornos/casilla.png" alt="" />
       </button>
       <dialog id="torso">
@@ -454,9 +348,9 @@ aside .abalorio img {
           <label class="casilla-peso">%d<input type="number" name="torso_d" /></label>
         </div>
       </dialog>
-    </aside>
-    <aside class="casilla-cintura">
-      <button type="button" onclick="document.querySelector('#cintura').showModal()">
+    </section>
+    <section class="casilla-cintura">
+      <button type="button" @click="showDialog('cintura')">
         <img src="../assets/adornos/casilla.png" alt="" />
       </button>
       <dialog id="cintura">
@@ -473,9 +367,9 @@ aside .abalorio img {
           <label class="casilla-peso">%d<input type="number" name="cintura_d" /></label>
         </div>
       </dialog>
-    </aside>
-    <aside class="casilla-hombro-izq">
-      <button type="button" onclick="document.querySelector('#hombro-izq').showModal()">
+    </section>
+    <section class="casilla-hombro-izq">
+      <button type="button" @click="showDialog('hombro-izq')">
         <img src="../assets/adornos/casilla.png" alt="" />
       </button>
       <dialog id="hombro-izq">
@@ -492,9 +386,9 @@ aside .abalorio img {
           <label class="casilla-peso">%d<input type="number" name="izqHombro_d" /></label>
         </div>
       </dialog>
-    </aside>
-    <aside class="casilla-brazo-izq">
-      <button type="button" onclick="document.querySelector('#brazo-izq').showModal()">
+    </section>
+    <section class="casilla-brazo-izq">
+      <button type="button" @click="showDialog('brazo-izq')">
         <img src="../assets/adornos/casilla.png" alt="" />
       </button>
       <dialog id="brazo-izq">
@@ -511,9 +405,9 @@ aside .abalorio img {
           <label class="casilla-peso">u<input type="number" name="izqBrazo_u" /></label>
         </div>
       </dialog>
-    </aside>
-    <aside class="casilla-mano-izq">
-      <button type="button" onclick="document.querySelector('#mano-izq').showModal()">
+    </section>
+    <section class="casilla-mano-izq">
+      <button type="button" @click="showDialog('mano-izq')">
         <img src="../assets/adornos/casilla.png" alt="" />
       </button>
       <dialog id="mano-izq">
@@ -530,9 +424,9 @@ aside .abalorio img {
           <label class="casilla-peso">u<input type="number" name="izqMano_u" /></label>
         </div>
       </dialog>
-    </aside>
-    <aside class="casilla-pierna-izq">
-      <button type="button" onclick="document.querySelector('#pierna-izq').showModal()">
+    </section>
+    <section class="casilla-pierna-izq">
+      <button type="button" @click="showDialog('pierna-izq')">
         <img src="../assets/adornos/casilla.png" alt="" />
       </button>
       <dialog id="pierna-izq">
@@ -549,9 +443,9 @@ aside .abalorio img {
           <label class="casilla-peso">u<input type="number" name="izqPierna_u" /></label>
         </div>
       </dialog>
-    </aside>
-    <aside class="casilla-pie-izq">
-      <button type="button" onclick="document.querySelector('#pie-izq').showModal()">
+    </section>
+    <section class="casilla-pie-izq">
+      <button type="button" @click="showDialog('pie-izq')">
         <img src="../assets/adornos/casilla.png" alt="" />
       </button>
       <dialog id="pie-izq">
@@ -568,9 +462,9 @@ aside .abalorio img {
           <label class="casilla-peso">u<input type="number" name="izqPie_u" /></label>
         </div>
       </dialog>
-    </aside>
-    <aside class="casilla-hombro-dch">
-      <button type="button" onclick="document.querySelector('#hombro-dch').showModal()">
+    </section>
+    <section class="casilla-hombro-dch">
+      <button type="button" @click="showDialog('hombro-dch')">
         <img src="../assets/adornos/casilla.png" alt="" />
       </button>
       <dialog id="hombro-dch">
@@ -587,9 +481,9 @@ aside .abalorio img {
           <label class="casilla-peso">u<input type="number" name="dchHombro_u" /></label>
         </div>
       </dialog>
-    </aside>
-    <aside class="casilla-brazo-dch">
-      <button type="button" onclick="document.querySelector('#brazo-dch').showModal()">
+    </section>
+    <section class="casilla-brazo-dch">
+      <button type="button" @click="showDialog('brazo-dch')">
         <img src="../assets/adornos/casilla.png" alt="" />
       </button>
       <dialog id="brazo-dch">
@@ -606,9 +500,9 @@ aside .abalorio img {
           <label class="casilla-peso">u<input type="number" name="dchBrazo_u" /></label>
         </div>
       </dialog>
-    </aside>
-    <aside class="casilla-mano-dch">
-      <button type="button" onclick="document.querySelector('#mano-dch').showModal()">
+    </section>
+    <section class="casilla-mano-dch">
+      <button type="button" @click="showDialog('mano-dch')">
         <img src="../assets/adornos/casilla.png" alt="" />
       </button>
       <dialog id="mano-dch">
@@ -625,9 +519,9 @@ aside .abalorio img {
           <label class="casilla-peso">u<input type="number" name="dchMano_u" /></label>
         </div>
       </dialog>
-    </aside>
-    <aside class="casilla-pierna-dch">
-      <button type="button" onclick="document.querySelector('#pierna-dch').showModal()">
+    </section>
+    <section class="casilla-pierna-dch">
+      <button type="button" @click="showDialog('pierna-dch')">
         <img src="../assets/adornos/casilla.png" alt="" />
       </button>
       <dialog id="pierna-dch">
@@ -644,9 +538,9 @@ aside .abalorio img {
           <label class="casilla-peso">u<input type="number" name="dchPierna_u" /></label>
         </div>
       </dialog>
-    </aside>
-    <aside class="casilla-pie-dch">
-      <button type="button" onclick="document.querySelector('#pie-dch').showModal()">
+    </section>
+    <section class="casilla-pie-dch">
+      <button type="button" @click="showDialog('pie-dch')">
         <img src="../assets/adornos/casilla.png" alt="" />
       </button>
       <dialog id="pie-dch">
@@ -663,10 +557,10 @@ aside .abalorio img {
           <label class="casilla-peso">u<input type="number" name="dchPie_u" /></label>
         </div>
       </dialog>
-    </aside>
+    </section>
 
-    <aside class="casilla-arma">
-      <button type="button" class="largo" onclick="document.querySelector('#arma').showModal()">
+    <section class="casilla-arma">
+      <button type="button" class="largo" @click="showDialog('arma')">
         <img src="../assets/adornos/casilla.png" alt="" />
       </button>
       <dialog id="arma">
@@ -683,9 +577,9 @@ aside .abalorio img {
           <label class="casilla-peso"><input type="text" name="arma_d" value="D" /></label>
         </div>
       </dialog>
-    </aside>
-    <aside class="casilla-escudo">
-      <button type="button" class="largo" onclick="document.querySelector('#escudo').showModal()">
+    </section>
+    <section class="casilla-escudo">
+      <button type="button" class="largo" @click="showDialog('escudo')">
         <img src="../assets/adornos/casilla.png" alt="" />
       </button>
       <dialog id="escudo">
@@ -702,9 +596,9 @@ aside .abalorio img {
           <label class="casilla-peso"><input type="text" name="escudo_d" value="D" /></label>
         </div>
       </dialog>
-    </aside>
-    <aside class="casilla-vaina">
-      <button type="button" class="corto" onclick="document.querySelector('#vaina').showModal()">
+    </section>
+    <section class="casilla-vaina">
+      <button type="button" class="corto" @click="showDialog('vaina')">
         <img src="../assets/adornos/casilla.png" alt="" />
       </button>
       <dialog id="vaina">
@@ -721,9 +615,9 @@ aside .abalorio img {
           <label class="casilla-peso">%d<input type="number" name="vaina_d" /></label>
         </div>
       </dialog>
-    </aside>
-    <aside class="casilla-magic">
-      <button type="button" class="largo" onclick="document.querySelector('#magic').showModal()">
+    </section>
+    <section class="casilla-magic">
+      <button type="button" class="largo" @click="showDialog('magic')">
         <img src="../assets/adornos/casilla.png" alt="" />
       </button>
       <dialog id="magic">
@@ -740,9 +634,9 @@ aside .abalorio img {
           <label class="casilla-peso"><input type="text" name="magic_d" value="D" /></label>
         </div>
       </dialog>
-    </aside>
-    <aside class="casilla-range">
-      <button type="button" class="largo" onclick="document.querySelector('#range').showModal()">
+    </section>
+    <section class="casilla-range">
+      <button type="button" class="largo" @click="showDialog('range')">
         <img src="../assets/adornos/casilla.png" alt="" />
       </button>
       <dialog id="range">
@@ -759,9 +653,9 @@ aside .abalorio img {
           <label class="casilla-peso"><input type="text" name="range_d" value="D" /></label>
         </div>
       </dialog>
-    </aside>
-    <aside class="casilla-carcaj">
-      <button type="button" class="corto" onclick="document.querySelector('#carcaj').showModal()">
+    </section>
+    <section class="casilla-carcaj">
+      <button type="button" class="corto" @click="showDialog('carcaj')">
         <img src="../assets/adornos/casilla.png" alt="" />
       </button>
       <dialog id="carcaj">
@@ -783,8 +677,19 @@ aside .abalorio img {
           <label class="casilla-peso">ac<input type="number" name="carcaj_ac6" /></label>
         </div>
       </dialog>
-    </aside>
+    </section>
   </fieldset>
 </template>
 
-<script setup></script>
+<script setup>
+const showDialog = (dialogId) => {
+  const dialog = document.querySelector(`#${dialogId}`)
+  dialog.showModal()
+
+  dialog.addEventListener('click', (x) => {
+    if (x.target === dialog) {
+      dialog.close()
+    }
+  })
+}
+</script>
