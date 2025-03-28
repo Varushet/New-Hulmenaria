@@ -91,9 +91,12 @@ input[type='range']::-moz-range-thumb {
   border: none;
 }
 
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
 dialog {
-  width: 40rem;
-  height: 22.5rem;
+  width: 30rem;
+  height: 21rem;
   margin: auto;
   padding: 1rem;
   border: none;
@@ -101,6 +104,7 @@ dialog {
   background-image: url(../assets/img/pergaminoViejo.png);
   background-size: 100% 100%;
   background-repeat: no-repeat;
+  background-position: center;
   text-align: center;
 }
 dialog div {
@@ -109,7 +113,6 @@ dialog div {
   align-items: center;
   justify-content: center;
   width: 100%;
-  max-height: 100%;
 }
 dialog input,
 dialog label {
@@ -127,4 +130,93 @@ dialog input[type='number'] {
   font-size: 2rem;
   appearance: none;
   -moz-appearance: textfield;
+}
+dialog .casilla-nombre {
+  width: 95%;
+  height: auto;
+}
+dialog .casilla-texto {
+  width: 65%;
+  height: auto;
+}
+dialog .casilla-numero {
+  width: 15%;
+  height: auto;
+}
+dialog .casilla-peso {
+  width: 35%;
+  height: auto;
+}
+.row-1 {
+  width: 50%;
+}
+.row-2 {
+  align-items: center;
+}
+.row-2 select,
+.row-2 input[type='text'] {
+  font-size: 2.5rem;
+}
+.row-3 {
+  margin-top: 0.9rem;
+  align-items: center;
+}
+.row-3 input[type='number'] {
+  width: 100%;
+  height: 6rem;
+  font-size: 3rem;
+}
+.row-3 select {
+  width: 18rem;
+  font-size: 3rem;
+}
+.row-4 {
+  display: flex;
+  align-items: last baseline;
+  width: 50%;
+  text-align: center;
+  font-size: 1.6rem;
+}
+.row-4 p {
+  font-size: 2.5rem;
+}
+.row-4 label {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 100%;
+  height: 10rem;
+  width: 25%;
+}
+.row-4 input[type='number'] {
+  width: 5rem;
+  appearance: none;
+  -moz-appearance: textfield;
+}
+.row-4 span {
+  margin: 0 2rem;
+}
+.row-cuadrado {
+  display: flex;
+  flex-wrap: wrap;
+}
+.row-cuadrado label {
+  width: 50%;
+}
+.row-cuadrado select {
+  font-size: 2rem;
+  width: 100%;
+}
+.row-cuadrado p {
+  width: 100%;
+  text-align: center;
+}
+.row-bolsa {
+  display: flex;
+}
+.row-bolsa input[type='text'] {
+  width: 18rem;
+}
+.row-bolsa input[type='number'] {
+  width: 100%;
 }

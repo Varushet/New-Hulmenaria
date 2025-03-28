@@ -139,10 +139,6 @@ section .abalorio img {
 .casilla-vaina button {
   background-image: url(../assets/);
 } */
-
-dialog::backdrop {
-  background-color: rgba(0, 0, 0, 0.5);
-}
 </style>
 
 <template>
