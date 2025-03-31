@@ -10,7 +10,7 @@ nav {
   overflow: hidden;
 }
 nav [class*='menu'] {
-  background-image: url(@/assets/img/pergaminoViejo.png);
+  background-image: url(/src/assets/img/parchmentOld.png);
   background-size: 100% 100%;
   height: 6rem;
   width: 16rem;
@@ -21,18 +21,18 @@ nav [class*='menu'] {
   justify-content: space-between;
   transition: 1s;
 }
-nav .menu-izq:hover {
+nav .menu-left:hover {
   transform: translateX(6rem) !important;
 }
-nav .menu-dch:hover {
+nav .menu-right:hover {
   transform: translateX(-6rem) !important;
 }
-nav .menu-izq h2 {
+nav .menu-left h2 {
   margin-left: 2rem;
   opacity: 0;
   transition: 1s;
 }
-nav .menu-dch h2 {
+nav .menu-right h2 {
   word-break: break-word;
   margin-right: 2.5rem;
   opacity: 0;
@@ -44,10 +44,10 @@ nav [class*='menu']:hover h2 {
 nav img {
   width: 5rem;
 }
-nav .menu-dch img {
+nav .menu-right img {
   margin-left: 0.5rem;
 }
-nav .menu-izq img {
+nav .menu-left img {
   margin-right: 0.5rem;
 }
 @media screen and (min-width: 400px) {
@@ -59,28 +59,28 @@ nav .menu-izq img {
 
 <template>
   <nav>
-    <div class="menu-izq" :style="menuIzq">
+    <div class="menu-left" :style="menuleft">
       <RouterLink to="/Sheet"><h2>PJ Sheet</h2></RouterLink>
-      <img src="@/assets/img/ficha.png" alt="Character sheet" />
+      <img src="@/assets/img/sheet.png" alt="Character sheet" />
     </div>
-    <div class="menu-izq" :style="menuIzq">
+    <div class="menu-left" :style="menuleft">
       <h2>Talents</h2>
       <img src="@/assets/img/logo.png" alt="Talents icon" />
     </div>
-    <div class="menu-izq" :style="menuIzq">
+    <div class="menu-left" :style="menuleft">
       <h2>Loot Table</h2>
-      <img src="@/assets/img/cofre.png" alt="Loot icon" />
+      <img src="@/assets/img/chest.png" alt="Loot icon" />
     </div>
-    <div class="menu-dch" :style="menuDch">
-      <img src="@/assets/img/mapa.png" alt="Map icon" />
+    <div class="menu-right" :style="menuright">
+      <img src="@/assets/img/map.png" alt="Map icon" />
       <h2>Map</h2>
     </div>
-    <div class="menu-dch" :style="menuDch">
-      <img src="@/assets/img/relojDeArena.png" alt="Hourglass icon" />
+    <div class="menu-right" :style="menuright">
+      <img src="@/assets/img/hourglass.png" alt="Hourglass icon" />
       <h2>Hour glass</h2>
     </div>
-    <div class="menu-dch" :style="menuDch">
-      <img src="@/assets/img/enciclopedia.png" alt="Encyclopedia icon" />
+    <div class="menu-right" :style="menuright">
+      <img src="@/assets/img/encyclop.png" alt="Encyclopedia icon" />
       <h2>Encyclo pedia</h2>
     </div>
   </nav>
@@ -97,10 +97,10 @@ const props = defineProps({
   },
 })
 
-const menuIzq = computed(() => ({
+const menuleft = computed(() => ({
   transform: props.isRoadmapOpen ? 'translateX(-60%)' : '',
 }))
-const menuDch = computed(() => ({
+const menuright = computed(() => ({
   transform: props.isRoadmapOpen ? 'translateX(60%)' : '',
 }))
 </script>

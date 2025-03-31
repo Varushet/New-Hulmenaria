@@ -5,13 +5,13 @@ fieldset {
   background-size: 103% 109%;
 }
 section {
-  background-image: url(../../assets/img/pergaminoViejo.png);
+  background-image: url(../../assets/img/parchmentOld.png);
   background-size: 100% 105%;
   background-repeat: no-repeat;
   background-position: center;
 }
-.faltr {
-  background-image: url(../../assets/img/pergamino);
+.pouch {
+  background-image: url(../../assets/img/parchmentOld.png);
   background-size: 100% 100%;
   background-repeat: no-repeat;
   display: flex;
@@ -20,91 +20,148 @@ section {
   text-align: center;
   padding: 1rem 0;
 }
-.faltr p {
+.pouch p {
   width: 100%;
   font-size: 1.5rem;
 }
-.faltr label {
+.pouch label {
   height: 2.5rem;
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
-.faltr input {
-  width: 4.8rem;
+.pouch input {
+  width: 4rem;
   border: 1px solid black;
 }
-.faltr input[type='text'] {
+.pouch input[type='text'] {
   width: 2rem;
   border: dotted;
   font-size: 1rem;
 }
-.invent {
+.inv {
   height: 20rem;
 }
-.invent div:first-child {
+.inv div:first-child {
   font-size: 2rem;
   display: flex;
   justify-content: space-around;
+}
+button {
+  background: transparent;
+  cursor: pointer;
+  border-radius: 25%;
+}
+button img {
+  height: 2.5rem;
 }
 </style>
 
 <template>
   <fieldset>
-    <div class="faltr">
+    <div class="pouch">
       <p>Pouch:</p>
       <label>Cb<input type="number" name="cb" /></label>
       <label>Pt<input type="number" name="pt" /></label>
       <label>Or<input type="number" name="or" /></label>
       <label>Pl<input type="number" name="pl" /></label>
-      <label><input type="text" name="moneda1" /></label>
-      <label><input type="number" name="moneda1Cant" /></label>
-      <label><input type="text" name="moneda2" /></label>
-      <label><input type="number" name="moneda2Cant" /></label>
-      <label><input type="text" name="moneda3" /></label>
-      <label><input type="number" name="moneda3Cant" /></label>
+      <label><input type="text" name="coin1" /></label>
+      <label><input type="number" name="coin1Cant" /></label>
+      <label><input type="text" name="coin2" /></label>
+      <label><input type="number" name="coin2Cant" /></label>
+      <label><input type="text" name="coin3" /></label>
+      <label><input type="number" name="coin3Cant" /></label>
     </div>
-    <section class="invent" id="inv">
+    <section class="inv" id="inv">
       <div>
         <p @click="openBag" class="bag-title">Main Bag</p>
-        <button type="button" @click="showDialog('bolsa')"><img src="" alt="Bag img" /></button>
+        <button type="button" @click="showDialog('bag')">
+          <img src="/src/assets/icon/pouch.png" alt="Bag img" />
+        </button>
       </div>
-      <dialog id="bolsa">
+      <dialog id="bag">
         <p>Main Bag</p>
         <div>
-          <label class="casilla-nombre"><input type="text" name="bolsa_name" /></label>
-          <label class="casilla-texto">t<input type="text" name="bolsa_t" /></label>
-          <label class="casilla-peso">Mx<input type="number" name="bolsa_mx" /></label>
-          <label class="casilla-texto">m<input type="text" name="bolsa_m" /></label>
-          <label class="casilla-numero">c<input type="number" name="bolsa_c" /></label>
-          <label class="casilla-numero">r<input type="number" name="bolsa_r" /></label>
-          <label class="casilla-texto">e<input type="text" name="bolsa_e" /></label>
-          <label class="casilla-peso">%d<input type="number" name="bolsa_d" /></label>
+          <label class="box-name"><input type="text" name="bag-name" /></label>
+          <label class="box-text">t<input type="text" name="bag-t" /></label>
+          <label class="box-weight">Mx<input type="number" name="bag-mx" /></label>
+          <label class="box-text">m<input type="text" name="bag-m" /></label>
+          <label class="box-number">c<input type="number" name="bag-c" /></label>
+          <label class="box-number">r<input type="number" name="bag-r" /></label>
+          <label class="box-text">e<input type="text" name="bag-e" /></label>
+          <label class="box-weight">%d<input type="number" name="bag-d" /></label>
         </div>
       </dialog>
-      <div class="row-bolsa">
-        <label><input type="text" name="objeto1Name" /></label>
-        <label>u<input type="number" name="objeto1_u" /></label>
-        <label>p<input type="number" name="objeto1_p" /></label>
+      <div class="row-bag">
+        <label><input type="text" name="obj1Name" /></label>
+        <label>u<input type="number" name="obj1-u" /></label>
+        <label>p<input type="number" name="obj1-p" /></label>
       </div>
-      <div class="row-bolsa">
-        <label><input type="text" name="objeto2Name" /></label>
-        <label>u<input type="number" name="objeto2_u" /></label>
-        <label>p<input type="number" name="objeto2_p" /></label>
+      <div class="row-bag">
+        <label><input type="text" name="obj2Name" /></label>
+        <label>u<input type="number" name="obj2-u" /></label>
+        <label>p<input type="number" name="obj2-p" /></label>
       </div>
-      <div class="row-bolsa">
-        <label><input type="text" name="objeto3Name" /></label>
-        <label>u<input type="number" name="objeto3_u" /></label>
-        <label>p<input type="number" name="objeto3_p" /></label>
+      <div class="row-bag">
+        <label><input type="text" name="obj3Name" /></label>
+        <label>u<input type="number" name="obj3-u" /></label>
+        <label>p<input type="number" name="obj3-p" /></label>
       </div>
-      <div class="row-bolsa">
-        <label><input type="text" name="objeto4Name" @change="newItem" /></label>
-        <label>u<input type="number" name="objeto4_u" /></label>
-        <label>p<input type="number" name="objeto4_p" /></label>
+      <div class="row-bag">
+        <label><input type="text" name="obj4Name" /></label>
+        <label>u<input type="number" name="obj4-u" /></label>
+        <label>p<input type="number" name="obj4-p" /></label>
+      </div>
+    </section>
+    <section class="inv2" id="inv2">
+      <div>
+        <p @click="openBag" class="bag-title">{{ bagName }} {{ bagType }}</p>
+        <button type="button" @click="showDialog('bag2')">
+          <img src="/src/assets/icon/pouch.png" alt="Bag img" />
+        </button>
+      </div>
+      <dialog id="bag2">
+        <p>{{ bagName }} {{ bagType }}</p>
+        <div>
+          <label class="box-name"
+            ><input type="text" name="bag2-name" :value="bagName" @input="updateBagName"
+          /></label>
+          <label class="box-text"
+            >t<input type="text" name="bg2-t" :value="bagType" @input="updateBagType"
+          /></label>
+          <label class="box-weight">Mx<input type="number" name="bg2-mx" /></label>
+          <label class="box-text">m<input type="text" name="bg2-m" /></label>
+          <label class="box-number">c<input type="number" name="bg2-c" /></label>
+          <label class="box-number">r<input type="number" name="bg2-r" /></label>
+          <label class="box-text">e<input type="text" name="bg2-e" /></label>
+          <label class="box-weight">%d<input type="number" name="bg2-d" /></label>
+        </div>
+      </dialog>
+      <div class="row-bag">
+        <label><input type="text" name="obj1Name" /></label>
+        <label>u<input type="number" name="obj1-u" /></label>
+        <label>p<input type="number" name="obj1-p" /></label>
+      </div>
+      <div class="row-bag">
+        <label><input type="text" name="obj2Name" /></label>
+        <label>u<input type="number" name="obj2-u" /></label>
+        <label>p<input type="number" name="obj2-p" /></label>
+      </div>
+      <div class="row-bag">
+        <label><input type="text" name="obj3Name" /></label>
+        <label>u<input type="number" name="obj3-u" /></label>
+        <label>p<input type="number" name="obj3-p" /></label>
+      </div>
+      <div class="row-bag">
+        <label><input type="text" name="obj4Name" /></label>
+        <label>u<input type="number" name="obj4-u" /></label>
+        <label>p<input type="number" name="obj4-p" /></label>
       </div>
     </section>
   </fieldset>
 </template>
 
 <script setup>
+import { ref } from 'vue'
+
 const showDialog = (dialogId) => {
   const dialog = document.querySelector(`#${dialogId}`)
   dialog.showModal()
@@ -116,19 +173,14 @@ const showDialog = (dialogId) => {
   })
 }
 
-const newItem = () => {
-  const rows = document.querySelectorAll('.row-bolsa')
-  const newNum = rows.length + 1
+const bagName = ref('')
+const bagType = ref('')
 
-  const rowDiv = document.createElement('div')
-  rowDiv.className = 'row-bolsa'
+const updateBagName = (event) => {
+  bagName.value = event.target.value
+}
 
-  const labName = document.createElement('label')
-
-  const inpName = document.createElement('input')
-  inpName.setAttribute('type', 'text')
-  inpName.setAttribute('name', `objeto${newNum}Name`)
-
-  labName.appendChild(inpName)
+const updateBagType = (event) => {
+  bagType.value = event.target.value
 }
 </script>

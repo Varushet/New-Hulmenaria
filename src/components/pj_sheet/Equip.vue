@@ -2,675 +2,675 @@
 @import '../../assets/sheet.css';
 
 /*Botonera*/
-.equipo {
+.equip {
   height: 28rem;
   padding: 1.5rem 0.5rem;
   display: grid;
   grid-template: repeat(14, 1fr) / repeat(7, 1fr);
   box-sizing: border-box;
 }
-.equipo section {
+.equip section {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.equipo button {
+.equip button {
   background: transparent;
   background-color: rgba(150, 80, 22, 0.405);
   border-radius: 1rem;
 }
-.equipo button img {
+.equip button img {
   width: 3rem;
   height: 3rem;
   opacity: 0;
   transition: 0.5s;
 }
-.equipo button:hover img {
+.equip button:hover img {
   opacity: 1;
 }
-.largo,
-section .largo img {
+.long,
+section .long img {
   height: 5rem;
 }
-.corto,
-section .corto img {
+.short,
+section .short img {
   height: 1.5rem;
 }
-.abalorio,
-section .abalorio img {
+.trinket,
+section .trinket img {
   height: 2rem;
   width: 2rem;
 }
 
-.casilla-cabeza {
+.box-head {
   grid-area: 1/1/4/8;
 }
-.casilla-pircing-izq {
+.box-pircing-left {
   grid-area: 1/3;
 }
-.casilla-pircing-dch {
+.box-pircing-right {
   grid-area: 1/5;
 }
-.casilla-cara {
+.box-face {
   grid-area: 3/5;
 }
-.casilla-collar {
+.box-collar {
   grid-area: 3/3;
 }
-.casilla-hombro-izq {
+.box-shoulder-left {
   grid-area: 4/1/5/5;
 }
-.casilla-hombro-dch {
+.box-shoulder-right {
   grid-area: 4/4/5/8;
 }
-.casilla-torso {
+.box-chest {
   grid-area: 5/1/9/8;
 }
-.casilla-brazo-izq {
+.box-arm-left {
   grid-area: 5/1/9/4;
 }
-.casilla-brazo-dch {
+.box-arm-right {
   grid-area: 5/5/9/8;
 }
-.casilla-tatoo {
+.box-tatoo {
   grid-area: 5/3;
 }
-.casilla-kenwa {
+.box-kenwa {
   grid-area: 5/5;
 }
-.casilla-pulsera-izq {
+.box-bracelet-left {
   grid-area: 8/3;
 }
-.casilla-pulsera-dch {
+.box-bracelet-right {
   grid-area: 8/5;
 }
-.casilla-cintura {
+.box-waist {
   grid-area: 9/1/9/8;
 }
-.casilla-mano-izq {
+.box-hand-left {
   grid-area: 9/1/9/4;
 }
-.casilla-mano-dch {
+.box-hand-right {
   grid-area: 9/5/9/8;
 }
-.casilla-anillo-izq {
+.box-ring-left {
   grid-area: 9/5/12/5;
 }
-.casilla-anillo-dch {
+.box-ring-right {
   grid-area: 9/3/12/3;
 }
-.casilla-pierna-izq {
+.box-leg-left {
   grid-area: 10/1/14/7;
 }
-.casilla-pierna-dch {
+.box-leg-right {
   grid-area: 10/2/14/8;
 }
-.casilla-pie-izq {
+.box-foot-left {
   grid-area: 14/1/14/7;
 }
-.casilla-pie-dch {
+.box-foot-right {
   grid-area: 14/2/14/8;
 }
-.casilla-vaina {
+.box-sheath {
   grid-area: 11/1;
 }
-.casilla-arma {
+.box-weapon {
   grid-area: 13/1/15/1;
 }
-.casilla-escudo {
+.box-shield {
   grid-area: 13/2/15/4;
 }
-.casilla-magic {
+.box-magic {
   grid-area: 13/5/15/7;
 }
-.casilla-range {
+.box-range {
   grid-area: 13/7/15/7;
 }
-.casilla-carcaj {
+.box-quiver {
   grid-area: 11/7;
 }
 
-/* .casilla-arma button {
+/* .box-weapon button {
   background-image: url(../assets/);
 }
-.casilla-escudo button {
+.box-shield button {
   background-image: url(../assets/);
 }
-.casilla-vaina button {
+.box-sheath button {
   background-image: url(../assets/);
 } */
 </style>
 
 <template>
-  <fieldset class="equipo" id="equipo">
-    <section class="casilla-pircing-izq">
-      <button type="button" class="abalorio" @click="showDialog('pircing-izq')">
-        <img src="../assets/adornos/casilla.png" alt="" />
+  <fieldset class="equip" id="equip">
+    <section class="box-pircing-left">
+      <button type="button" class="trinket" @click="showDialog('pircing-left')">
+        <img src="../assets/adornos/box.png" alt="" />
       </button>
-      <dialog id="pircing-izq">
+      <dialog id="pircing-left">
         <p>Left earring</p>
         <div>
-          <label class="casilla-nombre"><input type="text" name="izqPir_name" /></label>
-          <label class="casilla-texto">t<input type="text" name="izqPir_t" /></label>
-          <label class="casilla-numero">c<input type="number" name="izqPir_c" /></label>
-          <label class="casilla-numero">r<input type="number" name="izqPir_r" /></label>
-          <label class="casilla-texto">e<input type="text" name="izqPir_e" /></label>
-          <label class="casilla-peso">u<input type="number" name="izqPir_u" /></label>
+          <label class="box-name"><input type="text" name="leftPir_name" /></label>
+          <label class="box-text">t<input type="text" name="leftPir_t" /></label>
+          <label class="box-number">c<input type="number" name="leftPir_c" /></label>
+          <label class="box-number">r<input type="number" name="leftPir_r" /></label>
+          <label class="box-text">e<input type="text" name="leftPir_e" /></label>
+          <label class="box-weight">u<input type="number" name="leftPir_u" /></label>
         </div>
       </dialog>
     </section>
-    <section class="casilla-pircing-dch">
+    <section class="box-pircing-right">
       <button
         type="button"
-        class="abalorio"
-        onclick="document.querySelector('#pircing-dch').showModal()"
+        class="trinket"
+        onclick="document.querySelector('#pircing-right').showModal()"
       >
-        <img src="../assets/adornos/casilla.png" alt="" />
+        <img src="../assets/adornos/box.png" alt="" />
       </button>
-      <dialog id="pircing-dch">
+      <dialog id="pircing-right">
         <p>Right earring</p>
         <div>
-          <label class="casilla-nombre"><input type="text" name="dchPir_name" /></label>
-          <label class="casilla-texto">t<input type="text" name="dchPir_t" /></label>
-          <label class="casilla-numero">c<input type="number" name="dchPir_c" /></label>
-          <label class="casilla-numero">r<input type="number" name="dchPir_r" /></label>
-          <label class="casilla-texto">e<input type="text" name="dchPir_e" /></label>
-          <label class="casilla-peso">u<input type="number" name="dchPir_u" /></label>
+          <label class="box-name"><input type="text" name="rightPir_name" /></label>
+          <label class="box-text">t<input type="text" name="rightPir_t" /></label>
+          <label class="box-number">c<input type="number" name="rightPir_c" /></label>
+          <label class="box-number">r<input type="number" name="rightPir_r" /></label>
+          <label class="box-text">e<input type="text" name="rightPir_e" /></label>
+          <label class="box-weight">u<input type="number" name="rightPir_u" /></label>
         </div>
       </dialog>
     </section>
-    <section class="casilla-cara">
-      <button type="button" class="abalorio" @click="showDialog('cara')">
-        <img src="../assets/adornos/casilla.png" alt="" />
+    <section class="box-face">
+      <button type="button" class="trinket" @click="showDialog('face')">
+        <img src="../assets/adornos/box.png" alt="" />
       </button>
-      <dialog id="cara">
+      <dialog id="face">
         <p>Face</p>
         <div>
-          <label class="casilla-nombre"><input type="text" name="cara_name" /></label>
-          <label class="casilla-texto">t<input type="text" name="cara_t" /></label>
-          <label class="casilla-numero">c<input type="number" name="cara_c" /></label>
-          <label class="casilla-numero">r<input type="number" name="cara_r" /></label>
-          <label class="casilla-texto">e<input type="text" name="cara_e" /></label>
-          <label class="casilla-peso">u<input type="number" name="cara_u" /></label>
+          <label class="box-name"><input type="text" name="face_name" /></label>
+          <label class="box-text">t<input type="text" name="face_t" /></label>
+          <label class="box-number">c<input type="number" name="face_c" /></label>
+          <label class="box-number">r<input type="number" name="face_r" /></label>
+          <label class="box-text">e<input type="text" name="face_e" /></label>
+          <label class="box-weight">u<input type="number" name="face_u" /></label>
         </div>
       </dialog>
     </section>
-    <section class="casilla-collar">
-      <button type="button" class="abalorio" @click="showDialog('collar')">
-        <img src="../assets/adornos/casilla.png" alt="" />
+    <section class="box-collar">
+      <button type="button" class="trinket" @click="showDialog('collar')">
+        <img src="../assets/adornos/box.png" alt="" />
       </button>
       <dialog id="collar">
         <p>Necklace</p>
         <div>
-          <label class="casilla-nombre"><input type="text" name="collar_name" /></label>
-          <label class="casilla-texto">t<input type="text" name="collar_t" /></label>
-          <label class="casilla-numero">c<input type="number" name="collar_c" /></label>
-          <label class="casilla-numero">r<input type="number" name="collar_r" /></label>
-          <label class="casilla-texto">e<input type="text" name="collar_e" /></label>
-          <label class="casilla-peso">u<input type="number" name="collar_u" /></label>
+          <label class="box-name"><input type="text" name="collar_name" /></label>
+          <label class="box-text">t<input type="text" name="collar_t" /></label>
+          <label class="box-number">c<input type="number" name="collar_c" /></label>
+          <label class="box-number">r<input type="number" name="collar_r" /></label>
+          <label class="box-text">e<input type="text" name="collar_e" /></label>
+          <label class="box-weight">u<input type="number" name="collar_u" /></label>
         </div>
       </dialog>
     </section>
-    <section class="casilla-tatoo">
-      <button type="button" class="abalorio" @click="showDialog('tatoo')">
-        <img src="../assets/adornos/casilla.png" alt="" />
+    <section class="box-tatoo">
+      <button type="button" class="trinket" @click="showDialog('tatoo')">
+        <img src="../assets/adornos/box.png" alt="" />
       </button>
       <dialog id="tatoo">
         <p>Tatoo</p>
         <div>
-          <label class="casilla-nombre"><input type="text" name="tatoo_name" /></label>
-          <label class="casilla-texto">t<input type="text" name="tatoo_t" /></label>
-          <label class="casilla-numero">c<input type="number" name="tatoo_c" /></label>
-          <label class="casilla-numero">r<input type="number" name="tatoo_r" /></label>
-          <label class="casilla-texto">e<input type="text" name="tatoo_e" /></label>
-          <label class="casilla-peso">u<input type="number" name="tatoo_u" /></label>
+          <label class="box-name"><input type="text" name="tatoo_name" /></label>
+          <label class="box-text">t<input type="text" name="tatoo_t" /></label>
+          <label class="box-number">c<input type="number" name="tatoo_c" /></label>
+          <label class="box-number">r<input type="number" name="tatoo_r" /></label>
+          <label class="box-text">e<input type="text" name="tatoo_e" /></label>
+          <label class="box-weight">u<input type="number" name="tatoo_u" /></label>
         </div>
       </dialog>
     </section>
-    <section class="casilla-kenwa">
-      <button type="button" class="abalorio" @click="showDialog('kenwa')">
-        <img src="../assets/adornos/casilla.png" alt="" />
+    <section class="box-kenwa">
+      <button type="button" class="trinket" @click="showDialog('kenwa')">
+        <img src="../assets/adornos/box.png" alt="" />
       </button>
       <dialog id="kenwa">
         <p>Kenwa</p>
         <div>
-          <label class="casilla-nombre"><input type="text" name="kenwa_name" /></label>
-          <label class="casilla-texto">t<input type="text" name="kenwa_t" /></label>
-          <label class="casilla-numero">c<input type="number" name="kenwa_c" /></label>
-          <label class="casilla-numero">r<input type="number" name="kenwa_r" /></label>
-          <label class="casilla-texto">e<input type="text" name="kenwa_e" /></label>
-          <label class="casilla-peso">u<input type="number" name="kenwa_u" /></label>
+          <label class="box-name"><input type="text" name="kenwa_name" /></label>
+          <label class="box-text">t<input type="text" name="kenwa_t" /></label>
+          <label class="box-number">c<input type="number" name="kenwa_c" /></label>
+          <label class="box-number">r<input type="number" name="kenwa_r" /></label>
+          <label class="box-text">e<input type="text" name="kenwa_e" /></label>
+          <label class="box-weight">u<input type="number" name="kenwa_u" /></label>
         </div>
       </dialog>
     </section>
-    <section class="casilla-pulsera-izq">
-      <button type="button" class="abalorio" @click="showDialog('pulsera-izq')">
-        <img src="../assets/adornos/casilla.png" alt="" />
+    <section class="box-bracelet-left">
+      <button type="button" class="trinket" @click="showDialog('bracelet-left')">
+        <img src="../assets/adornos/box.png" alt="" />
       </button>
-      <dialog id="pulsera-izq">
+      <dialog id="bracelet-left">
         <p>Left bracelet</p>
         <div>
-          <label class="casilla-nombre"><input type="text" name="izqPulsera_name" /></label>
-          <label class="casilla-texto">t<input type="text" name="izqPulsera_t" /></label>
-          <label class="casilla-numero">c<input type="number" name="izqPulsera_c" /></label>
-          <label class="casilla-numero">r<input type="number" name="izqPulsera_r" /></label>
-          <label class="casilla-texto">e<input type="text" name="izqPulsera_e" /></label>
-          <label class="casilla-peso">u<input type="number" name="izqPulsera_u" /></label>
+          <label class="box-name"><input type="text" name="leftbracelet_name" /></label>
+          <label class="box-text">t<input type="text" name="leftbracelet_t" /></label>
+          <label class="box-number">c<input type="number" name="leftbracelet_c" /></label>
+          <label class="box-number">r<input type="number" name="leftbracelet_r" /></label>
+          <label class="box-text">e<input type="text" name="leftbracelet_e" /></label>
+          <label class="box-weight">u<input type="number" name="leftbracelet_u" /></label>
         </div>
       </dialog>
     </section>
-    <section class="casilla-pulsera-dch">
-      <button type="button" class="abalorio" @click="showDialog('pulsera-dch')">
-        <img src="../assets/adornos/casilla.png" alt="" />
+    <section class="box-bracelet-right">
+      <button type="button" class="trinket" @click="showDialog('bracelet-right')">
+        <img src="../assets/adornos/box.png" alt="" />
       </button>
-      <dialog id="pulsera-dch">
+      <dialog id="bracelet-right">
         <p>Right bracelet</p>
         <div>
-          <label class="casilla-nombre"><input type="text" name="dchPulsera_name" /></label>
-          <label class="casilla-texto">t<input type="text" name="dchPulsera_t" /></label>
-          <label class="casilla-numero">c<input type="number" name="dchPulsera_c" /></label>
-          <label class="casilla-numero">r<input type="number" name="dchPulsera_r" /></label>
-          <label class="casilla-texto">e<input type="text" name="dchPulsera_e" /></label>
-          <label class="casilla-peso">u<input type="number" name="dchPulsera_u" /></label>
+          <label class="box-name"><input type="text" name="rightbracelet_name" /></label>
+          <label class="box-text">t<input type="text" name="rightbracelet_t" /></label>
+          <label class="box-number">c<input type="number" name="rightbracelet_c" /></label>
+          <label class="box-number">r<input type="number" name="rightbracelet_r" /></label>
+          <label class="box-text">e<input type="text" name="rightbracelet_e" /></label>
+          <label class="box-weight">u<input type="number" name="rightbracelet_u" /></label>
         </div>
       </dialog>
     </section>
-    <section class="casilla-anillo-izq">
-      <button type="button" class="abalorio" @click="showDialog('anillo-izq')">
-        <img src="../assets/adornos/casilla.png" alt="" />
+    <section class="box-ring-left">
+      <button type="button" class="trinket" @click="showDialog('ring-left')">
+        <img src="../assets/adornos/box.png" alt="" />
       </button>
-      <dialog id="anillo-izq">
+      <dialog id="ring-left">
         <p>Left ring</p>
         <div>
-          <label class="casilla-nombre"><input type="text" name="izqAnillo_name" /></label>
-          <label class="casilla-texto">t<input type="text" name="izqAnillo_t" /></label>
-          <label class="casilla-numero">c<input type="number" name="izqAnillo_c" /></label>
-          <label class="casilla-numero">r<input type="number" name="izqAnillo_r" /></label>
-          <label class="casilla-texto">e<input type="text" name="izqAnillo_e" /></label>
-          <label class="casilla-peso">u<input type="number" name="izqAnillo_u" /></label>
+          <label class="box-name"><input type="text" name="leftring_name" /></label>
+          <label class="box-text">t<input type="text" name="leftring_t" /></label>
+          <label class="box-number">c<input type="number" name="leftring_c" /></label>
+          <label class="box-number">r<input type="number" name="leftring_r" /></label>
+          <label class="box-text">e<input type="text" name="leftring_e" /></label>
+          <label class="box-weight">u<input type="number" name="leftring_u" /></label>
         </div>
       </dialog>
     </section>
-    <section class="casilla-anillo-dch">
-      <button type="button" class="abalorio" @click="showDialog('anillo-dch')">
-        <img src="../assets/adornos/casilla.png" alt="" />
+    <section class="box-ring-right">
+      <button type="button" class="trinket" @click="showDialog('ring-right')">
+        <img src="../assets/adornos/box.png" alt="" />
       </button>
-      <dialog id="anillo-dch">
+      <dialog id="ring-right">
         <p>Right ring</p>
         <div>
-          <label class="casilla-nombre"><input type="text" name="dchAnillo_name" /></label>
-          <label class="casilla-texto">t<input type="text" name="dchAnillo_t" /></label>
-          <label class="casilla-numero">c<input type="number" name="dchAnillo_c" /></label>
-          <label class="casilla-numero">r<input type="number" name="dchAnillo_r" /></label>
-          <label class="casilla-texto">e<input type="text" name="dchAnillo_e" /></label>
-          <label class="casilla-peso">u<input type="number" name="dchAnillo_u" /></label>
+          <label class="box-name"><input type="text" name="rightring_name" /></label>
+          <label class="box-text">t<input type="text" name="rightring_t" /></label>
+          <label class="box-number">c<input type="number" name="rightring_c" /></label>
+          <label class="box-number">r<input type="number" name="rightring_r" /></label>
+          <label class="box-text">e<input type="text" name="rightring_e" /></label>
+          <label class="box-weight">u<input type="number" name="rightring_u" /></label>
         </div>
       </dialog>
     </section>
-    <section class="casilla-cabeza">
-      <button type="button" @click="showDialog('cabeza')">
-        <img src="../assets/adornos/casilla.png" alt="" />
+    <section class="box-head">
+      <button type="button" @click="showDialog('head')">
+        <img src="../assets/adornos/box.png" alt="" />
       </button>
-      <dialog id="cabeza">
+      <dialog id="head">
         <p>Head</p>
         <div>
-          <label class="casilla-nombre"><input type="text" name="cabeza_name" /></label>
-          <label class="casilla-texto">t<input type="text" name="cabeza_t" /></label>
-          <label class="casilla-numero">a<input type="number" name="cabeza_a" /></label>
-          <label class="casilla-numero">p<input type="number" name="cabeza_p" /></label>
-          <label class="casilla-texto">m<input type="text" name="cabeza_m" /></label>
-          <label class="casilla-numero">c<input type="number" name="cabeza_c" /></label>
-          <label class="casilla-numero">r<input type="number" name="cabeza_r" /></label>
-          <label class="casilla-texto">e<input type="text" name="cabeza_e" /></label>
-          <label class="casilla-peso">%d<input type="number" name="cabeza_d" /></label>
+          <label class="box-name"><input type="text" name="head_name" /></label>
+          <label class="box-text">t<input type="text" name="head_t" /></label>
+          <label class="box-number">a<input type="number" name="head_a" /></label>
+          <label class="box-number">p<input type="number" name="head_p" /></label>
+          <label class="box-text">m<input type="text" name="head_m" /></label>
+          <label class="box-number">c<input type="number" name="head_c" /></label>
+          <label class="box-number">r<input type="number" name="head_r" /></label>
+          <label class="box-text">e<input type="text" name="head_e" /></label>
+          <label class="box-weight">%d<input type="number" name="head_d" /></label>
         </div>
       </dialog>
     </section>
-    <section class="casilla-torso">
-      <button type="button" @click="showDialog('torso')">
-        <img src="../assets/adornos/casilla.png" alt="" />
+    <section class="box-chest">
+      <button type="button" @click="showDialog('chest')">
+        <img src="../assets/adornos/box.png" alt="" />
       </button>
-      <dialog id="torso">
+      <dialog id="chest">
         <p>Chest</p>
         <div>
-          <label class="casilla-nombre"><input type="text" name="torso_name" /></label>
-          <label class="casilla-texto">t<input type="text" name="torso_t" /></label>
-          <label class="casilla-numero">a<input type="number" name="torso_a" /></label>
-          <label class="casilla-numero">p<input type="number" name="torso_p" /></label>
-          <label class="casilla-texto">m<input type="text" name="torso_m" /></label>
-          <label class="casilla-numero">c<input type="number" name="torso_c" /></label>
-          <label class="casilla-numero">r<input type="number" name="torso_r" /></label>
-          <label class="casilla-texto">e<input type="text" name="torso_e" /></label>
-          <label class="casilla-peso">%d<input type="number" name="torso_d" /></label>
+          <label class="box-name"><input type="text" name="chest_name" /></label>
+          <label class="box-text">t<input type="text" name="chest_t" /></label>
+          <label class="box-number">a<input type="number" name="chest_a" /></label>
+          <label class="box-number">p<input type="number" name="chest_p" /></label>
+          <label class="box-text">m<input type="text" name="chest_m" /></label>
+          <label class="box-number">c<input type="number" name="chest_c" /></label>
+          <label class="box-number">r<input type="number" name="chest_r" /></label>
+          <label class="box-text">e<input type="text" name="chest_e" /></label>
+          <label class="box-weight">%d<input type="number" name="chest_d" /></label>
         </div>
       </dialog>
     </section>
-    <section class="casilla-cintura">
-      <button type="button" @click="showDialog('cintura')">
-        <img src="../assets/adornos/casilla.png" alt="" />
+    <section class="box-waist">
+      <button type="button" @click="showDialog('waist')">
+        <img src="../assets/adornos/box.png" alt="" />
       </button>
-      <dialog id="cintura">
+      <dialog id="waist">
         <p>Waist</p>
         <div>
-          <label class="casilla-nombre"><input type="text" name="cintura_name" /></label>
-          <label class="casilla-texto">t<input type="text" name="cintura_t" /></label>
-          <label class="casilla-numero">a<input type="number" name="cintura_a" /></label>
-          <label class="casilla-numero">p<input type="number" name="cintura_p" /></label>
-          <label class="casilla-texto">m<input type="text" name="cintura_m" /></label>
-          <label class="casilla-numero">c<input type="number" name="cintura_c" /></label>
-          <label class="casilla-numero">r<input type="number" name="cintura_r" /></label>
-          <label class="casilla-texto">e<input type="text" name="cintura_e" /></label>
-          <label class="casilla-peso">%d<input type="number" name="cintura_d" /></label>
+          <label class="box-name"><input type="text" name="waist_name" /></label>
+          <label class="box-text">t<input type="text" name="waist_t" /></label>
+          <label class="box-number">a<input type="number" name="waist_a" /></label>
+          <label class="box-number">p<input type="number" name="waist_p" /></label>
+          <label class="box-text">m<input type="text" name="waist_m" /></label>
+          <label class="box-number">c<input type="number" name="waist_c" /></label>
+          <label class="box-number">r<input type="number" name="waist_r" /></label>
+          <label class="box-text">e<input type="text" name="waist_e" /></label>
+          <label class="box-weight">%d<input type="number" name="waist_d" /></label>
         </div>
       </dialog>
     </section>
-    <section class="casilla-hombro-izq">
-      <button type="button" @click="showDialog('hombro-izq')">
-        <img src="../assets/adornos/casilla.png" alt="" />
+    <section class="box-shoulder-left">
+      <button type="button" @click="showDialog('shoulder-left')">
+        <img src="../assets/adornos/box.png" alt="" />
       </button>
-      <dialog id="hombro-izq">
+      <dialog id="shoulder-left">
         <p>Left shoulder</p>
         <div>
-          <label class="casilla-nombre"><input type="text" name="izqHombro_name" /></label>
-          <label class="casilla-texto">t<input type="text" name="izqHombro_t" /></label>
-          <label class="casilla-numero">a<input type="number" name="izqHombro_a" /></label>
-          <label class="casilla-numero">p<input type="number" name="izqHombro_p" /></label>
-          <label class="casilla-texto">m<input type="text" name="izqHombro_m" /></label>
-          <label class="casilla-numero">c<input type="number" name="izqHombro_c" /></label>
-          <label class="casilla-numero">r<input type="number" name="izqHombro_r" /></label>
-          <label class="casilla-texto">e<input type="text" name="izqHombro_e" /></label>
-          <label class="casilla-peso">%d<input type="number" name="izqHombro_d" /></label>
+          <label class="box-name"><input type="text" name="leftshoulder_name" /></label>
+          <label class="box-text">t<input type="text" name="leftshoulder_t" /></label>
+          <label class="box-number">a<input type="number" name="leftshoulder_a" /></label>
+          <label class="box-number">p<input type="number" name="leftshoulder_p" /></label>
+          <label class="box-text">m<input type="text" name="leftshoulder_m" /></label>
+          <label class="box-number">c<input type="number" name="leftshoulder_c" /></label>
+          <label class="box-number">r<input type="number" name="leftshoulder_r" /></label>
+          <label class="box-text">e<input type="text" name="leftshoulder_e" /></label>
+          <label class="box-weight">%d<input type="number" name="leftshoulder_d" /></label>
         </div>
       </dialog>
     </section>
-    <section class="casilla-brazo-izq">
-      <button type="button" @click="showDialog('brazo-izq')">
-        <img src="../assets/adornos/casilla.png" alt="" />
+    <section class="box-arm-left">
+      <button type="button" @click="showDialog('arm-left')">
+        <img src="../assets/adornos/box.png" alt="" />
       </button>
-      <dialog id="brazo-izq">
+      <dialog id="arm-left">
         <p>Left arm</p>
         <div>
-          <label class="casilla-nombre"><input type="text" name="izqBrazo_name" /></label>
-          <label class="casilla-texto">t<input type="text" name="izqBrazo_t" /></label>
-          <label class="casilla-numero">a<input type="number" name="izqBrazo_a" /></label>
-          <label class="casilla-numero">p<input type="number" name="izqBrazo_p" /></label>
-          <label class="casilla-texto">m<input type="text" name="izqBrazo_m" /></label>
-          <label class="casilla-numero">c<input type="number" name="izqBrazo_c" /></label>
-          <label class="casilla-numero">r<input type="number" name="izqBrazo_r" /></label>
-          <label class="casilla-texto">e<input type="text" name="izqBrazo_e" /></label>
-          <label class="casilla-peso">u<input type="number" name="izqBrazo_u" /></label>
+          <label class="box-name"><input type="text" name="leftarm_name" /></label>
+          <label class="box-text">t<input type="text" name="leftarm_t" /></label>
+          <label class="box-number">a<input type="number" name="leftarm_a" /></label>
+          <label class="box-number">p<input type="number" name="leftarm_p" /></label>
+          <label class="box-text">m<input type="text" name="leftarm_m" /></label>
+          <label class="box-number">c<input type="number" name="leftarm_c" /></label>
+          <label class="box-number">r<input type="number" name="leftarm_r" /></label>
+          <label class="box-text">e<input type="text" name="leftarm_e" /></label>
+          <label class="box-weight">u<input type="number" name="leftarm_u" /></label>
         </div>
       </dialog>
     </section>
-    <section class="casilla-mano-izq">
-      <button type="button" @click="showDialog('mano-izq')">
-        <img src="../assets/adornos/casilla.png" alt="" />
+    <section class="box-hand-left">
+      <button type="button" @click="showDialog('hand-left')">
+        <img src="../assets/adornos/box.png" alt="" />
       </button>
-      <dialog id="mano-izq">
+      <dialog id="hand-left">
         <p>Left hand</p>
         <div>
-          <label class="casilla-nombre"><input type="text" name="izqMano_name" /></label>
-          <label class="casilla-texto">t<input type="text" name="izqMano_t" /></label>
-          <label class="casilla-numero">a<input type="number" name="izqMano_a" /></label>
-          <label class="casilla-numero">p<input type="number" name="izqMano_p" /></label>
-          <label class="casilla-texto">m<input type="text" name="izqMano_m" /></label>
-          <label class="casilla-numero">c<input type="number" name="izqMano_c" /></label>
-          <label class="casilla-numero">r<input type="number" name="izqMano_r" /></label>
-          <label class="casilla-texto">e<input type="text" name="izqMano_e" /></label>
-          <label class="casilla-peso">u<input type="number" name="izqMano_u" /></label>
+          <label class="box-name"><input type="text" name="lefthand_name" /></label>
+          <label class="box-text">t<input type="text" name="lefthand_t" /></label>
+          <label class="box-number">a<input type="number" name="lefthand_a" /></label>
+          <label class="box-number">p<input type="number" name="lefthand_p" /></label>
+          <label class="box-text">m<input type="text" name="lefthand_m" /></label>
+          <label class="box-number">c<input type="number" name="lefthand_c" /></label>
+          <label class="box-number">r<input type="number" name="lefthand_r" /></label>
+          <label class="box-text">e<input type="text" name="lefthand_e" /></label>
+          <label class="box-weight">u<input type="number" name="lefthand_u" /></label>
         </div>
       </dialog>
     </section>
-    <section class="casilla-pierna-izq">
-      <button type="button" @click="showDialog('pierna-izq')">
-        <img src="../assets/adornos/casilla.png" alt="" />
+    <section class="box-leg-left">
+      <button type="button" @click="showDialog('leg-left')">
+        <img src="../assets/adornos/box.png" alt="" />
       </button>
-      <dialog id="pierna-izq">
+      <dialog id="leg-left">
         <p>Left leg</p>
         <div>
-          <label class="casilla-nombre"><input type="text" name="izqPierna_name" /></label>
-          <label class="casilla-texto">t<input type="text" name="izqPierna_t" /></label>
-          <label class="casilla-numero">a<input type="number" name="izqPierna_a" /></label>
-          <label class="casilla-numero">p<input type="number" name="izqPierna_p" /></label>
-          <label class="casilla-texto">m<input type="text" name="izqPierna_m" /></label>
-          <label class="casilla-numero">c<input type="number" name="izqPierna_c" /></label>
-          <label class="casilla-numero">r<input type="number" name="izqPierna_r" /></label>
-          <label class="casilla-texto">e<input type="text" name="izqPierna_e" /></label>
-          <label class="casilla-peso">u<input type="number" name="izqPierna_u" /></label>
+          <label class="box-name"><input type="text" name="leftleg_name" /></label>
+          <label class="box-text">t<input type="text" name="leftleg_t" /></label>
+          <label class="box-number">a<input type="number" name="leftleg_a" /></label>
+          <label class="box-number">p<input type="number" name="leftleg_p" /></label>
+          <label class="box-text">m<input type="text" name="leftleg_m" /></label>
+          <label class="box-number">c<input type="number" name="leftleg_c" /></label>
+          <label class="box-number">r<input type="number" name="leftleg_r" /></label>
+          <label class="box-text">e<input type="text" name="leftleg_e" /></label>
+          <label class="box-weight">u<input type="number" name="leftleg_u" /></label>
         </div>
       </dialog>
     </section>
-    <section class="casilla-pie-izq">
-      <button type="button" @click="showDialog('pie-izq')">
-        <img src="../assets/adornos/casilla.png" alt="" />
+    <section class="box-foot-left">
+      <button type="button" @click="showDialog('foot-left')">
+        <img src="../assets/adornos/box.png" alt="" />
       </button>
-      <dialog id="pie-izq">
+      <dialog id="foot-left">
         <p>Left foot</p>
         <div>
-          <label class="casilla-nombre"><input type="text" name="izqPie_name" /></label>
-          <label class="casilla-texto">t<input type="text" name="izqPie_t" /></label>
-          <label class="casilla-numero">a<input type="number" name="izqPie_a" /></label>
-          <label class="casilla-numero">p<input type="number" name="izqPie_p" /></label>
-          <label class="casilla-texto">m<input type="text" name="izqPie_m" /></label>
-          <label class="casilla-numero">c<input type="number" name="izqPie_c" /></label>
-          <label class="casilla-numero">r<input type="number" name="izqPie_r" /></label>
-          <label class="casilla-texto">e<input type="text" name="izqPie_e" /></label>
-          <label class="casilla-peso">u<input type="number" name="izqPie_u" /></label>
+          <label class="box-name"><input type="text" name="leftfoot_name" /></label>
+          <label class="box-text">t<input type="text" name="leftfoot_t" /></label>
+          <label class="box-number">a<input type="number" name="leftfoot_a" /></label>
+          <label class="box-number">p<input type="number" name="leftfoot_p" /></label>
+          <label class="box-text">m<input type="text" name="leftfoot_m" /></label>
+          <label class="box-number">c<input type="number" name="leftfoot_c" /></label>
+          <label class="box-number">r<input type="number" name="leftfoot_r" /></label>
+          <label class="box-text">e<input type="text" name="leftfoot_e" /></label>
+          <label class="box-weight">u<input type="number" name="leftfoot_u" /></label>
         </div>
       </dialog>
     </section>
-    <section class="casilla-hombro-dch">
-      <button type="button" @click="showDialog('hombro-dch')">
-        <img src="../assets/adornos/casilla.png" alt="" />
+    <section class="box-shoulder-right">
+      <button type="button" @click="showDialog('shoulder-right')">
+        <img src="../assets/adornos/box.png" alt="" />
       </button>
-      <dialog id="hombro-dch">
+      <dialog id="shoulder-right">
         <p>Right shoulder</p>
         <div>
-          <label class="casilla-nombre"><input type="text" name="dchHombro_name" /></label>
-          <label class="casilla-texto">t<input type="text" name="dchHombro_t" /></label>
-          <label class="casilla-numero">a<input type="number" name="dchHombro_a" /></label>
-          <label class="casilla-numero">p<input type="number" name="dchHombro_p" /></label>
-          <label class="casilla-texto">m<input type="text" name="dchHombro_m" /></label>
-          <label class="casilla-numero">c<input type="number" name="dchHombro_c" /></label>
-          <label class="casilla-numero">r<input type="number" name="dchHombro_r" /></label>
-          <label class="casilla-texto">e<input type="text" name="dchHombro_e" /></label>
-          <label class="casilla-peso">u<input type="number" name="dchHombro_u" /></label>
+          <label class="box-name"><input type="text" name="rightshoulder_name" /></label>
+          <label class="box-text">t<input type="text" name="rightshoulder_t" /></label>
+          <label class="box-number">a<input type="number" name="rightshoulder_a" /></label>
+          <label class="box-number">p<input type="number" name="rightshoulder_p" /></label>
+          <label class="box-text">m<input type="text" name="rightshoulder_m" /></label>
+          <label class="box-number">c<input type="number" name="rightshoulder_c" /></label>
+          <label class="box-number">r<input type="number" name="rightshoulder_r" /></label>
+          <label class="box-text">e<input type="text" name="rightshoulder_e" /></label>
+          <label class="box-weight">u<input type="number" name="rightshoulder_u" /></label>
         </div>
       </dialog>
     </section>
-    <section class="casilla-brazo-dch">
-      <button type="button" @click="showDialog('brazo-dch')">
-        <img src="../assets/adornos/casilla.png" alt="" />
+    <section class="box-arm-right">
+      <button type="button" @click="showDialog('arm-right')">
+        <img src="../assets/adornos/box.png" alt="" />
       </button>
-      <dialog id="brazo-dch">
+      <dialog id="arm-right">
         <p>Right arm</p>
         <div>
-          <label class="casilla-nombre"><input type="text" name="dchBrazo_name" /></label>
-          <label class="casilla-texto">t<input type="text" name="dchBrazo_t" /></label>
-          <label class="casilla-numero">a<input type="number" name="dchBrazo_a" /></label>
-          <label class="casilla-numero">p<input type="number" name="dchBrazo_p" /></label>
-          <label class="casilla-texto">m<input type="text" name="dchBrazo_m" /></label>
-          <label class="casilla-numero">c<input type="number" name="dchBrazo_c" /></label>
-          <label class="casilla-numero">r<input type="number" name="dchBrazo_r" /></label>
-          <label class="casilla-texto">e<input type="text" name="dchBrazo_e" /></label>
-          <label class="casilla-peso">u<input type="number" name="dchBrazo_u" /></label>
+          <label class="box-name"><input type="text" name="rightarm_name" /></label>
+          <label class="box-text">t<input type="text" name="rightarm_t" /></label>
+          <label class="box-number">a<input type="number" name="rightarm_a" /></label>
+          <label class="box-number">p<input type="number" name="rightarm_p" /></label>
+          <label class="box-text">m<input type="text" name="rightarm_m" /></label>
+          <label class="box-number">c<input type="number" name="rightarm_c" /></label>
+          <label class="box-number">r<input type="number" name="rightarm_r" /></label>
+          <label class="box-text">e<input type="text" name="rightarm_e" /></label>
+          <label class="box-weight">u<input type="number" name="rightarm_u" /></label>
         </div>
       </dialog>
     </section>
-    <section class="casilla-mano-dch">
-      <button type="button" @click="showDialog('mano-dch')">
-        <img src="../assets/adornos/casilla.png" alt="" />
+    <section class="box-hand-right">
+      <button type="button" @click="showDialog('hand-right')">
+        <img src="../assets/adornos/box.png" alt="" />
       </button>
-      <dialog id="mano-dch">
+      <dialog id="hand-right">
         <p>Right hand</p>
         <div>
-          <label class="casilla-nombre"><input type="text" name="dchMano_name" /></label>
-          <label class="casilla-texto">t<input type="text" name="dchMano_t" /></label>
-          <label class="casilla-numero">a<input type="number" name="dchMano_a" /></label>
-          <label class="casilla-numero">p<input type="number" name="dchMano_p" /></label>
-          <label class="casilla-texto">m<input type="text" name="dchMano_m" /></label>
-          <label class="casilla-numero">c<input type="number" name="dchMano_c" /></label>
-          <label class="casilla-numero">r<input type="number" name="dchMano_r" /></label>
-          <label class="casilla-texto">e<input type="text" name="dchMano_e" /></label>
-          <label class="casilla-peso">u<input type="number" name="dchMano_u" /></label>
+          <label class="box-name"><input type="text" name="righthand_name" /></label>
+          <label class="box-text">t<input type="text" name="righthand_t" /></label>
+          <label class="box-number">a<input type="number" name="righthand_a" /></label>
+          <label class="box-number">p<input type="number" name="righthand_p" /></label>
+          <label class="box-text">m<input type="text" name="righthand_m" /></label>
+          <label class="box-number">c<input type="number" name="righthand_c" /></label>
+          <label class="box-number">r<input type="number" name="righthand_r" /></label>
+          <label class="box-text">e<input type="text" name="righthand_e" /></label>
+          <label class="box-weight">u<input type="number" name="righthand_u" /></label>
         </div>
       </dialog>
     </section>
-    <section class="casilla-pierna-dch">
-      <button type="button" @click="showDialog('pierna-dch')">
-        <img src="../assets/adornos/casilla.png" alt="" />
+    <section class="box-leg-right">
+      <button type="button" @click="showDialog('leg-right')">
+        <img src="../assets/adornos/box.png" alt="" />
       </button>
-      <dialog id="pierna-dch">
+      <dialog id="leg-right">
         <p>Right leg</p>
         <div>
-          <label class="casilla-nombre"><input type="text" name="dchPierna_name" /></label>
-          <label class="casilla-texto">t<input type="text" name="dchPierna_t" /></label>
-          <label class="casilla-numero">a<input type="number" name="dchPierna_a" /></label>
-          <label class="casilla-numero">p<input type="number" name="dchPierna_p" /></label>
-          <label class="casilla-texto">m<input type="text" name="dchPierna_m" /></label>
-          <label class="casilla-numero">c<input type="number" name="dchPierna_c" /></label>
-          <label class="casilla-numero">r<input type="number" name="dchPierna_r" /></label>
-          <label class="casilla-texto">e<input type="text" name="dchPierna_e" /></label>
-          <label class="casilla-peso">u<input type="number" name="dchPierna_u" /></label>
+          <label class="box-name"><input type="text" name="rightleg_name" /></label>
+          <label class="box-text">t<input type="text" name="rightleg_t" /></label>
+          <label class="box-number">a<input type="number" name="rightleg_a" /></label>
+          <label class="box-number">p<input type="number" name="rightleg_p" /></label>
+          <label class="box-text">m<input type="text" name="rightleg_m" /></label>
+          <label class="box-number">c<input type="number" name="rightleg_c" /></label>
+          <label class="box-number">r<input type="number" name="rightleg_r" /></label>
+          <label class="box-text">e<input type="text" name="rightleg_e" /></label>
+          <label class="box-weight">u<input type="number" name="rightleg_u" /></label>
         </div>
       </dialog>
     </section>
-    <section class="casilla-pie-dch">
-      <button type="button" @click="showDialog('pie-dch')">
-        <img src="../assets/adornos/casilla.png" alt="" />
+    <section class="box-foot-right">
+      <button type="button" @click="showDialog('foot-right')">
+        <img src="../assets/adornos/box.png" alt="" />
       </button>
-      <dialog id="pie-dch">
+      <dialog id="foot-right">
         <p>Right foot</p>
         <div>
-          <label class="casilla-nombre"><input type="text" name="dchPie_name" /></label>
-          <label class="casilla-texto">t<input type="text" name="dchPie_t" /></label>
-          <label class="casilla-numero">a<input type="number" name="dchPie_a" /></label>
-          <label class="casilla-numero">p<input type="number" name="dchPie_p" /></label>
-          <label class="casilla-texto">m<input type="text" name="dchPie_m" /></label>
-          <label class="casilla-numero">c<input type="number" name="dchPie_c" /></label>
-          <label class="casilla-numero">r<input type="number" name="dchPie_r" /></label>
-          <label class="casilla-texto">e<input type="text" name="dchPie_e" /></label>
-          <label class="casilla-peso">u<input type="number" name="dchPie_u" /></label>
+          <label class="box-name"><input type="text" name="rightfoot_name" /></label>
+          <label class="box-text">t<input type="text" name="rightfoot_t" /></label>
+          <label class="box-number">a<input type="number" name="rightfoot_a" /></label>
+          <label class="box-number">p<input type="number" name="rightfoot_p" /></label>
+          <label class="box-text">m<input type="text" name="rightfoot_m" /></label>
+          <label class="box-number">c<input type="number" name="rightfoot_c" /></label>
+          <label class="box-number">r<input type="number" name="rightfoot_r" /></label>
+          <label class="box-text">e<input type="text" name="rightfoot_e" /></label>
+          <label class="box-weight">u<input type="number" name="rightfoot_u" /></label>
         </div>
       </dialog>
     </section>
 
-    <section class="casilla-arma">
-      <button type="button" class="largo" @click="showDialog('arma')">
-        <img src="../assets/adornos/casilla.png" alt="" />
+    <section class="box-weapon">
+      <button type="button" class="long" @click="showDialog('weapon')">
+        <img src="../assets/adornos/box.png" alt="" />
       </button>
-      <dialog id="arma">
+      <dialog id="weapon">
         <p>Weapon of choice</p>
         <div>
-          <label class="casilla-nombre"><input type="text" name="arma_name" /></label>
-          <label class="casilla-texto">t<input type="text" name="arma_t" /></label>
-          <label class="casilla-numero">a<input type="number" name="arma_a" /></label>
-          <label class="casilla-numero">p<input type="number" name="arma_p" /></label>
-          <label class="casilla-texto">m<input type="text" name="arma_m" /></label>
-          <label class="casilla-numero">c<input type="number" name="arma_c" /></label>
-          <label class="casilla-numero">r<input type="number" name="arma_r" /></label>
-          <label class="casilla-texto">e<input type="text" name="arma_e" /></label>
-          <label class="casilla-peso"><input type="text" name="arma_d" value="D" /></label>
+          <label class="box-name"><input type="text" name="weapon_name" /></label>
+          <label class="box-text">t<input type="text" name="weapon_t" /></label>
+          <label class="box-number">a<input type="number" name="weapon_a" /></label>
+          <label class="box-number">p<input type="number" name="weapon_p" /></label>
+          <label class="box-text">m<input type="text" name="weapon_m" /></label>
+          <label class="box-number">c<input type="number" name="weapon_c" /></label>
+          <label class="box-number">r<input type="number" name="weapon_r" /></label>
+          <label class="box-text">e<input type="text" name="weapon_e" /></label>
+          <label class="box-weight"><input type="text" name="weapon_d" value="D" /></label>
         </div>
       </dialog>
     </section>
-    <section class="casilla-escudo">
-      <button type="button" class="largo" @click="showDialog('escudo')">
-        <img src="../assets/adornos/casilla.png" alt="" />
+    <section class="box-shield">
+      <button type="button" class="long" @click="showDialog('shield')">
+        <img src="../assets/adornos/box.png" alt="" />
       </button>
-      <dialog id="escudo">
+      <dialog id="shield">
         <p>Shield</p>
         <div>
-          <label class="casilla-nombre"><input type="text" name="escudo_name" /></label>
-          <label class="casilla-texto">t<input type="text" name="escudo_t" /></label>
-          <label class="casilla-numero">a<input type="number" name="escudo_a" /></label>
-          <label class="casilla-numero">p<input type="number" name="escudo_p" /></label>
-          <label class="casilla-texto">m<input type="text" name="escudo_m" /></label>
-          <label class="casilla-numero">c<input type="number" name="escudo_c" /></label>
-          <label class="casilla-numero">r<input type="number" name="escudo_r" /></label>
-          <label class="casilla-texto">e<input type="text" name="escudo_e" /></label>
-          <label class="casilla-peso"><input type="text" name="escudo_d" value="D" /></label>
+          <label class="box-name"><input type="text" name="shield_name" /></label>
+          <label class="box-text">t<input type="text" name="shield_t" /></label>
+          <label class="box-number">a<input type="number" name="shield_a" /></label>
+          <label class="box-number">p<input type="number" name="shield_p" /></label>
+          <label class="box-text">m<input type="text" name="shield_m" /></label>
+          <label class="box-number">c<input type="number" name="shield_c" /></label>
+          <label class="box-number">r<input type="number" name="shield_r" /></label>
+          <label class="box-text">e<input type="text" name="shield_e" /></label>
+          <label class="box-weight"><input type="text" name="shield_d" value="D" /></label>
         </div>
       </dialog>
     </section>
-    <section class="casilla-vaina">
-      <button type="button" class="corto" @click="showDialog('vaina')">
-        <img src="../assets/adornos/casilla.png" alt="" />
+    <section class="box-sheath">
+      <button type="button" class="short" @click="showDialog('sheath')">
+        <img src="../assets/adornos/box.png" alt="" />
       </button>
-      <dialog id="vaina">
+      <dialog id="sheath">
         <p>Sheath</p>
         <div>
-          <label class="casilla-nombre"><input type="text" name="vaina_name" /></label>
-          <label class="casilla-texto">t<input type="text" name="vaina_t" /></label>
-          <label class="casilla-numero">a<input type="number" name="vaina_a" /></label>
-          <label class="casilla-numero">p<input type="number" name="vaina_p" /></label>
-          <label class="casilla-texto">m<input type="text" name="vaina_m" /></label>
-          <label class="casilla-numero">c<input type="number" name="vaina_c" /></label>
-          <label class="casilla-numero">r<input type="number" name="vaina_r" /></label>
-          <label class="casilla-texto">e<input type="text" name="vaina_e" /></label>
-          <label class="casilla-peso">%d<input type="number" name="vaina_d" /></label>
+          <label class="box-name"><input type="text" name="sheath_name" /></label>
+          <label class="box-text">t<input type="text" name="sheath_t" /></label>
+          <label class="box-number">a<input type="number" name="sheath_a" /></label>
+          <label class="box-number">p<input type="number" name="sheath_p" /></label>
+          <label class="box-text">m<input type="text" name="sheath_m" /></label>
+          <label class="box-number">c<input type="number" name="sheath_c" /></label>
+          <label class="box-number">r<input type="number" name="sheath_r" /></label>
+          <label class="box-text">e<input type="text" name="sheath_e" /></label>
+          <label class="box-weight">%d<input type="number" name="sheath_d" /></label>
         </div>
       </dialog>
     </section>
-    <section class="casilla-magic">
-      <button type="button" class="largo" @click="showDialog('magic')">
-        <img src="../assets/adornos/casilla.png" alt="" />
+    <section class="box-magic">
+      <button type="button" class="long" @click="showDialog('magic')">
+        <img src="../assets/adornos/box.png" alt="" />
       </button>
       <dialog id="magic">
         <p>Lorness</p>
         <div>
-          <label class="casilla-nombre"><input type="text" name="magic_name" /></label>
-          <label class="casilla-texto">t<input type="text" name="magic_t" /></label>
-          <label class="casilla-numero">a<input type="number" name="magic_a" /></label>
-          <label class="casilla-numero">p<input type="number" name="magic_p" /></label>
-          <label class="casilla-texto">m<input type="text" name="magic_m" /></label>
-          <label class="casilla-numero">c<input type="number" name="magic_c" /></label>
-          <label class="casilla-numero">r<input type="number" name="magic_r" /></label>
-          <label class="casilla-texto">e<input type="text" name="magic_e" /></label>
-          <label class="casilla-peso"><input type="text" name="magic_d" value="D" /></label>
+          <label class="box-name"><input type="text" name="magic_name" /></label>
+          <label class="box-text">t<input type="text" name="magic_t" /></label>
+          <label class="box-number">a<input type="number" name="magic_a" /></label>
+          <label class="box-number">p<input type="number" name="magic_p" /></label>
+          <label class="box-text">m<input type="text" name="magic_m" /></label>
+          <label class="box-number">c<input type="number" name="magic_c" /></label>
+          <label class="box-number">r<input type="number" name="magic_r" /></label>
+          <label class="box-text">e<input type="text" name="magic_e" /></label>
+          <label class="box-weight"><input type="text" name="magic_d" value="D" /></label>
         </div>
       </dialog>
     </section>
-    <section class="casilla-range">
-      <button type="button" class="largo" @click="showDialog('range')">
-        <img src="../assets/adornos/casilla.png" alt="" />
+    <section class="box-range">
+      <button type="button" class="long" @click="showDialog('range')">
+        <img src="../assets/adornos/box.png" alt="" />
       </button>
       <dialog id="range">
         <p>Range weapon</p>
         <div>
-          <label class="casilla-nombre"><input type="text" name="range_name" /></label>
-          <label class="casilla-texto">t<input type="text" name="range_t" /></label>
-          <label class="casilla-numero">a<input type="number" name="range_a" /></label>
-          <label class="casilla-numero">p<input type="number" name="range_p" /></label>
-          <label class="casilla-texto">m<input type="text" name="range_m" /></label>
-          <label class="casilla-numero">c<input type="number" name="range_c" /></label>
-          <label class="casilla-numero">r<input type="number" name="range_r" /></label>
-          <label class="casilla-texto">e<input type="text" name="range_e" /></label>
-          <label class="casilla-peso"><input type="text" name="range_d" value="D" /></label>
+          <label class="box-name"><input type="text" name="range_name" /></label>
+          <label class="box-text">t<input type="text" name="range_t" /></label>
+          <label class="box-number">a<input type="number" name="range_a" /></label>
+          <label class="box-number">p<input type="number" name="range_p" /></label>
+          <label class="box-text">m<input type="text" name="range_m" /></label>
+          <label class="box-number">c<input type="number" name="range_c" /></label>
+          <label class="box-number">r<input type="number" name="range_r" /></label>
+          <label class="box-text">e<input type="text" name="range_e" /></label>
+          <label class="box-weight"><input type="text" name="range_d" value="D" /></label>
         </div>
       </dialog>
     </section>
-    <section class="casilla-carcaj">
-      <button type="button" class="corto" @click="showDialog('carcaj')">
-        <img src="../assets/adornos/casilla.png" alt="" />
+    <section class="box-quiver">
+      <button type="button" class="short" @click="showDialog('quiver')">
+        <img src="../assets/adornos/box.png" alt="" />
       </button>
-      <dialog id="carcaj">
+      <dialog id="quiver">
         <p>Quiver</p>
         <div>
-          <label class="casilla-texto">e<input type="text" name="carcaj_e" /></label>
-          <label class="casilla-peso">Mx<input type="text" name="carcaj_mx" /></label>
-          <label class="casilla-texto"><input type="text" name="carcaj_text1" /></label>
-          <label class="casilla-peso">ac<input type="number" name="carcaj_ac1" /></label>
-          <label class="casilla-texto"><input type="text" name="carcaj_text2" /></label>
-          <label class="casilla-peso">ac<input type="number" name="carcaj_ac2" /></label>
-          <label class="casilla-texto"><input type="text" name="carcaj_text3" /></label>
-          <label class="casilla-peso">ac<input type="number" name="carcaj_ac3" /></label>
-          <label class="casilla-texto"><input type="text" name="carcaj_text4" /></label>
-          <label class="casilla-peso">ac<input type="number" name="carcaj_ac4" /></label>
-          <label class="casilla-texto"><input type="text" name="carcaj_text5" /></label>
-          <label class="casilla-peso">ac<input type="number" name="carcaj_ac5" /></label>
-          <label class="casilla-texto"><input type="text" name="carcaj_text6" /></label>
-          <label class="casilla-peso">ac<input type="number" name="carcaj_ac6" /></label>
+          <label class="box-text">e<input type="text" name="quiver_e" /></label>
+          <label class="box-weight">Mx<input type="text" name="quiver_mx" /></label>
+          <label class="box-text"><input type="text" name="quiver_text1" /></label>
+          <label class="box-weight">ac<input type="number" name="quiver_ac1" /></label>
+          <label class="box-text"><input type="text" name="quiver_text2" /></label>
+          <label class="box-weight">ac<input type="number" name="quiver_ac2" /></label>
+          <label class="box-text"><input type="text" name="quiver_text3" /></label>
+          <label class="box-weight">ac<input type="number" name="quiver_ac3" /></label>
+          <label class="box-text"><input type="text" name="quiver_text4" /></label>
+          <label class="box-weight">ac<input type="number" name="quiver_ac4" /></label>
+          <label class="box-text"><input type="text" name="quiver_text5" /></label>
+          <label class="box-weight">ac<input type="number" name="quiver_ac5" /></label>
+          <label class="box-text"><input type="text" name="quiver_text6" /></label>
+          <label class="box-weight">ac<input type="number" name="quiver_ac6" /></label>
         </div>
       </dialog>
     </section>

@@ -1,5 +1,5 @@
 fieldset {
-  background-image: url(../assets/img/pergaminoViejo.png);
+  background-image: url(../assets/img/parchmentOld.png);
   background-size: 100% 105%;
   background-repeat: no-repeat;
   background-position: center;
@@ -17,7 +17,7 @@ fieldset div {
 }
 
 article {
-  background-image: url(../assets/img/pergaminoAnuncio.png);
+  background-image: url(../assets/img/parchmentAnunce.png);
   background-size: 100% 100%;
   background-repeat: no-repeat;
   width: 20rem;
@@ -101,7 +101,7 @@ dialog {
   padding: 1rem;
   border: none;
   background: transparent;
-  background-image: url(../assets/img/pergaminoViejo.png);
+  background-image: url(../assets/img/parchmentOld.png);
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center;
@@ -131,19 +131,19 @@ dialog input[type='number'] {
   appearance: none;
   -moz-appearance: textfield;
 }
-dialog .casilla-nombre {
+dialog .box-name {
   width: 95%;
   height: auto;
 }
-dialog .casilla-texto {
+dialog .box-text {
   width: 65%;
   height: auto;
 }
-dialog .casilla-numero {
+dialog .box-number {
   width: 15%;
   height: auto;
 }
-dialog .casilla-peso {
+dialog .box-weight {
   width: 35%;
   height: auto;
 }
@@ -196,27 +196,27 @@ dialog .casilla-peso {
 .row-4 span {
   margin: 0 2rem;
 }
-.row-cuadrado {
+.row-square {
   display: flex;
   flex-wrap: wrap;
 }
-.row-cuadrado label {
+.row-square label {
   width: 50%;
 }
-.row-cuadrado select {
+.row-square select {
   font-size: 2rem;
   width: 100%;
 }
-.row-cuadrado p {
+.row-square p {
   width: 100%;
   text-align: center;
 }
-.row-bolsa {
+.row-bag {
   display: flex;
 }
-.row-bolsa input[type='text'] {
-  width: 18rem;
+.row-bag input[type='text'] {
+  width: 13rem;
 }
-.row-bolsa input[type='number'] {
+.row-bag input[type='number'] {
   width: 100%;
 }
