@@ -135,25 +135,17 @@ button img {
           <label class="box-weight">%d<input type="number" name="bg2-d" /></label>
         </div>
       </dialog>
-      <div class="row-bag">
-        <label><input type="text" name="obj1Name" /></label>
-        <label>u<input type="number" name="obj1-u" /></label>
-        <label>p<input type="number" name="obj1-p" /></label>
-      </div>
-      <div class="row-bag">
-        <label><input type="text" name="obj2Name" /></label>
-        <label>u<input type="number" name="obj2-u" /></label>
-        <label>p<input type="number" name="obj2-p" /></label>
-      </div>
-      <div class="row-bag">
-        <label><input type="text" name="obj3Name" /></label>
-        <label>u<input type="number" name="obj3-u" /></label>
-        <label>p<input type="number" name="obj3-p" /></label>
-      </div>
-      <div class="row-bag">
-        <label><input type="text" name="obj4Name" /></label>
-        <label>u<input type="number" name="obj4-u" /></label>
-        <label>p<input type="number" name="obj4-p" /></label>
+      <div v-for="(input, index) in inputs" :key="index" class="row-bag">
+        <label>
+          <input
+            type="text"
+            :name="'obj' + index + 'Name2'"
+            v-model="inputs[index]"
+            @input="newInput(index)"
+          />
+        </label>
+        <label>u<input type="number" :name="'obj' + index + 'u2'" /></label>
+        <label>p<input type="number" :name="'obj' + index + 'p2'" /></label>
       </div>
     </section>
   </fieldset>
@@ -179,8 +171,15 @@ const bagType = ref('')
 const updateBagName = (event) => {
   bagName.value = event.target.value
 }
-
 const updateBagType = (event) => {
   bagType.value = event.target.value
+}
+
+const inputs = ref([''])
+
+const newInput = (index) => {
+  if (index === inputs.value.length - 1 && inputs.value[index] !== '') {
+    inputs.value.push('')
+  }
 }
 </script>
