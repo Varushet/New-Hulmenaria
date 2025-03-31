@@ -466,15 +466,15 @@ section .trinket img {
       <dialog id="shoulder-right">
         <p>Right shoulder</p>
         <div>
-          <label class="box-name"><input type="text" name="rightshoulder_name" /></label>
-          <label class="box-text">t<input type="text" name="rightshoulder_t" /></label>
-          <label class="box-number">a<input type="number" name="rightshoulder_a" /></label>
-          <label class="box-number">p<input type="number" name="rightshoulder_p" /></label>
-          <label class="box-text">m<input type="text" name="rightshoulder_m" /></label>
-          <label class="box-number">c<input type="number" name="rightshoulder_c" /></label>
-          <label class="box-number">r<input type="number" name="rightshoulder_r" /></label>
-          <label class="box-text">e<input type="text" name="rightshoulder_e" /></label>
-          <label class="box-weight">u<input type="number" name="rightshoulder_u" /></label>
+          <label class="box-name"><input type="text" name="leftshoulder_name" /></label>
+          <label class="box-text">t<input type="text" name="leftshoulder_t" /></label>
+          <label class="box-number">a<input type="number" name="leftshoulder_a" /></label>
+          <label class="box-number">p<input type="number" name="leftshoulder_p" /></label>
+          <label class="box-text">m<input type="text" name="leftshoulder_m" /></label>
+          <label class="box-number">c<input type="number" name="leftshoulder_c" /></label>
+          <label class="box-number">r<input type="number" name="leftshoulder_r" /></label>
+          <label class="box-text">e<input type="text" name="leftshoulder_e" /></label>
+          <label class="box-weight">%d<input type="number" name="leftshoulder_d" /></label>
         </div>
       </dialog>
     </section>

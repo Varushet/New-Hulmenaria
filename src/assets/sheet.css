@@ -10,11 +10,6 @@ fieldset {
   font-size: 2rem;
   border: none;
 }
-fieldset div {
-  display: flex;
-  justify-content: center;
-  font-size: 0.8rem;
-}
 
 article {
   background-image: url(../assets/img/parchmentAnunce.png);
@@ -108,44 +103,39 @@ dialog {
   text-align: center;
 }
 dialog div {
+  font-size: 1rem;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   width: 100%;
 }
 dialog input,
 dialog label {
   height: 3rem;
-}
-dialog label {
-  margin: 0.2rem auto;
+  margin: 0.5rem 0;
 }
 dialog input {
   width: 100%;
-  font-size: 2rem;
+  font-size: 1rem;
+  margin: 0.15rem;
 }
 dialog input[type='number'] {
   width: 100%;
-  font-size: 2rem;
   appearance: none;
   -moz-appearance: textfield;
 }
 dialog .box-name {
-  width: 95%;
-  height: auto;
+  width: 100%;
 }
 dialog .box-text {
   width: 65%;
-  height: auto;
 }
 dialog .box-number {
   width: 15%;
-  height: auto;
 }
 dialog .box-weight {
   width: 35%;
-  height: auto;
 }
 .row-1 {
   width: 50%;

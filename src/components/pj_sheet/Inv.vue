@@ -5,12 +5,12 @@ fieldset {
   background-size: 103% 109%;
 }
 section {
-  background-image: url(../../assets/img/parchmentOld.png);
+  background-image: url(../../assets/img/parchment.png);
   background-size: 100% 105%;
   background-repeat: no-repeat;
   background-position: center;
 }
-.pouch {
+fieldset .pouch {
   background-image: url(../../assets/img/parchmentOld.png);
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -37,20 +37,26 @@ section {
   border: dotted;
   font-size: 1rem;
 }
-.inv {
-  height: 20rem;
+fieldset section{
+  height: 2.8rem;
+  overflow: hidden;
+  transition: 1s;
 }
-.inv div:first-child {
+fieldset section[class*='inv'] div:first-child {
   font-size: 2rem;
+  height: 2.5rem;
   display: flex;
   justify-content: space-around;
 }
-button {
+.inv button {
   background: transparent;
-  cursor: pointer;
   border-radius: 25%;
+  cursor: pointer;
 }
-button img {
+.inv p{
+  cursor: pointer;
+}
+.inv button img {
   height: 2.5rem;
 }
 </style>
@@ -70,19 +76,23 @@ button img {
       <label><input type="text" name="coin3" /></label>
       <label><input type="number" name="coin3Cant" /></label>
     </div>
-    <section class="inv" id="inv">
+    <section class="inv" id="inv" :style="bag1Style">
       <div>
-        <p @click="openBag" class="bag-title">Main Bag</p>
-        <button type="button" @click="showDialog('bag')">
+        <p @click="openBag('bag1')">{{ bags.bag1.name.value }} {{ bags.bag1.type.value }}</p>
+        <button type="button" @click="showDialog('bag1')">
           <img src="/src/assets/icon/pouch.png" alt="Bag img" />
         </button>
       </div>
-      <dialog id="bag">
-        <p>Main Bag</p>
+      <dialog id="bag1">
+        <p>{{ bags.bag1.name.value }} {{ bags.bag1.type.value }}</p>
         <div>
-          <label class="box-name"><input type="text" name="bag-name" /></label>
-          <label class="box-text">t<input type="text" name="bag-t" /></label>
-          <label class="box-weight">Mx<input type="number" name="bag-mx" /></label>
+          <label class="box-name"
+            ><input type="text" name="bag-name" :value="bags.bag1.name.value" @input="e => updateBag('bag1', 'name', e)"
+          /></label>
+          <label class="box-text"
+            >t<input type="text" name="bag-t" :value="bags.bag1.type.value" @input="e => updateBag('bag1', 'type', e)"
+          /></label>
+          <label class="box-weight">Mx<input type="number" name="bag-mx" :value="bags.bag1.maxCapacity.value" @input="e => updateMaxCapacity('bag1', e)"/></label>
           <label class="box-text">m<input type="text" name="bag-m" /></label>
           <label class="box-number">c<input type="number" name="bag-c" /></label>
           <label class="box-number">r<input type="number" name="bag-r" /></label>
@@ -90,58 +100,50 @@ button img {
           <label class="box-weight">%d<input type="number" name="bag-d" /></label>
         </div>
       </dialog>
-      <div class="row-bag">
-        <label><input type="text" name="obj1Name" /></label>
-        <label>u<input type="number" name="obj1-u" /></label>
-        <label>p<input type="number" name="obj1-p" /></label>
-      </div>
-      <div class="row-bag">
-        <label><input type="text" name="obj2Name" /></label>
-        <label>u<input type="number" name="obj2-u" /></label>
-        <label>p<input type="number" name="obj2-p" /></label>
-      </div>
-      <div class="row-bag">
-        <label><input type="text" name="obj3Name" /></label>
-        <label>u<input type="number" name="obj3-u" /></label>
-        <label>p<input type="number" name="obj3-p" /></label>
-      </div>
-      <div class="row-bag">
-        <label><input type="text" name="obj4Name" /></label>
-        <label>u<input type="number" name="obj4-u" /></label>
-        <label>p<input type="number" name="obj4-p" /></label>
+      <div v-for="(input, index) in bags.bag1.inputs.value" :key="index" class="row-bag">
+        <label>
+          <input
+            type="text"
+            :name="'obj' + index + 'Name'"
+            v-model="bags.bag1.inputs.value[index]"
+            @input="e => newInput('bag1', index)"
+          />
+        </label>
+        <label>u<input type="number" :name="'obj' + index + 'u'" /></label>
+        <label>p<input type="number" :name="'obj' + index + 'p'" /></label>
       </div>
     </section>
-    <section class="inv2" id="inv2">
+    <section class="inv2" id="inv2" :style="bag2Style">
       <div>
-        <p @click="openBag" class="bag-title">{{ bagName }} {{ bagType }}</p>
+        <p @click="openBag('bag2')">{{ bags.bag2.name.value }} {{ bags.bag2.type.value }}</p>
         <button type="button" @click="showDialog('bag2')">
           <img src="/src/assets/icon/pouch.png" alt="Bag img" />
         </button>
       </div>
       <dialog id="bag2">
-        <p>{{ bagName }} {{ bagType }}</p>
+        <p>{{ bags.bag2.name.value }} {{ bags.bag2.type.value }}</p>
         <div>
           <label class="box-name"
-            ><input type="text" name="bag2-name" :value="bagName" @input="updateBagName"
+            ><input type="text" name="bag2-name" :value="bags.bag2.name.value" @input="e => updateBag('bag2', 'name', e)"
           /></label>
           <label class="box-text"
-            >t<input type="text" name="bg2-t" :value="bagType" @input="updateBagType"
+            >t<input type="text" name="bag2-t" :value="bags.bag2.type.value" @input="e => updateBag('bag2', 'type', e)"
           /></label>
-          <label class="box-weight">Mx<input type="number" name="bg2-mx" /></label>
-          <label class="box-text">m<input type="text" name="bg2-m" /></label>
-          <label class="box-number">c<input type="number" name="bg2-c" /></label>
-          <label class="box-number">r<input type="number" name="bg2-r" /></label>
-          <label class="box-text">e<input type="text" name="bg2-e" /></label>
-          <label class="box-weight">%d<input type="number" name="bg2-d" /></label>
+          <label class="box-weight">Mx<input type="number" name="bag2-mx" :value="bags.bag2.maxCapacity.value" @input="e => updateMaxCapacity('bag2', e)"/></label>
+          <label class="box-text">m<input type="text" name="bag2-m" /></label>
+          <label class="box-number">c<input type="number" name="bag2-c" /></label>
+          <label class="box-number">r<input type="number" name="bag2-r" /></label>
+          <label class="box-text">e<input type="text" name="bag2-e" /></label>
+          <label class="box-weight">%d<input type="number" name="bag2-d" /></label>
         </div>
       </dialog>
-      <div v-for="(input, index) in inputs" :key="index" class="row-bag">
+      <div v-for="(input, index) in bags.bag2.inputs.value" :key="index" class="row-bag">
         <label>
           <input
             type="text"
             :name="'obj' + index + 'Name2'"
-            v-model="inputs[index]"
-            @input="newInput(index)"
+            v-model="bags.bag2.inputs.value[index]"
+            @input="e => newInput('bag2', index)"
           />
         </label>
         <label>u<input type="number" :name="'obj' + index + 'u2'" /></label>
@@ -152,7 +154,7 @@ button img {
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 
 const showDialog = (dialogId) => {
   const dialog = document.querySelector(`#${dialogId}`)
@@ -165,21 +167,51 @@ const showDialog = (dialogId) => {
   })
 }
 
-const bagName = ref('')
-const bagType = ref('')
+const bag1Open = ref(false)
+const bag2Open = ref(false)
 
-const updateBagName = (event) => {
-  bagName.value = event.target.value
-}
-const updateBagType = (event) => {
-  bagType.value = event.target.value
-}
-
-const inputs = ref([''])
-
-const newInput = (index) => {
-  if (index === inputs.value.length - 1 && inputs.value[index] !== '') {
-    inputs.value.push('')
+const openBag = (bagId)=>{
+  if (bagId === 'bag1') {
+    bag1Open.value = !bag1Open.value
+  } else if (bagId === 'bag2'){
+    bag2Open.value = !bag2Open.value
   }
+}
+const bag1Style = computed(() =>({
+  height: bag1Open.value? '20rem' : '2.8rem'
+}))
+const bag2Style = computed(() => ({
+  height: bag2Open.value ? '20rem' : '2.8rem'
+}))
+
+const bags = {
+  bag1: {
+    name: ref('Main'),
+    type: ref('Bag'),
+    inputs: ref(['']),
+    maxCapacity: ref(5)
+  },
+  bag2: {
+    name: ref('new'),
+    type: ref('bag'),
+    inputs: ref(['']),
+    maxCapacity: ref(0)
+  }
+}
+
+const updateBag = (bagId, property, event) =>{
+  bags[bagId][property].value = event.target.value
+}
+const newInput = (bagId, index) => {
+  const bag = bags[bagId]
+  if (index === bag.inputs.value.length - 1 &&
+      bag.inputs.value[index] !== '' &&
+      bag.inputs.value.length < bag.maxCapacity.value) {
+    bag.inputs.value.push('')
+    }
+}
+const updateMaxCapacity = (bagId, event) =>{
+  const value = event.target.value
+  bags[bagId].maxCapacity.value = value
 }
 </script>
