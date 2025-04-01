@@ -20,7 +20,22 @@ nav [class*='menu'] {
   align-items: center;
   justify-content: space-between;
   transition: 1s;
+  position: relative;
 }
+nav [class*='menu']::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+  pointer-events: none; /* Evita que el pseudo-elemento interfiera con clics */
+}
+/* nav .menu-left {
+  box-shadow: -0.5rem -0.5rem rem -1rem rgb(26, 26, 26) inset;
+  border-radius: 0.2rem;
+} */
 nav .menu-left:hover {
   transform: translateX(6rem) !important;
 }
@@ -59,10 +74,10 @@ nav .menu-left img {
 
 <template>
   <nav>
-    <div class="menu-left" :style="menuleft">
-      <RouterLink to="/Sheet"><h2>PJ Sheet</h2></RouterLink>
+    <RouterLink to="/Sheet" class="menu-left" :style="menuleft">
+      <h2>PJ Sheet</h2>
       <img src="@/assets/img/sheet.png" alt="Character sheet" />
-    </div>
+    </RouterLink>
     <div class="menu-left" :style="menuleft">
       <h2>Talents</h2>
       <img src="@/assets/img/logo.png" alt="Talents icon" />
