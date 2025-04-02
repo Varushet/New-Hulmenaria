@@ -12,6 +12,7 @@
 .footerClass {
   position: absolute;
   bottom: -12rem;
+  width: 100vw;
 }
 </style>
 

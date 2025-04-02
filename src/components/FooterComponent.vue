@@ -4,6 +4,7 @@ footer {
   color: wheat;
   display: flex;
   padding: 1rem;
+  box-sizing: border-box;
 }
 footer img {
   width: 6rem;
