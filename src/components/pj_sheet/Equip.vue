@@ -139,6 +139,11 @@ section .trinket img {
 .box-sheath button {
   background-image: url(../assets/);
 } */
+@media screen and (min-width: 400px) {
+  .equip {
+    padding: 1.5rem 35rem;
+  }
+}
 </style>
 
 <template>

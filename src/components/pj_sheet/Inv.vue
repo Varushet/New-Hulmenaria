@@ -60,6 +60,12 @@ fieldset section[class*='inv'] div:first-child {
 .inv button img {
   height: 2.5rem;
 }
+@media screen and (min-width: 400px) {
+  .pouch {
+    display: flex;
+    justify-content: center;
+  }
+}
 </style>
 
 <template>

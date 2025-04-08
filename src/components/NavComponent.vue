@@ -66,7 +66,7 @@ nav .shadow .menu-left img {
   margin-right: 0.5rem;
 }
 @media screen and (min-width: 400px) {
-  nav [class*='menu'] {
+  .shadow {
     translate: 0%;
   }
 }
