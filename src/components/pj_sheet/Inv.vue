@@ -9,7 +9,7 @@ section {
   background-size: 100% 105%;
   background-repeat: no-repeat;
   background-position: center;
-  box-shadow: 0px -5px 5px rgba(0, 0, 0, 0.884);
+  box-shadow: 0px -5px 5px rgba(0, 0, 0, 0.8);
 }
 fieldset .pouch {
   background-image: url(../../assets/img/parchmentOld.png);
@@ -31,11 +31,11 @@ fieldset .pouch {
 }
 .pouch input {
   width: 4rem;
-  border: 1px solid black;
+  border: 2px inset var(--bgLatte);
 }
 .pouch input[type='text'] {
   width: 2rem;
-  border: dotted;
+  border: 3px dotted;
   font-size: 1rem;
 }
 fieldset section {
@@ -53,6 +53,7 @@ fieldset section[class*='inv'] div:first-child {
   background: transparent;
   border-radius: 25%;
   cursor: pointer;
+  border: 2px inset var(--bgLatte);
 }
 .inv p {
   cursor: pointer;

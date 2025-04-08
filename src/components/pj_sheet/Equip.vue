@@ -16,8 +16,9 @@
 }
 .equip button {
   background: transparent;
-  background-color: rgba(150, 80, 22, 0.405);
+  background-color: var(--bgCoffe);
   border-radius: 1rem;
+  border: 2px inset var(--bgLatte);
 }
 .equip button img {
   width: 3rem;
@@ -64,7 +65,7 @@ section .trinket img {
   grid-area: 4/4/5/8;
 }
 .box-chest {
-  grid-area: 5/1/9/8;
+  grid-area: 4/1/4/8;
 }
 .box-arm-left {
   grid-area: 5/1/9/4;
@@ -129,16 +130,18 @@ section .trinket img {
 .box-quiver {
   grid-area: 11/7;
 }
-
-/* .box-weapon button {
-  background-image: url(../assets/);
+[class*='box'] button {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.7;
 }
-.box-shield button {
-  background-image: url(../assets/);
+.box-head button {
+  background-image: url(../../assets/icon/equip/head.png);
 }
-.box-sheath button {
-  background-image: url(../assets/);
-} */
+.box-chest button {
+  background-image: url(../../assets/icon/equip/body.png);
+}
 @media screen and (min-width: 400px) {
   .equip {
     padding: 1.5rem 35rem;
