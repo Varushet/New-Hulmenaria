@@ -47,7 +47,6 @@ label {
   justify-items: center;
   justify-content: space-between;
   align-items: center;
-  margin: 0rem 0;
 }
 input,
 select,
@@ -60,6 +59,7 @@ textarea {
   margin: 0.5rem 0.5rem;
   text-align: center;
   box-sizing: border-box;
+  width: 100%;
 }
 textarea {
   height: 3rem;
@@ -76,9 +76,6 @@ input[type='range']::-moz-range-thumb {
   background-size: cover;
   border: none;
 }
-input[type='number'] {
-  width: 4rem;
-}
 
 .row-1 {
   background-color: orange;
@@ -91,10 +88,21 @@ input[type='number'] {
 .row-2 {
   background-color: aqua;
   display: flex;
+  justify-content: left;
 }
-.row-2 input {
+.row-2 label {
+  background-color: chartreuse;
+}
+.row-2 input[type='text'] {
   background-color: rebeccapurple;
+  width: 12.5rem;
 }
+.row-2 input[type='number'] {
+  -moz-appearance: textfield !important;
+  appearance: none;
+  min-width: 3rem;
+}
+
 .row-cuadrado {
   text-align: center;
 }
