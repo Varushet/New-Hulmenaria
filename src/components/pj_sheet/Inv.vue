@@ -6,7 +6,7 @@ fieldset {
 }
 section {
   background-image: url(../../assets/img/parchment.png);
-  background-size: 100% 105%;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   box-shadow: 0px -5px 5px rgba(0, 0, 0, 0.8);

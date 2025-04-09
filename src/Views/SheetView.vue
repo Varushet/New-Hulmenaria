@@ -44,10 +44,12 @@ div img {
     </div>
     <Equip />
     <Inv />
+    <Stadist />
   </div>
 </template>
 
 <script setup>
 import Equip from '../components/pj_sheet/Equip.vue'
 import Inv from '../components/pj_sheet/Inv.vue'
+import Stadist from '@/components/pj_sheet/Stadist.vue'
 </script>

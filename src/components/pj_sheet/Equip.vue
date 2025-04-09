@@ -46,10 +46,10 @@ section .trinket img {
 .box-head {
   grid-area: 1/1/4/8;
 }
-.box-pircing-left {
+.box-pircing-right {
   grid-area: 1/3;
 }
-.box-pircing-right {
+.box-pircing-left {
   grid-area: 1/5;
 }
 .box-face {
@@ -58,19 +58,19 @@ section .trinket img {
 .box-collar {
   grid-area: 3/3;
 }
-.box-shoulder-left {
+.box-shoulder-right {
   grid-area: 4/1/5/5;
 }
-.box-shoulder-right {
+.box-shoulder-left {
   grid-area: 4/4/5/8;
 }
 .box-chest {
   grid-area: 4/1/4/8;
 }
-.box-arm-left {
+.box-arm-right {
   grid-area: 5/1/9/4;
 }
-.box-arm-right {
+.box-arm-left {
   grid-area: 5/5/9/8;
 }
 .box-tatoo {
@@ -79,37 +79,37 @@ section .trinket img {
 .box-kenwa {
   grid-area: 5/5;
 }
-.box-bracelet-left {
+.box-bracelet-right {
   grid-area: 8/3;
 }
-.box-bracelet-right {
+.box-bracelet-left {
   grid-area: 8/5;
 }
 .box-waist {
   grid-area: 9/1/9/8;
 }
-.box-hand-left {
+.box-hand-right {
   grid-area: 9/1/9/4;
 }
-.box-hand-right {
+.box-hand-left {
   grid-area: 9/5/9/8;
 }
-.box-ring-left {
+.box-ring-right {
   grid-area: 9/5/12/5;
 }
-.box-ring-right {
+.box-ring-left {
   grid-area: 9/3/12/3;
 }
-.box-leg-left {
+.box-leg-right {
   grid-area: 10/1/14/7;
 }
-.box-leg-right {
+.box-leg-left {
   grid-area: 10/2/14/8;
 }
-.box-foot-left {
+.box-foot-right {
   grid-area: 14/1/14/7;
 }
-.box-foot-right {
+.box-foot-left {
   grid-area: 14/2/14/8;
 }
 .box-sheath {
@@ -142,9 +142,15 @@ section .trinket img {
 .box-chest button {
   background-image: url(../../assets/icon/equip/body.png);
 }
+.box-shoulder-left button {
+  background-image: url(../../assets/icon/equip/shoulderL.png);
+}
+.box-shoulder-right button {
+  background-image: url(../../assets/icon/equip/shoulderR.png);
+}
 @media screen and (min-width: 400px) {
   .equip {
-    padding: 1.5rem 35rem;
+    padding: 1.5rem 48rem;
   }
 }
 </style>
@@ -168,11 +174,7 @@ section .trinket img {
       </dialog>
     </section>
     <section class="box-pircing-right">
-      <button
-        type="button"
-        class="trinket"
-        onclick="document.querySelector('#pircing-right').showModal()"
-      >
+      <button type="button" class="trinket" @click="showDialog('pircing-right')">
         <img src="../assets/adornos/box.png" alt="" />
       </button>
       <dialog id="pircing-right">
