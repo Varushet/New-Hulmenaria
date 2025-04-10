@@ -9,16 +9,17 @@ main {
   top: 6rem;
   width: 100vw;
   height: 95vh;
+  overflow-y: scroll;
 }
 fieldset {
   background: none;
-  padding: 0.6rem;
+  padding: 1rem 1rem 0 0.3rem;
   box-sizing: border-box;
 }
 </style>
 <template>
   <main>
-    <fieldset class="identidad" id="identity">
+    <fieldset class="identity" id="identity">
       <label class="row-1">Name<input type="text" name="name" /></label>
       <label class="row-1">Race<input type="text" name="race" /></label>
       <label class="row-1">Mutation<textarea name="mutation"></textarea></label>
@@ -128,6 +129,94 @@ fieldset {
         <label><input type="text" name="class3" /></label>
       </div>
       <label class="row-1">Synergy<input type="text" name="synergy" /></label>
+    </fieldset>
+    <fieldset class="power" id="power">
+      <div class="row-3">
+        <label>Lvl<input type="number" min="1" readonly name="lvl" /></label>
+        <label>E.P.<input type="number" min="1" name="ep" /></label>
+        <label>X.P.<input type="number" min="1" name="xp" /></label>
+      </div>
+      <div class="karma">
+        <p>Karma</p>
+        <label class="karma"
+          ><span>Good</span><input type="range" step="10" value="0" name="karmaGood"
+        /></label>
+        <label class="karma"
+          ><span>Evil</span><input type="range" step="10" value="0" name="karmaEvil"
+        /></label>
+      </div>
+      <div class="row-3">
+        <label
+          ><select name="mistyc">
+            <option>Mistyc</option>
+            <option>Favilyan</option>
+            <option>Cromag</option>
+            <option>Novalt</option>
+          </select></label
+        >
+        <label>Ac<input type="number" min="5" name="acMistyc" /></label>
+        <label>Mx<input type="number" min="5" readonly name="mxMistyc" /></label>
+      </div>
+      <div class="row-3">
+        <label
+          ><select name="insiders">
+            <option>Insiders</option>
+            <option>Polarity</option>
+            <option>Geruma</option>
+            <option>Sentiment</option>
+          </select></label
+        >
+        <label>Ac<input type="number" min="5" name="acInsiders" /></label>
+        <label>Mx<input type="number" min="5" readonly name="mxInsiders" /></label>
+      </div>
+      <div class="row-3">
+        <label
+          ><select name="naturals">
+            <option>Naturals</option>
+            <option>Elements</option>
+            <option>Exaner</option>
+          </select></label
+        >
+        <label>Ac<input type="number" min="5" name="acNaturals" /></label>
+        <label>Mx<input type="number" min="5" readonly name="mxNaturals" /></label>
+      </div>
+      <div class="row-4">
+        <p>H.P.</p>
+        <label>Ac<input type="number" min="1" name="acHP" /></label>
+        <label>Mx<input type="number" min="1" readonly name="mxHP" /></label>
+        <p>C.P.</p>
+        <label>Ac<input type="number" min="1" name="acCP" /></label>
+        <label>Mx<input type="number" min="1" readonly name="mxCP" /></label>
+      </div>
+      <div class="row-4">
+        <label
+          ><p>N.A.</p>
+          <input type="number" min="1" readonly name="na"
+        /></label>
+        <label
+          ><p>Arm</p>
+          <input type="number" min="1" readonly name="arm"
+        /></label>
+        <p class="short">p</p>
+        <label>Ac<input type="number" min="1" name="acp" /></label>
+        <label>Mx<input type="number" min="1" readonly name="mxp" /></label>
+      </div>
+      <div class="row-4">
+        <p>Res</p>
+        <label>Ac<input type="number" min="5" name="acRes" /></label>
+        <label>Mx<input type="number" min="5" readonly name="mxRes" /></label>
+        <p>Ham</p>
+        <label>Ac<input type="number" min="1" name="acHam" /></label>
+        <label>Mx<input type="number" min="1" readonly name="mxHam" /></label>
+      </div>
+      <div class="row-4">
+        <p>Cor</p>
+        <label><span>%</span><input type="number" min="0" name="percentCor" /></label>
+        <label>-/d<input type="number" readonly name="minusCor" /></label>
+        <p>Mad</p>
+        <label><span>%</span><input type="number" min="0" name="percentLoc" /></label>
+        <label>-/d<input type="number" readonly name="minusLoc" /></label>
+      </div>
     </fieldset>
   </main>
 </template>

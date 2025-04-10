@@ -64,21 +64,14 @@ textarea {
 textarea {
   height: 3rem;
 }
-input[type='range'] {
-  width: 22rem;
-}
-input[type='range']::-moz-range-thumb {
-  width: 4rem;
-  height: 4rem;
-  background: transparent;
-  background-image: url(../assets/iconos/selector.svg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  border: none;
+
+input[type='number'] {
+  -moz-appearance: textfield !important;
+  appearance: none;
+  min-width: 3rem;
 }
 
 .row-1 {
-  background-color: orange;
   width: 100%;
 }
 .row-1 input,
@@ -86,23 +79,42 @@ input[type='range']::-moz-range-thumb {
   width: 100%;
 }
 .row-2 {
-  background-color: aqua;
   display: flex;
   justify-content: left;
 }
-.row-2 label {
-  background-color: chartreuse;
-}
 .row-2 input[type='text'] {
-  background-color: rebeccapurple;
-  width: 12.5rem;
+  width: 12rem;
 }
-.row-2 input[type='number'] {
-  -moz-appearance: textfield !important;
-  appearance: none;
-  min-width: 3rem;
+.row-3 {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
-
+.row-3 label {
+  width: 30%;
+}
+.row-3 input {
+  width: 4rem;
+}
+.row-4 {
+  display: flex;
+  align-items: last baseline;
+  text-align: center;
+}
+.row-4 label {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 6rem;
+  font-size: 1rem;
+}
+.row-4 input {
+  height: 3rem;
+  width: 1.5rem;
+}
+.row-4 p {
+  font-size: 1.5rem;
+}
 .row-cuadrado {
   text-align: center;
 }
@@ -112,6 +124,30 @@ input[type='range']::-moz-range-thumb {
 .row-cuadrado select {
   width: 45%;
 }
+.karma {
+  text-align: center;
+}
+.karma input[type='range'] {
+  height: 4rem;
+  width: 18rem;
+  border: none;
+}
+.karma input[type='range']::-moz-range-track {
+  background: linear-gradient(to right, #4caf50, #f44336);
+  height: 1.7rem;
+  border-radius: 1rem;
+  border: 2px inset var(--bgLatte);
+}
+.karma input[type='range']::-moz-range-thumb {
+  width: 3rem;
+  height: 3rem;
+  background: transparent;
+  background-image: url(../../src/assets/selector/selector.svg);
+  background-size: cover;
+  border: none;
+  border-radius: 50%;
+}
+
 dialog::backdrop {
   background-color: rgba(0, 0, 0, 0.5);
 }
