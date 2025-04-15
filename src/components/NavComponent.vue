@@ -80,32 +80,32 @@ nav .shadow .menu-left img {
         <img src="@/assets/img/sheet.png" alt="Character sheet" />
       </RouterLink>
     </div>
-    <div class="shadow left">
-      <RouterLink to="/Talents" class="menu-left" :style="menuleft">
+    <div class="shadow left" :style="menuleft">
+      <RouterLink to="/Talents" class="menu-left">
         <h2>Talents</h2>
         <img src="@/assets/img/logo.png" alt="Talents icon" />
       </RouterLink>
     </div>
-    <div class="shadow left">
-      <RouterLink to="/Loot" class="menu-left" :style="menuleft">
+    <div class="shadow left" :style="menuleft">
+      <RouterLink to="/Loot" class="menu-left">
         <h2>Loot Table</h2>
         <img src="@/assets/img/chest.png" alt="Loot icon" />
       </RouterLink>
     </div>
-    <div class="shadow right">
-      <RouterLink to="/Map" class="menu-right" :style="menuright">
+    <div class="shadow right" :style="menuright">
+      <RouterLink to="/Map" class="menu-right">
         <img src="@/assets/img/map.png" alt="Map icon" />
         <h2>Map</h2>
       </RouterLink>
     </div>
-    <div class="shadow right">
-      <RouterLink to="/Hour" class="menu-right" :style="menuright">
+    <div class="shadow right" :style="menuright">
+      <RouterLink to="/Hour" class="menu-right">
         <img src="@/assets/img/hourglass.png" alt="Hourglass icon" />
         <h2>Hour glass</h2>
       </RouterLink>
     </div>
-    <div class="shadow right">
-      <RouterLink to="/Pedia" class="menu-right" :style="menuright">
+    <div class="shadow right" :style="menuright">
+      <RouterLink to="/Pedia" class="menu-right">
         <img src="@/assets/img/encyclop.png" alt="Encyclopedia icon" />
         <h2>Encyclo pedia</h2>
       </RouterLink>
@@ -123,7 +123,6 @@ const props = defineProps({
     required: true,
   },
 })
-
 const menuleft = computed(() => ({
   transform: props.isRoadmapOpen ? 'translateX(-60%)' : '',
 }))

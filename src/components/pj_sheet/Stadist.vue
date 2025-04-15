@@ -3,12 +3,12 @@
 
 main {
   background-image: url(../../assets/img/parchmentOld.png);
-  background-size: 350% 105%;
-  background-position: right;
+  background-size: 360% 105%;
+  background-position: right -1rem;
   position: absolute;
   top: 6rem;
   width: 100vw;
-  height: 95vh;
+  height: 89%;
   overflow-y: scroll;
 }
 fieldset {
@@ -20,7 +20,7 @@ fieldset {
 <template>
   <main>
     <fieldset class="identity" id="identity">
-      <label class="row-1">Name<input type="text" name="name" /></label>
+      <label class="row-1">Name<input type="text" name="name" :value="name" /></label>
       <label class="row-1">Race<input type="text" name="race" /></label>
       <label class="row-1">Mutation<textarea name="mutation"></textarea></label>
       <div class="row-cuadrado">

@@ -202,7 +202,7 @@ const showDialog = (dialogId) => {
     }
   })
 }
-
+//script para abrir y cerra la bolsa
 const bag1Open = ref(false)
 const bag2Open = ref(false)
 
@@ -222,6 +222,7 @@ const bag2Style = computed(() => ({
   overflow: bag1Open.value ? 'scroll' : 'hidden',
 }))
 
+//script para hacer el nombre y los datos de la bolsa reactivos
 const bags = {
   bag1: {
     name: ref('Main'),
