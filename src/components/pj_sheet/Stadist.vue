@@ -20,8 +20,12 @@ fieldset {
 <template>
   <main>
     <fieldset class="identity" id="identity">
-      <label class="row-1">Name<input type="text" name="name" :value="name" /></label>
-      <label class="row-1">Race<input type="text" name="race" /></label>
+      <label class="row-1"
+        >Name<input type="text" name="name" :value="name" @input="updateName"
+      /></label>
+      <label class="row-1"
+        >Race<input type="text" name="race" :value="race" @input="updateRace"
+      /></label>
       <label class="row-1">Mutation<textarea name="mutation"></textarea></label>
       <div class="row-cuadrado">
         <p>Alignment</p>
@@ -132,9 +136,13 @@ fieldset {
     </fieldset>
     <fieldset class="power" id="power">
       <div class="row-3">
-        <label>Lvl<input type="number" min="1" readonly name="lvl" /></label>
-        <label>E.P.<input type="number" min="1" name="ep" /></label>
-        <label>X.P.<input type="number" min="1" name="xp" /></label>
+        <label
+          >Lvl<input type="number" min="1" name="lvl" :value="level" @input="updateLvl"
+        /></label>
+        <label
+          >E.P.<input type="number" min="1" name="ep" v-model="xpInsert" @keyup.enter="xpUpdate"
+        /></label>
+        <label>X.P.<input type="number" min="1" name="xp" :value="xpReach" readonly /></label>
       </div>
       <div class="karma">
         <p>Karma</p>
@@ -221,4 +229,43 @@ fieldset {
   </main>
 </template>
 
-<script setup></script>
+<script setup>
+import { ref } from 'vue'
+
+const name = ref('Select a Name')
+const race = ref('Select a Race')
+const level = ref(1)
+const xpReach = ref(0)
+const xpInsert = ref()
+
+const emit = defineEmits(['update:name', 'update:race', 'update:level'])
+
+//actualizar los valores a la plantilla
+const updateName = (event) => {
+  name.value = event.target.value
+  emit('update:name', name.value)
+}
+const updateRace = (event) => {
+  race.value = event.target.value
+  emit('update:race', race.value)
+}
+const updateLvl = (event) => {
+  level.value = Number(event.target.value)
+  emit('update:level', level.value)
+}
+//Suma el XP y calcula el nivel
+const xpUpdate = (event) => {
+  const inputValue = Number(event.target.value) || 0
+  const maxLvl = Number(level.value) * 10 - 1
+  xpInsert.value = inputValue
+  xpReach.value = xpInsert.value + Number(xpReach.value)
+  //restaura E.P. a su valor 0
+  xpInsert.value = 0
+  //Suve el Nv y Restaura el XP a su valor inicial
+  if (xpReach.value > maxLvl) {
+    level.value++
+    xpReach.value -= maxLvl
+    emit('update:level', level.value)
+  }
+}
+</script>

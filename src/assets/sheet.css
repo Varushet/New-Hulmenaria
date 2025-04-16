@@ -91,10 +91,10 @@ input[type='number'] {
   justify-content: space-between;
 }
 .row-3 label {
-  width: 30%;
+  width: 35%;
 }
 .row-3 input {
-  width: 4rem;
+  width: rem;
 }
 .row-4 {
   display: flex;

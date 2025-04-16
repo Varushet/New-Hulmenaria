@@ -10,11 +10,7 @@ nav {
   overflow: hidden;
   position: relative;
 }
-.shadow {
-  translate: -40%;
-  transition: 1s;
-}
-nav .shadow [class*='menu'] {
+nav div [class*='menu'] {
   background-image: url(/src/assets/img/parchmentOld.png);
   background-size: 100% 100%;
   height: 6rem;
@@ -24,17 +20,6 @@ nav .shadow [class*='menu'] {
   align-items: center;
   justify-content: space-between;
   position: relative;
-}
-.shadow::before {
-  background-image: url(/src/assets/img/parchmentOld.png);
-  background-size: 100% 100%;
-  content: '';
-  transform: translate(0.2rem, 0.2rem);
-  filter: brightness(0);
-  opacity: 0.8;
-  position: absolute;
-  width: 100%;
-  height: 100%;
 }
 nav .left:hover {
   transform: translateX(6rem) !important;
@@ -69,6 +54,22 @@ nav .shadow .menu-left img {
   .shadow {
     translate: 0%;
   }
+}
+.shadow {
+  translate: -40%;
+  transition: 1s;
+}
+
+.shadow::before {
+  background-image: url(/src/assets/img/parchmentOld.png);
+  background-size: 100% 100%;
+  content: '';
+  transform: translate(0.2rem, 0.2rem);
+  filter: brightness(0);
+  opacity: 0.8;
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 </style>
 
