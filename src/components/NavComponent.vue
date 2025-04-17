@@ -10,6 +10,10 @@ nav {
   overflow: hidden;
   position: relative;
 }
+.shadow {
+  translate: -40%;
+  transition: 1s;
+}
 nav div [class*='menu'] {
   background-image: url(/src/assets/img/parchmentOld.png);
   background-size: 100% 100%;
@@ -54,10 +58,6 @@ nav .shadow .menu-left img {
   .shadow {
     translate: 0%;
   }
-}
-.shadow {
-  translate: -40%;
-  transition: 1s;
 }
 
 .shadow::before {

@@ -1,7 +1,7 @@
 <style scoped>
 @import '../../assets/sheet.css';
 
-main {
+section {
   background-image: url(../../assets/img/parchmentOld.png);
   background-size: 360% 105%;
   background-position: right -1rem;
@@ -18,7 +18,7 @@ fieldset {
 }
 </style>
 <template>
-  <main>
+  <section>
     <fieldset class="identity" id="identity">
       <label class="row-1"
         >Name<input type="text" name="name" :value="name" @input="updateName"
@@ -226,7 +226,7 @@ fieldset {
         <label>-/d<input type="number" readonly name="minusLoc" /></label>
       </div>
     </fieldset>
-  </main>
+  </section>
 </template>
 
 <script setup>
