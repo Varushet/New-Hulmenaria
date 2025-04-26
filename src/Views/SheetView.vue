@@ -18,10 +18,6 @@ div img {
   width: 100%;
   font-size: 3rem;
 }
-.stadist {
-  transform: translateX(-25rem);
-  transition: 0.5s;
-}
 .energy {
   display: flex;
   justify-content: space-evenly;
@@ -39,6 +35,15 @@ div img {
   width: 100%;
   height: 12%;
   z-index: 1;
+}
+/*Manejo de la pestaña de stats */
+.slide-enter-active,
+.slide-leave-active {
+  transition: transform 0.5s;
+}
+.slide-enter-from,
+.slide-leave-to {
+  transform: translateX(-25rem);
 }
 </style>
 
@@ -71,13 +76,16 @@ div img {
     </div>
     <Equip />
     <Inv />
-    <Stadist
-      class="stadist"
-      :style="stadist"
-      v-model:name="namePJ"
-      v-model:race="race"
-      v-model:level="level"
-    />
+    <transition name="slide">
+      <Stadist
+        v-if="isStadistOpen"
+        class="stadist"
+        v-model:name="namePJ"
+        v-model:race="race"
+        v-model:level="level"
+      />
+    </transition>
+    <ATR />
   </main>
 </template>
 
@@ -85,15 +93,12 @@ div img {
 import Equip from '../components/pj_sheet/Equip.vue'
 import Inv from '../components/pj_sheet/Inv.vue'
 import Stadist from '@/components/pj_sheet/Stadist.vue'
+import ATR from '../components/pj_sheet/ATR.vue'
 
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 
 // Abrir y cerrar el panel stadist
 const isStadistOpen = ref(false)
-
-const stadist = computed(() => ({
-  transform: `translateX(${isStadistOpen.value ? '0' : '-25rem'})`,
-}))
 
 const openStad = () => {
   isStadistOpen.value = !isStadistOpen.value
@@ -102,5 +107,5 @@ const openStad = () => {
 //Importar y cambiar el nombre
 const namePJ = ref('Select a Name')
 const race = ref('Select a Race')
-const level = ref()
+const level = ref(1)
 </script>

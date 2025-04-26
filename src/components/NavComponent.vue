@@ -21,6 +21,21 @@ nav div [class*='menu'] {
   justify-content: space-between;
   position: relative;
 }
+.shadow {
+  transition: 1s;
+  translate: -40%;
+}
+.shadow::before {
+  background-image: url(/src/assets/img/parchmentOld.png);
+  background-size: 100% 100%;
+  content: '';
+  transform: translate(0.2rem, 0.2rem);
+  filter: brightness(0);
+  opacity: 0.8;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
 nav .left:hover {
   transform: translateX(6rem) !important;
 }
@@ -54,22 +69,6 @@ nav .shadow .menu-left img {
   .shadow {
     translate: 0%;
   }
-}
-.shadow {
-  translate: -40%;
-  transition: 1s;
-}
-
-.shadow::before {
-  background-image: url(/src/assets/img/parchmentOld.png);
-  background-size: 100% 100%;
-  content: '';
-  transform: translate(0.2rem, 0.2rem);
-  filter: brightness(0);
-  opacity: 0.8;
-  position: absolute;
-  width: 100%;
-  height: 100%;
 }
 </style>
 

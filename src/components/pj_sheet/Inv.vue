@@ -237,15 +237,19 @@ const bags = {
     maxCapacity: ref(0),
   },
 }
-
+//reactividad de las bolsas
 const updateBag = (bagId, property, event) => {
   bags[bagId][property].value = event.target.value
 }
+//Agregar nuevos espacios en la bolsa
 const newInput = (bagId, index) => {
   const bag = bags[bagId]
   if (
+    // si es el último índice
     index === bag.inputs.value.length - 1 &&
+    // si el input actual no está vacío
     bag.inputs.value[index] !== '' &&
+    // si no se ha alcanzado la capacidad máxima
     bag.inputs.value.length < bag.maxCapacity.value
   ) {
     bag.inputs.value.push('')

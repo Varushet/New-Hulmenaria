@@ -68,7 +68,7 @@ textarea {
 input[type='number'] {
   -moz-appearance: textfield !important;
   appearance: none;
-  min-width: 3rem;
+  /* min-width: 3rem; */
 }
 
 .row-1 {
@@ -92,9 +92,6 @@ input[type='number'] {
 }
 .row-3 label {
   width: 35%;
-}
-.row-3 input {
-  width: rem;
 }
 .row-4 {
   display: flex;

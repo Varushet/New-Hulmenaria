@@ -1,25 +1,26 @@
 <style scoped>
 @import '../../assets/sheet.css';
 
-main {
-  background-image: url(../../assets/img/parchmentOld.png);
+fieldset {
   background-size: 360% 105%;
   background-position: right -1rem;
   position: absolute;
   top: 6rem;
   width: 100vw;
   height: 89%;
-  overflow-y: scroll;
+  flex-wrap: nowrap;
+  overflow: scroll;
 }
-fieldset {
-  background: none;
+section {
   padding: 1rem 1rem 0 0.3rem;
   box-sizing: border-box;
+  width: 100%;
+  display: block;
 }
 </style>
 <template>
-  <main>
-    <fieldset class="identity" id="identity">
+  <fieldset>
+    <section class="identity" id="identity">
       <label class="row-1"
         >Name<input type="text" name="name" :value="name" @input="updateName"
       /></label>
@@ -133,17 +134,8 @@ fieldset {
         <label><input type="text" name="class3" /></label>
       </div>
       <label class="row-1">Synergy<input type="text" name="synergy" /></label>
-    </fieldset>
-    <fieldset class="power" id="power">
-      <div class="row-3">
-        <label
-          >Lvl<input type="number" min="1" name="lvl" :value="level" @input="updateLvl"
-        /></label>
-        <label
-          >E.P.<input type="number" min="1" name="ep" v-model="xpInsert" @keyup.enter="xpUpdate"
-        /></label>
-        <label>X.P.<input type="number" min="1" name="xp" :value="xpReach" readonly /></label>
-      </div>
+    </section>
+    <section class="power" id="power">
       <div class="karma">
         <p>Karma</p>
         <label class="karma"
@@ -225,8 +217,8 @@ fieldset {
         <label><span>%</span><input type="number" min="0" name="percentLoc" /></label>
         <label>-/d<input type="number" readonly name="minusLoc" /></label>
       </div>
-    </fieldset>
-  </main>
+    </section>
+  </fieldset>
 </template>
 
 <script setup>
@@ -234,9 +226,6 @@ import { ref } from 'vue'
 
 const name = ref('Select a Name')
 const race = ref('Select a Race')
-const level = ref(1)
-const xpReach = ref(0)
-const xpInsert = ref()
 
 const emit = defineEmits(['update:name', 'update:race', 'update:level'])
 
@@ -248,24 +237,5 @@ const updateName = (event) => {
 const updateRace = (event) => {
   race.value = event.target.value
   emit('update:race', race.value)
-}
-const updateLvl = (event) => {
-  level.value = Number(event.target.value)
-  emit('update:level', level.value)
-}
-//Suma el XP y calcula el nivel
-const xpUpdate = (event) => {
-  const inputValue = Number(event.target.value) || 0
-  const maxLvl = Number(level.value) * 10 - 1
-  xpInsert.value = inputValue
-  xpReach.value = xpInsert.value + Number(xpReach.value)
-  //restaura E.P. a su valor 0
-  xpInsert.value = 0
-  //Suve el Nv y Restaura el XP a su valor inicial
-  if (xpReach.value > maxLvl) {
-    level.value++
-    xpReach.value -= maxLvl
-    emit('update:level', level.value)
-  }
 }
 </script>
