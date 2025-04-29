@@ -531,9 +531,20 @@ const addDower = (dowerName) => {
   )?.[0]
 
   if (attribute && dtPoints.value[attribute] > 0) {
-    dower.value[dowerName]++
-    dtPoints.value[attribute]--
+    // Verifica que la suma de dotes no exceda el límite
+    const currentSum = getDowerSum(attribute)
+    const attributeValue = attributes.value[attribute]
+    //No permite agregar puntos si ya hay repartidos esa máxima cantidad de puntos
+    if (currentSum < attributeValue * 3) {
+      dower.value[dowerName]++
+      dtPoints.value[attribute]--
+    }
   }
+}
+
+const getDowerSum = (attribute) => {
+  const dowers = dowerMapping[attribute] || []
+  return dowers.reduce((sum, dowerName) => sum + dower.value[dowerName], 0)
 }
 
 const watchAttributes = () => {
@@ -544,7 +555,9 @@ const watchAttributes = () => {
         const newLvl = Math.floor(newValue)
         const oldLvl = Math.floor(oldValue || 0)
 
-        if (newLvl > oldLvl) {
+        if (newLvl > oldLvl && getDowerSum(atr) < newLvl * 3) {
+          //cambiar a añadir la diferencia faltante de los puntos que debería haber
+
           dtPoints.value[atr] += (newLvl - oldLvl) * 3
         }
       },
