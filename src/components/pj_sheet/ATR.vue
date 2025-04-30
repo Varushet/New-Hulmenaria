@@ -181,9 +181,7 @@ section .especial .luck select {
   <fieldset>
     <section>
       <div class="row-3">
-        <label>
-          Lvl <input type="number" min="1" name="lvl" :value="level" @input="updateLvl" />
-        </label>
+        <label> Lvl <input type="number" min="1" name="lvl" v-model="level" /> </label>
         <label>
           E.P. <input type="number" min="1" name="ep" v-model="xpInsert" @keyup.enter="xpUpdate" />
         </label>
@@ -374,8 +372,8 @@ section .especial .luck select {
             <option>Structural</option>
             <option>Integral</option>
             <option>Hydra</option>
-          </select></label
-        >
+          </select>
+        </label>
       </div>
       <div class="ill" v-for="(wound, index) in wounds" :key="wound.id">
         <img :src="woundDott" alt="Wound Icon" />
@@ -402,10 +400,14 @@ section .especial .luck select {
             <option>Eldrich</option>
           </select>
         </label>
-        <label><input type="text" name="deityName" /></label>
-        <label>D.P.<input type="number" name="deityFavor" v-model="dp" /></label>
         <label
-          >Devotion<input type="number" class="dev" v-model="devInsert" @keyup.enter="devUpdate" />
+          ><input type="text" name="deityName" v-model="deityName" @input="updateDeityName"
+        /></label>
+        <label
+          >D.P.<input type="number" name="destinyPoints" v-model="dp" @input="updateDP"
+        /></label>
+        <label>
+          Devotion<input type="number" class="dev" v-model="devInsert" @keyup.enter="devUpdate" />
         </label>
         <label>
           <input type="range" name="devotion" :value="devotion" max="100" disabled />
@@ -419,19 +421,15 @@ section .especial .luck select {
 <script setup>
 import { ref, watch } from 'vue'
 
-const emit = defineEmits(['update:level'])
+//exportar valores a la principal
+const deityName = defineModel('deityName')
+const level = defineModel('level')
+const dp = defineModel('dp')
 
-//actualizar los valores a la plantilla
-const updateLvl = (event) => {
-  level.value = Number(event.target.value)
-  emit('update:level', level.value)
-}
-
-const level = ref(1)
+//Suma el XP y calcula el nivel
 const xpReach = ref(0)
 const xpInsert = ref()
 
-//Suma el XP y calcula el nivel
 const xpUpdate = (event) => {
   const inputValue = Number(event.target.value) || 0
   const maxLvl = Number(level.value) * 10 - 1
@@ -443,7 +441,6 @@ const xpUpdate = (event) => {
   if (xpReach.value > maxLvl) {
     level.value++
     xpReach.value -= maxLvl + 1
-    emit('update:level', level.value)
   }
 }
 
@@ -605,7 +602,6 @@ const downGrade = (wound) => {
 //Funcion para aumentar la devoción
 const devInsert = ref()
 const devotion = ref(0)
-const dp = ref(0)
 
 const devUpdate = (event) => {
   const inputValue = Number(event.target.value) || 0

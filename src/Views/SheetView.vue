@@ -37,32 +37,46 @@ div img {
   z-index: 1;
 }
 /*Manejo de la pestaña de stats */
-.slide-enter-active,
-.slide-leave-active {
+.stadistSlide-enter-active,
+.stadistSlide-leave-active {
   transition: transform 0.5s;
 }
-.slide-enter-from,
-.slide-leave-to {
+.stadistSlide-enter-from,
+.stadistSlide-leave-to {
   transform: translateX(-25rem);
+}
+
+.atrSlide-enter-active,
+.atrSlide-leave-active {
+  transition: transform 0.5s;
+}
+.atrSlide-enter-from,
+.atrSlide-leave-to {
+  transform: translate(25rem);
 }
 </style>
 
 <template>
   <main class="inv">
-    <div v-if="isStadistOpen" class="overlay" @click="openStad"></div>
-    <section @click="openStad">
-      <div>
+    <div class="overlay" v-if="isStadistOpen || isAtrOpen" @click="handleClose"></div>
+    <section>
+      <div @click="openStad">
         <p class="name">{{ namePJ }}</p>
         <p>{{ race }}</p>
         <p>Lvl {{ level }}</p>
       </div>
-      <div>
+      <div @click="openAtr">
         <img v-bind:src="dmg" alt="Damage" class="dmg" />
         <img v-bind:src="ini" alt="Initiative" class="ini" />
         <div class="arm">
           <img src="" alt="Armor" />
           <p v-bind="pjArmor">{{ armor }}</p>
         </div>
+      </div>
+      <div @click="openAtr">
+        <p>{{ deityName }}</p>
+        <img src="" alt="Deity" />
+        <p>Destiny {{ dp }}</p>
       </div>
     </section>
     <div class="energy">
@@ -72,20 +86,22 @@ div img {
         <option value="inner">Inner</option>
         <option value="natural">Natural</option>
       </select>
-      <p v-bind="pjEnergy">{{ energy }}asdasds</p>
+      <p v-bind="pjEnergy">{{ energy }}</p>
     </div>
     <Equip />
     <Inv />
-    <transition name="slide">
-      <Stadist
-        v-if="isStadistOpen"
-        class="stadist"
-        v-model:name="namePJ"
-        v-model:race="race"
+    <transition name="stadistSlide">
+      <Stadist class="stadist" v-if="isStadistOpen" v-model:name="namePJ" v-model:race="race" />
+    </transition>
+    <transition name="atrSlide">
+      <ATR
+        class="atr"
+        v-if="isAtrOpen"
+        v-model:deityName="deityName"
         v-model:level="level"
+        v-model:dp="dp"
       />
     </transition>
-    <ATR />
   </main>
 </template>
 
@@ -97,6 +113,15 @@ import ATR from '../components/pj_sheet/ATR.vue'
 
 import { ref } from 'vue'
 
+//Importar y cambiar el nombre
+//Stadist
+const namePJ = ref('Select a Name')
+const race = ref('Select a Race')
+const level = ref(1)
+//ATR
+const deityName = ref('Atheist')
+const dp = ref(0)
+
 // Abrir y cerrar el panel stadist
 const isStadistOpen = ref(false)
 
@@ -104,8 +129,20 @@ const openStad = () => {
   isStadistOpen.value = !isStadistOpen.value
 }
 
-//Importar y cambiar el nombre
-const namePJ = ref('Select a Name')
-const race = ref('Select a Race')
-const level = ref(1)
+//abrir y cerrar atr panel
+const isAtrOpen = ref(false)
+
+const openAtr = () => {
+  isAtrOpen.value = !isAtrOpen.value
+}
+
+//cerrar los paneles
+const handleClose = () => {
+  if (isStadistOpen.value) {
+    isStadistOpen.value = false
+  }
+  if (isAtrOpen.value) {
+    isAtrOpen.value = false
+  }
+}
 </script>

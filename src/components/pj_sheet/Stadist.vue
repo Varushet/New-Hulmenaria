@@ -21,12 +21,12 @@ section {
 <template>
   <fieldset>
     <section class="identity" id="identity">
-      <label class="row-1"
-        >Name<input type="text" name="name" :value="name" @input="updateName"
-      /></label>
-      <label class="row-1"
-        >Race<input type="text" name="race" :value="race" @input="updateRace"
-      /></label>
+      <label class="row-1">
+        Name<input type="text" name="name" :value="name" @input="updateName" />
+      </label>
+      <label class="row-1">
+        Race<input type="text" name="race" :value="race" @input="updateRace" />
+      </label>
       <label class="row-1">Mutation<textarea name="mutation"></textarea></label>
       <div class="row-cuadrado">
         <p>Alignment</p>
@@ -224,8 +224,8 @@ section {
 <script setup>
 import { ref } from 'vue'
 
-const name = ref('Select a Name')
-const race = ref('Select a Race')
+const name = ref('')
+const race = ref('')
 
 const emit = defineEmits(['update:name', 'update:race', 'update:level'])
 
