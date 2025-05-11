@@ -19,7 +19,7 @@ section {
 }
 .points {
   width: 50%;
-  /* height: 2.5rem; */
+  max-height: 2.5rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -28,6 +28,21 @@ section {
   box-sizing: border-box;
   overflow: hidden;
   margin: 0.5rem 0;
+  cursor: pointer;
+  transition: 2s;
+}
+.expanded .points {
+  max-height: 50rem;
+}
+.expand-btn {
+  background-color: transparent;
+  height: 3rem;
+  padding: 1rem;
+  margin: 2rem auto;
+  line-height: 0rem;
+  border-width: 20px;
+  border-style: solid;
+  border-image: url(../../assets/decor/frame.png) 100 100 stretch;
   cursor: pointer;
 }
 .points label {
@@ -175,11 +190,34 @@ section .especial .luck select {
   border: none;
   border-radius: 50%;
 }
+.karma {
+  text-align: center;
+}
+.karma input[type='range'] {
+  height: 4rem;
+  width: 18rem;
+  border: none;
+}
+.karma input[type='range']::-moz-range-track {
+  background: linear-gradient(to right, #4caf50, #f44336);
+  height: 1.7rem;
+  border-radius: 1rem;
+  border: 2px inset var(--bgLatte);
+}
+.karma input[type='range']::-moz-range-thumb {
+  width: 3rem;
+  height: 3rem;
+  background: transparent;
+  background-image: url(../../src/assets/selector/selector.svg);
+  background-size: cover;
+  border: none;
+  border-radius: 50%;
+}
 </style>
 
 <template>
   <fieldset>
-    <section>
+    <section :class="{ expanded: isExpanded }">
       <div class="row-3">
         <label> Lvl <input type="number" min="1" name="lvl" v-model="level" /> </label>
         <label>
@@ -413,8 +451,19 @@ section .especial .luck select {
           <input type="range" name="devotion" :value="devotion" max="100" disabled />
         </label>
       </div>
+      <div class="karma">
+        <p>Karma</p>
+        <label class="karma"
+          ><span>Good</span><input type="range" step="10" value="0" name="karmaGood"
+        /></label>
+        <label class="karma"
+          ><span>Evil</span><input type="range" step="10" value="0" name="karmaEvil"
+        /></label>
+      </div>
+      <button @click="openStats" class="expand-btn">
+        View {{ isExpanded ? 'shorten' : 'expanded' }} stats
+      </button>
     </section>
-    <section></section>
   </fieldset>
 </template>
 
@@ -444,7 +493,7 @@ const xpUpdate = (event) => {
   }
 }
 
-//Función para añadir los puntos de dote
+//Función para añadir los puntos de atr
 const atrPoints = ref(0.3)
 
 watch(level, (newLevel, oldLevel) => {
@@ -455,9 +504,6 @@ watch(level, (newLevel, oldLevel) => {
     atrPoints.value = Number((newLevel * 0.3).toFixed(1))
   }
 })
-if (level.value) {
-}
-
 //Aplicar puntos de nivel a los ATR
 
 const attributes = ref({
@@ -523,8 +569,12 @@ const dtPoints = ref({
 })
 
 const addDower = (dowerName) => {
-  const attribute = Object.entries(dowerMapping).find(([_, dowers]) =>
-    dowers.includes(dowerName),
+  // convierte el mapa en un array claves,valor y busca la coincidencia del segundo elemento, por eso _,
+  const attribute = Object.entries(dowerMapping).find(
+    ([_, dowers]) =>
+      //busca en dowers el argumento de la función inicial y así saca a qué atr pertenece esta dt (para cada una)
+      dowers.includes(dowerName),
+    //obtiene la clave de la dt dada
   )?.[0]
 
   if (attribute && dtPoints.value[attribute] > 0) {
@@ -538,6 +588,28 @@ const addDower = (dowerName) => {
     }
   }
 }
+//devolver los dtPoints cuando son borrados manualmente
+watch(
+  () => ({ ...dower.value }),
+  (newDower, oldDower) => {
+    Object.keys(dower.value).forEach((dot) => {
+      const newValue = newDower[dot]
+      const oldValue = oldDower[dot]
+
+      if (oldValue > newValue) {
+        const attribute = Object.entries(dowerMapping).find(([_, dowers]) =>
+          dowers.includes(dot),
+        )?.[0]
+
+        if (attribute) {
+          dtPoints.value[attribute] += oldValue - newValue
+        }
+      }
+    })
+  },
+  //watch si cualquier propiedad del objeto cambia
+  { deep: true },
+)
 
 const getDowerSum = (attribute) => {
   const dowers = dowerMapping[attribute] || []
@@ -545,6 +617,7 @@ const getDowerSum = (attribute) => {
 }
 
 const watchAttributes = () => {
+  //Object. keys es para el objeto attributes cada clave -> atr y que para clave se ejecute con el forEach
   Object.keys(attributes.value).forEach((atr) => {
     watch(
       () => attributes.value[atr],
@@ -553,14 +626,13 @@ const watchAttributes = () => {
         const oldLvl = Math.floor(oldValue || 0)
 
         if (newLvl > oldLvl && getDowerSum(atr) < newLvl * 3) {
-          //cambiar a añadir la diferencia faltante de los puntos que debería haber
-
           dtPoints.value[atr] += (newLvl - oldLvl) * 3
         }
       },
     )
   })
 }
+
 watchAttributes()
 
 //funcion para añadir nueva herida
@@ -613,5 +685,11 @@ const devUpdate = (event) => {
     dp.value++
     devotion.value = devotion.value - 100
   }
+}
+
+//abrir el menú de stats completo
+const isExpanded = ref(false)
+const openStats = () => {
+  isExpanded.value = !isExpanded.value
 }
 </script>

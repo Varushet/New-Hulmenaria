@@ -136,15 +136,6 @@ section {
       <label class="row-1">Synergy<input type="text" name="synergy" /></label>
     </section>
     <section class="power" id="power">
-      <div class="karma">
-        <p>Karma</p>
-        <label class="karma"
-          ><span>Good</span><input type="range" step="10" value="0" name="karmaGood"
-        /></label>
-        <label class="karma"
-          ><span>Evil</span><input type="range" step="10" value="0" name="karmaEvil"
-        /></label>
-      </div>
       <div class="row-3">
         <label
           ><select name="mistyc">

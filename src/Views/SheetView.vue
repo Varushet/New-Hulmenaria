@@ -35,6 +35,7 @@ div img {
   width: 100%;
   height: 12%;
   z-index: 1;
+  cursor: pointer;
 }
 /*Manejo de la pestaña de stats */
 .stadistSlide-enter-active,
