@@ -14,6 +14,14 @@ div p {
 div img {
   height: 2rem;
 }
+div img,
+div p {
+  text-shadow:
+    0px 0px 10px black,
+    0px 0px 10px black,
+    0px 0px 10px black,
+    0px 0px 10px black;
+}
 .name {
   width: 100%;
   font-size: 3rem;
@@ -24,7 +32,6 @@ div img {
   color: wheat;
 }
 .energy p {
-  background-color: rgba(0, 0, 0, 0.527);
   padding: 0 1rem;
   border-radius: 25%;
 }
