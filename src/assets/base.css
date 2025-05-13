@@ -19,45 +19,12 @@ li {
 }
 /*Reset*/
 body {
-  background-image: url(../assets/img/backgroundNocturne.jpg);
+  background-image: url(../assets/img/background-nocturne.jpg);
   background-size: 100% 100%;
   background-repeat: no-repeat;
   width: 100%;
   height: 100vh;
 }
-/*Bridge decor*/
-
-#Sbridge {
-  transition: 2s;
-  background-image: url(../assets/adornos/castleHoverS.png);
-  background-size: 75% 95%;
-  background-repeat: no-repeat;
-  background-position: 50% 8rem;
-}
-#Mbridge {
-  transition: 2s;
-  background-image: url(../assets/adornos/castleHover.png);
-  background-size: 65% 95%;
-  background-repeat: no-repeat;
-  background-position: 50% 8rem;
-}
-#Lbridge {
-  transition: 2s;
-  background-image: url(../assets/adornos/castleHover.png);
-  background-size: 100% 95%;
-  background-repeat: no-repeat;
-  background-position: 50% 8rem;
-  background-origin: bottom;
-}
-#Lbridge:hover {
-  transition: 2s;
-  background-image: url(../assets/adornos/castleHover.png);
-  background-size: 100% 95%;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-origin: bottom;
-}
-/*títulos*/
 
 h1 {
   /*Hulmenaria*/

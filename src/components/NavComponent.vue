@@ -11,7 +11,7 @@ nav {
   position: relative;
 }
 nav div [class*='menu'] {
-  background-image: url(/src/assets/img/parchmentOld.png);
+  background-image: url(/src/assets/img/parchment-old.png);
   background-size: 100% 100%;
   height: 6rem;
   width: 16rem;
@@ -26,7 +26,7 @@ nav div [class*='menu'] {
   translate: -40%;
 }
 .shadow::before {
-  background-image: url(/src/assets/img/parchmentOld.png);
+  background-image: url(/src/assets/img/parchment-old.png);
   background-size: 100% 100%;
   content: '';
   transform: translate(0.2rem, 0.2rem);

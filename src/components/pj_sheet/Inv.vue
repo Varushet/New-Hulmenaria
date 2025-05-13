@@ -12,7 +12,7 @@ section {
   box-shadow: 0px -5px 5px rgba(0, 0, 0, 0.8);
 }
 fieldset .pouch {
-  background-image: url(../../assets/img/parchmentOld.png);
+  background-image: url(../../assets/img/parchment-old.png);
   background-size: 100% 100%;
   background-repeat: no-repeat;
   display: flex;

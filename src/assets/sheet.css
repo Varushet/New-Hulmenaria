@@ -1,5 +1,5 @@
 fieldset {
-  background-image: url(../assets/img/parchmentOld.png);
+  background-image: url(../assets/img/parchment-old.png);
   background-size: 100% 105%;
   background-repeat: no-repeat;
   background-position: center;
@@ -12,7 +12,7 @@ fieldset {
 }
 
 article {
-  background-image: url(../assets/img/parchmentAnunce.png);
+  background-image: url(../assets/img/parchment-old.png);
   background-size: 100% 100%;
   background-repeat: no-repeat;
   width: 20rem;
@@ -131,7 +131,7 @@ dialog {
   padding: 1rem;
   border: none;
   background: transparent;
-  background-image: url(../assets/img/parchmentOld.png);
+  background-image: url(../assets/img/parchment-old.png);
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center;

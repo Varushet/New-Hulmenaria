@@ -143,10 +143,10 @@ section .trinket img {
   background-image: url(../../assets/icon/equip/body.png);
 }
 .box-shoulder-left button {
-  background-image: url(../../assets/icon/equip/shoulderL.png);
+  background-image: url(../../assets/icon/equip/shoulder-l.png);
 }
 .box-shoulder-right button {
-  background-image: url(../../assets/icon/equip/shoulderR.png);
+  background-image: url(../../assets/icon/equip/shoulder-r.png);
 }
 @media screen and (min-width: 400px) {
   .equip {
