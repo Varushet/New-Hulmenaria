@@ -123,7 +123,7 @@ fieldset section[class*='inv'] div:first-child {
         </div>
       </dialog>
       <div v-for="(input, index) in bags.bag1.inputs.value" :key="index" class="row-bag">
-        <label>
+        <label class="label-x">
           <input
             type="text"
             :name="'obj' + index + 'Name'"
@@ -131,8 +131,24 @@ fieldset section[class*='inv'] div:first-child {
             @input="(e) => newInput('bag1', index)"
           />
         </label>
-        <label>u<input type="number" :name="'obj' + index + 'u'" /></label>
-        <label>p<input type="number" :name="'obj' + index + 'p'" /></label>
+        <label class="label-s">u<input type="number" :name="'obj' + index + 'u'" /></label>
+        <label class="label-s">p<input type="number" :name="'obj' + index + 'p'" /></label>
+      </div>
+      <div class="info">
+        <p>{{ nombre }}</p>
+        <p>e</p>
+        <p class="label-x">{{ e }}</p>
+        <p>c</p>
+        <p class="label-s">{{ c }}</p>
+        <p>r</p>
+        <p class="label-s">{{ r }}</p>
+        <p>t</p>
+        <p class="label-x">{{ t }}</p>
+        <p>%d</p>
+        <p class="label-l">{{ d }}</p>
+        <p>m</p>
+        <p class="label-x">{{ m }}</p>
+        <p class="label-l">{{ dmg }}</p>
       </div>
     </section>
     <section class="inv2" id="inv2" :style="bag2Style">
@@ -214,7 +230,7 @@ const openBag = (bagId) => {
   }
 }
 const bag1Style = computed(() => ({
-  height: bag1Open.value ? '20rem' : '2.8rem',
+  height: bag1Open.value ? '40rem' : '2.8rem',
   overflow: bag1Open.value ? 'scroll' : 'hidden',
 }))
 const bag2Style = computed(() => ({

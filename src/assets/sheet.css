@@ -120,6 +120,27 @@ input[type='number'] {
 .row-cuadrado select {
   width: 45%;
 }
+.row-bag {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0.3rem;
+}
+.label-x {
+  width: 64%;
+}
+.label-l {
+  width: 35%;
+}
+.label-s {
+  width: 18%;
+}
+.info {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 1rem;
+}
 
 dialog::backdrop {
   background-color: rgba(0, 0, 0, 0.5);

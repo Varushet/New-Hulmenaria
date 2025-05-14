@@ -409,7 +409,7 @@ section .trinket img {
             <label class="box-number">c<input type="number" name="leftarm_c" /></label>
             <label class="box-number">r<input type="number" name="leftarm_r" /></label>
             <label class="box-text">e<input type="text" name="leftarm_e" /></label>
-            <label class="box-weight">u<input type="number" name="leftarm_u" /></label>
+            <label class="box-weight">%d<input type="number" name="leftarm_d" /></label>
           </div>
         </dialog>
       </section>
@@ -428,7 +428,7 @@ section .trinket img {
             <label class="box-number">c<input type="number" name="lefthand_c" /></label>
             <label class="box-number">r<input type="number" name="lefthand_r" /></label>
             <label class="box-text">e<input type="text" name="lefthand_e" /></label>
-            <label class="box-weight">u<input type="number" name="lefthand_u" /></label>
+            <label class="box-weight">%d<input type="number" name="lefthand_d" /></label>
           </div>
         </dialog>
       </section>
@@ -447,7 +447,7 @@ section .trinket img {
             <label class="box-number">c<input type="number" name="leftleg_c" /></label>
             <label class="box-number">r<input type="number" name="leftleg_r" /></label>
             <label class="box-text">e<input type="text" name="leftleg_e" /></label>
-            <label class="box-weight">u<input type="number" name="leftleg_u" /></label>
+            <label class="box-weight">%d<input type="number" name="leftleg_d" /></label>
           </div>
         </dialog>
       </section>
@@ -466,7 +466,7 @@ section .trinket img {
             <label class="box-number">c<input type="number" name="leftfoot_c" /></label>
             <label class="box-number">r<input type="number" name="leftfoot_r" /></label>
             <label class="box-text">e<input type="text" name="leftfoot_e" /></label>
-            <label class="box-weight">u<input type="number" name="leftfoot_u" /></label>
+            <label class="box-weight">%d<input type="number" name="leftfoot_d" /></label>
           </div>
         </dialog>
       </section>
@@ -504,7 +504,7 @@ section .trinket img {
             <label class="box-number">c<input type="number" name="rightarm_c" /></label>
             <label class="box-number">r<input type="number" name="rightarm_r" /></label>
             <label class="box-text">e<input type="text" name="rightarm_e" /></label>
-            <label class="box-weight">u<input type="number" name="rightarm_u" /></label>
+            <label class="box-weight">%d<input type="number" name="rightarm_d" /></label>
           </div>
         </dialog>
       </section>
@@ -523,7 +523,7 @@ section .trinket img {
             <label class="box-number">c<input type="number" name="righthand_c" /></label>
             <label class="box-number">r<input type="number" name="righthand_r" /></label>
             <label class="box-text">e<input type="text" name="righthand_e" /></label>
-            <label class="box-weight">u<input type="number" name="righthand_u" /></label>
+            <label class="box-weight">%d<input type="number" name="righthand_d" /></label>
           </div>
         </dialog>
       </section>
@@ -542,7 +542,7 @@ section .trinket img {
             <label class="box-number">c<input type="number" name="rightleg_c" /></label>
             <label class="box-number">r<input type="number" name="rightleg_r" /></label>
             <label class="box-text">e<input type="text" name="rightleg_e" /></label>
-            <label class="box-weight">u<input type="number" name="rightleg_u" /></label>
+            <label class="box-weight">%d<input type="number" name="rightleg_d" /></label>
           </div>
         </dialog>
       </section>
@@ -561,7 +561,7 @@ section .trinket img {
             <label class="box-number">c<input type="number" name="rightfoot_c" /></label>
             <label class="box-number">r<input type="number" name="rightfoot_r" /></label>
             <label class="box-text">e<input type="text" name="rightfoot_e" /></label>
-            <label class="box-weight">u<input type="number" name="rightfoot_u" /></label>
+            <label class="box-weight">%d<input type="number" name="rightfoot_d" /></label>
           </div>
         </dialog>
       </section>
@@ -581,7 +581,7 @@ section .trinket img {
             <label class="box-number">c<input type="number" name="weapon_c" /></label>
             <label class="box-number">r<input type="number" name="weapon_r" /></label>
             <label class="box-text">e<input type="text" name="weapon_e" /></label>
-            <label class="box-weight"><input type="text" name="weapon_d" value="D" /></label>
+            <label class="box-weight"><input type="text" name="weapon_dmg" value="D" /></label>
           </div>
         </dialog>
       </section>
@@ -600,7 +600,7 @@ section .trinket img {
             <label class="box-number">c<input type="number" name="shield_c" /></label>
             <label class="box-number">r<input type="number" name="shield_r" /></label>
             <label class="box-text">e<input type="text" name="shield_e" /></label>
-            <label class="box-weight"><input type="text" name="shield_d" value="D" /></label>
+            <label class="box-weight">%d<input type="text" name="shield_d" value="D" /></label>
           </div>
         </dialog>
       </section>
@@ -638,7 +638,7 @@ section .trinket img {
             <label class="box-number">c<input type="number" name="magic_c" /></label>
             <label class="box-number">r<input type="number" name="magic_r" /></label>
             <label class="box-text">e<input type="text" name="magic_e" /></label>
-            <label class="box-weight"><input type="text" name="magic_d" value="D" /></label>
+            <label class="box-weight"><input type="text" name="magic_dmg" value="D" /></label>
           </div>
         </dialog>
       </section>
@@ -657,7 +657,7 @@ section .trinket img {
             <label class="box-number">c<input type="number" name="range_c" /></label>
             <label class="box-number">r<input type="number" name="range_r" /></label>
             <label class="box-text">e<input type="text" name="range_e" /></label>
-            <label class="box-weight"><input type="text" name="range_d" value="D" /></label>
+            <label class="box-weight"><input type="text" name="range_dmg" value="D" /></label>
           </div>
         </dialog>
       </section>
