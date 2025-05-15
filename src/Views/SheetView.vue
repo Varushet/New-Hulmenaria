@@ -15,7 +15,8 @@ div img {
   height: 2rem;
 }
 div img,
-div p {
+div p,
+select {
   text-shadow:
     0px 0px 10px black,
     0px 0px 10px black,
@@ -34,6 +35,13 @@ div p {
 .energy p {
   padding: 0 1rem;
   border-radius: 25%;
+}
+.energy select {
+  background: transparent;
+  border: solid rgba(245, 222, 179, 0.4) 2px;
+  border-radius: 25%;
+  color: wheat;
+  font-size: 1.5rem;
 }
 .overlay {
   position: fixed;

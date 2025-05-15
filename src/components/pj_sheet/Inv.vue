@@ -16,10 +16,11 @@ fieldset .pouch {
   background-size: 100% 100%;
   background-repeat: no-repeat;
   display: flex;
+  justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
   text-align: center;
-  padding: 1rem 0;
+  padding: 1rem 0.5rem;
 }
 .pouch p {
   width: 100%;
@@ -30,7 +31,7 @@ fieldset .pouch {
   font-size: 1rem;
 }
 .pouch input {
-  width: 4rem;
+  width: 3.5rem;
   border: 2px inset var(--bgLatte);
 }
 .pouch input[type='text'] {
@@ -123,7 +124,7 @@ fieldset section[class*='inv'] div:first-child {
         </div>
       </dialog>
       <div v-for="(input, index) in bags.bag1.inputs.value" :key="index" class="row-bag">
-        <label class="label-x">
+        <label class="">
           <input
             type="text"
             :name="'obj' + index + 'Name'"
@@ -131,24 +132,26 @@ fieldset section[class*='inv'] div:first-child {
             @input="(e) => newInput('bag1', index)"
           />
         </label>
-        <label class="label-s">u<input type="number" :name="'obj' + index + 'u'" /></label>
-        <label class="label-s">p<input type="number" :name="'obj' + index + 'p'" /></label>
-      </div>
-      <div class="info">
-        <p>{{ nombre }}</p>
-        <p>e</p>
-        <p class="label-x">{{ e }}</p>
-        <p>c</p>
-        <p class="label-s">{{ c }}</p>
-        <p>r</p>
-        <p class="label-s">{{ r }}</p>
-        <p>t</p>
-        <p class="label-x">{{ t }}</p>
-        <p>%d</p>
-        <p class="label-l">{{ d }}</p>
-        <p>m</p>
-        <p class="label-x">{{ m }}</p>
-        <p class="label-l">{{ dmg }}</p>
+        <label class="">u<input type="number" :name="'obj' + index + 'u'" /></label>
+        <label class="">%d<input type="number" :name="'obj' + index + 'd'" /></label>
+        <div class="info">
+          <p>{{ nombre }}</p>
+          <p>e</p>
+          <p class="label-x">{{ e }}</p>
+          <p>c</p>
+          <p class="label-s">{{ c }}</p>
+          <p>r</p>
+          <p class="label-s">{{ r }}</p>
+          <p>t</p>
+          <p class="label-x">{{ t }}</p>
+          <p>p</p>
+          <p class="label-s">{{ p }}</p>
+          <p>a</p>
+          <p class="label-s">{{ a }}</p>
+          <p>m</p>
+          <p class="label-x">{{ m }}</p>
+          <p class="label-l">{{ dmg }}</p>
+        </div>
       </div>
     </section>
     <section class="inv2" id="inv2" :style="bag2Style">
@@ -230,7 +233,7 @@ const openBag = (bagId) => {
   }
 }
 const bag1Style = computed(() => ({
-  height: bag1Open.value ? '40rem' : '2.8rem',
+  height: bag1Open.value ? '30rem' : '2.8rem',
   overflow: bag1Open.value ? 'scroll' : 'hidden',
 }))
 const bag2Style = computed(() => ({
