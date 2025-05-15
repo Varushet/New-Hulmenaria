@@ -1,7 +1,7 @@
 <style scoped>
 @import '../../assets/sheet.css';
 
-fieldset {
+form {
   background-size: 103% 109%;
 }
 section {
@@ -11,7 +11,7 @@ section {
   background-position: center;
   box-shadow: 0px -5px 5px rgba(0, 0, 0, 0.8);
 }
-fieldset .pouch {
+form .pouch {
   background-image: url(../../assets/img/parchment-old.png);
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -39,12 +39,12 @@ fieldset .pouch {
   border: 3px dotted;
   font-size: 1rem;
 }
-fieldset section {
+form section {
   height: 2.8rem;
   overflow: hidden;
   transition: 1s;
 }
-fieldset section[class*='inv'] div:first-child {
+form section[class*='inv'] div:first-child {
   font-size: 2rem;
   height: 2.5rem;
   display: flex;
@@ -71,7 +71,7 @@ fieldset section[class*='inv'] div:first-child {
 </style>
 
 <template>
-  <fieldset>
+  <form>
     <div class="pouch">
       <p>Pouch:</p>
       <label>Cb<input type="number" name="cb" /></label>
@@ -205,7 +205,7 @@ fieldset section[class*='inv'] div:first-child {
         <label>p<input type="number" :name="'obj' + index + 'p2'" /></label>
       </div>
     </section>
-  </fieldset>
+  </form>
 </template>
 
 <script setup>

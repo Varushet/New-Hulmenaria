@@ -1,7 +1,7 @@
 <style scoped>
 @import '../../assets/sheet.css';
 
-fieldset {
+form {
   background-size: 360% 105%;
   background-position: right -1rem;
   position: absolute;
@@ -19,7 +19,7 @@ section {
 }
 </style>
 <template>
-  <fieldset>
+  <form>
     <section class="identity" id="identity">
       <label class="row-1">
         Name<input type="text" name="name" :value="name" @input="updateName" />
@@ -209,7 +209,7 @@ section {
         <label>-/d<input type="number" readonly name="minusLoc" /></label>
       </div>
     </section>
-  </fieldset>
+  </form>
 </template>
 
 <script setup>

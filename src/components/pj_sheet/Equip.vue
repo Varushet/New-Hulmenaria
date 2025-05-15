@@ -156,7 +156,7 @@ section .trinket img {
 </style>
 
 <template>
-  <fieldset class="equip" id="equip">
+  <form class="equip" id="equip">
     <div class="shadow">
       <section class="box-pircing-left">
         <button type="button" class="trinket" @click="showDialog('pircing-left')">
@@ -686,7 +686,7 @@ section .trinket img {
         </dialog>
       </section>
     </div>
-  </fieldset>
+  </form>
 </template>
 
 <script setup>

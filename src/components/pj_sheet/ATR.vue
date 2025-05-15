@@ -1,7 +1,7 @@
 <style scoped>
 @import '../../assets/sheet.css';
 
-fieldset {
+form {
   background-size: 205% 102%;
   background-position: left 0.8rem;
   position: absolute;
@@ -216,24 +216,40 @@ section .especial .luck select {
 </style>
 
 <template>
-  <fieldset>
-    <section :class="{ expanded: isExpanded }">
+  <form>
+    <section :class="{ expanded: sheetData.isExpanded }">
       <div class="row-3">
-        <label> Lvl <input type="number" min="1" name="lvl" v-model="level" /> </label>
+        <label> Lvl <input type="number" min="1" name="lvl" v-model="sheetData.level" /> </label>
         <label>
-          E.P. <input type="number" min="1" name="ep" v-model="xpInsert" @keyup.enter="xpUpdate" />
+          E.P.
+          <input
+            type="number"
+            min="1"
+            name="ep"
+            v-model="sheetData.xpInsert"
+            @keyup.enter="xpUpdate"
+          />
         </label>
-        <label>X.P.<input type="number" min="1" name="xp" :value="xpReach" readonly /></label>
+        <label
+          >X.P.<input type="number" min="1" name="xp" :value="sheetData.xpReach" readonly
+        /></label>
       </div>
-      <p class="atrPoints" v-if="atrPoints > 0">{{ atrPoints }}</p>
+      <p class="atrPoints" v-if="atrPoints > 0">{{ sheetData.atrPoints }}</p>
       <div class="con points">
-        <p :class="{ disabled: capCon == con }" @click="addPoint('con')">Con</p>
-        <label><input type="number" name="con" v-model="attributes.con" /></label>
-        <label class="cap">/<input type="number" name="capCon" v-model="capCon" /></label>
-        <label class="buf"><input type="number" name="plusCon" v-model="plusCon" /></label>
+        <p
+          :class="{ disabled: sheetData.capCon == sheetData.attributes.con }"
+          @click="addPoint('con')"
+        >
+          Con
+        </p>
+        <label><input type="number" name="con" v-model="sheetData.attributes.con" /></label>
+        <label class="cap">/<input type="number" name="capCon" v-model="sheetData.capCon" /></label>
+        <label class="buf">
+          <input type="number" name="plusCon" v-model="sheetData.plusCon" />
+        </label>
         <div class="dt">
           <p @click="addDower('agil')">Agil</p>
-          <label><input type="number" name="agil" v-model="dower.agil" /></label>
+          <label><input type="number" name="agil" v-model="sheetData.dower.agil" /></label>
           <label class="cap">/<input type="number" name="capAgil" /></label>
           <label class="buf"><input type="number" name="plusAgil" /></label>
 
@@ -464,20 +480,20 @@ section .especial .luck select {
         View {{ isExpanded ? 'shorten' : 'expanded' }} stats
       </button>
     </section>
-  </fieldset>
+  </form>
 </template>
 
 <script setup>
 import { ref, watch } from 'vue'
 
 //exportar valores a la principal
-const deityName = defineModel('deityName')
-const level = defineModel('level')
-const dp = defineModel('dp')
+// // const deityName = defineModel('deityName')
+// // const level = defineModel('level')
+// // const dp = defineModel('dp')
 
 //Suma el XP y calcula el nivel
-const xpReach = ref(0)
-const xpInsert = ref()
+// // const xpReach = ref(0)
+// // const xpInsert = ref()
 
 const xpUpdate = (event) => {
   const inputValue = Number(event.target.value) || 0
@@ -494,7 +510,7 @@ const xpUpdate = (event) => {
 }
 
 //Función para añadir los puntos de atr
-const atrPoints = ref(0.3)
+// // const atrPoints = ref(0.3)
 
 watch(level, (newLevel, oldLevel) => {
   if (oldLevel) {
@@ -506,44 +522,44 @@ watch(level, (newLevel, oldLevel) => {
 })
 //Aplicar puntos de nivel a los ATR
 
-const attributes = ref({
-  con: 0,
-  int: 0,
-  per: 0,
-  car: 0,
-  hab: 0,
-  psi: 0,
-  esp: 0,
-})
-const dower = ref({
-  // Dotes de CON
-  agil: 0,
-  end: 0,
-  strg: 0,
-  rap: 0,
-  ref: 0,
-  spd: 0,
-  // Dotes de INT
-  clev: 0,
-  conc: 0,
-  ing: 0,
-  wisd: 0,
-  tem: 0,
-  will: 0,
-  // Dotes de PER
-  emp: 0,
-  seek: 0,
-  dizz: 0,
-  sigh: 0,
-  // Dotes de CAR
-  pret: 0,
-  man: 0,
-  sec: 0,
-  ac: 0,
-  // Dotes de HAB
-  art: 0,
-  des: 0,
-})
+// // const attributes = ref({
+// //   con: 0,
+// //   int: 0,
+// //   per: 0,
+// //   car: 0,
+// //   hab: 0,
+// //   psi: 0,
+// //   esp: 0,
+// // })
+// // const dower = ref({
+// //   // Dotes de CON
+// //   agil: 0,
+// //   end: 0,
+// //   strg: 0,
+// //   rap: 0,
+// //   ref: 0,
+// //   spd: 0,
+// //   // Dotes de INT
+// //   clev: 0,
+// //   conc: 0,
+// //   ing: 0,
+// //   wisd: 0,
+// //   tem: 0,
+// //   will: 0,
+// //   // Dotes de PER
+// //   emp: 0,
+// //   seek: 0,
+// //   dizz: 0,
+// //   sigh: 0,
+// //   // Dotes de CAR
+// //   pret: 0,
+// //   man: 0,
+// //   sec: 0,
+// //   ac: 0,
+// //   // Dotes de HAB
+// //   art: 0,
+// //   des: 0,
+// // })
 const dowerMapping = {
   con: ['agil', 'end', 'strg', 'rap', 'ref', 'spd'],
   int: ['clev', 'conc', 'ing', 'wisd', 'tem', 'will'],
@@ -552,12 +568,12 @@ const dowerMapping = {
   hab: ['art', 'des'],
 }
 
-const addPoint = (attributeName) => {
-  if (atrPoints.value >= 0.1) {
-    attributes.value[attributeName] = Number((attributes.value[attributeName] + 0.1).toFixed(1))
-    atrPoints.value = Number((atrPoints.value - 0.1).toFixed(1))
-  }
-}
+// // const addPoint = (attributeName) => {
+// //   if (atrPoints.value >= 0.1) {
+// //     attributes.value[attributeName] = Number((attributes.value[attributeName] + 0.1).toFixed(1))
+// //     atrPoints.value = Number((atrPoints.value - 0.1).toFixed(1))
+// //   }
+// // }
 
 //añadir puntos 3p de dote por cada ATR
 const dtPoints = ref({
@@ -568,26 +584,26 @@ const dtPoints = ref({
   hab: 0,
 })
 
-const addDower = (dowerName) => {
-  // convierte el mapa en un array claves,valor y busca la coincidencia del segundo elemento, por eso _,
-  const attribute = Object.entries(dowerMapping).find(
-    ([_, dowers]) =>
-      //busca en dowers el argumento de la función inicial y así saca a qué atr pertenece esta dt (para cada una)
-      dowers.includes(dowerName),
-    //obtiene la clave de la dt dada
-  )?.[0]
+// // const addDower = (dowerName) => {
+// //   // convierte el mapa en un array claves,valor y busca la coincidencia del segundo elemento, por eso _,
+// //   const attribute = Object.entries(dowerMapping).find(
+// //     ([_, dowers]) =>
+// //       //busca en dowers el argumento de la función inicial y así saca a qué atr pertenece esta dt (para cada una)
+// //       dowers.includes(dowerName),
+// //     //obtiene la clave de la dt dada
+// //   )?.[0]
 
-  if (attribute && dtPoints.value[attribute] > 0) {
-    // Verifica que la suma de dotes no exceda el límite
-    const currentSum = getDowerSum(attribute)
-    const attributeValue = attributes.value[attribute]
-    //No permite agregar puntos si ya hay repartidos esa máxima cantidad de puntos
-    if (currentSum < attributeValue * 3) {
-      dower.value[dowerName]++
-      dtPoints.value[attribute]--
-    }
-  }
-}
+// //   if (attribute && dtPoints.value[attribute] > 0) {
+// //     // Verifica que la suma de dotes no exceda el límite
+// //     const currentSum = getDowerSum(attribute)
+// //     const attributeValue = attributes.value[attribute]
+// //     //No permite agregar puntos si ya hay repartidos esa máxima cantidad de puntos
+// //     if (currentSum < attributeValue * 3) {
+// //       dower.value[dowerName]++
+// //       dtPoints.value[attribute]--
+// //     }
+// //   }
+// // }
 //devolver los dtPoints cuando son borrados manualmente
 watch(
   () => ({ ...dower.value }),
@@ -611,85 +627,85 @@ watch(
   { deep: true },
 )
 
-const getDowerSum = (attribute) => {
-  const dowers = dowerMapping[attribute] || []
-  return dowers.reduce((sum, dowerName) => sum + dower.value[dowerName], 0)
-}
+// // const getDowerSum = (attribute) => {
+// //   const dowers = dowerMapping[attribute] || []
+// //   return dowers.reduce((sum, dowerName) => sum + dower.value[dowerName], 0)
+// // }
 
-const watchAttributes = () => {
-  //Object. keys es para el objeto attributes cada clave -> atr y que para clave se ejecute con el forEach
-  Object.keys(attributes.value).forEach((atr) => {
-    watch(
-      () => attributes.value[atr],
-      (newValue, oldValue) => {
-        const newLvl = Math.floor(newValue)
-        const oldLvl = Math.floor(oldValue || 0)
+// // const watchAttributes = () => {
+// //   //Object. keys es para el objeto attributes cada clave -> atr y que para clave se ejecute con el forEach
+// //   Object.keys(attributes.value).forEach((atr) => {
+// //     watch(
+// //       () => attributes.value[atr],
+// //       (newValue, oldValue) => {
+// //         const newLvl = Math.floor(newValue)
+// //         const oldLvl = Math.floor(oldValue || 0)
 
-        if (newLvl > oldLvl && getDowerSum(atr) < newLvl * 3) {
-          dtPoints.value[atr] += (newLvl - oldLvl) * 3
-        }
-      },
-    )
-  })
-}
+// //         if (newLvl > oldLvl && getDowerSum(atr) < newLvl * 3) {
+// //           dtPoints.value[atr] += (newLvl - oldLvl) * 3
+// //         }
+// //       },
+// //     )
+// //   })
+// // }
 
 watchAttributes()
 
 //funcion para añadir nueva herida
-const wounds = ref([{ id: 1, name: '', stadium: 0, grade: 1 }])
+// // const wounds = ref([{ id: 1, name: '', stadium: 0, grade: 1 }])
 
-const newWound = (index) => {
-  // Verificamos si el campo de nombre no está vacío
-  if (
-    wounds.value[index].name == '' &&
-    wounds.value.length > 1 &&
-    index != wounds.value.length - 1
-  ) {
-    wounds.value.splice(index, 1)
-  } else if (index === wounds.value.length - 1 && wounds.value[index].name != '') {
-    const newId = wounds.value.length + 1
-    wounds.value.push({ id: newId, name: '', stadium: 0, grade: 0 })
-  }
-}
-//Funcion para aumentar el grade de la herida
-const upGrade = (wound) => {
-  wound.stadium++
+// // const newWound = (index) => {
+// //   // Verificamos si el campo de nombre no está vacío
+// //   if (
+// //     wounds.value[index].name == '' &&
+// //     wounds.value.length > 1 &&
+// //     index != wounds.value.length - 1
+// //   ) {
+// //     wounds.value.splice(index, 1)
+// //   } else if (index === wounds.value.length - 1 && wounds.value[index].name != '') {
+// //     const newId = wounds.value.length + 1
+// //     wounds.value.push({ id: newId, name: '', stadium: 0, grade: 0 })
+// //   }
+// // }
+// // //Funcion para aumentar el grade de la herida
+// // const upGrade = (wound) => {
+// //   wound.stadium++
 
-  if (wound.stadium > 3) {
-    wound.grade++
-    wound.stadium = 1
-  }
-}
-const downGrade = (wound) => {
-  if (wound.stadium > 0) {
-    wound.stadium--
-  }
+// //   if (wound.stadium > 3) {
+// //     wound.grade++
+// //     wound.stadium = 1
+// //   }
+// // }
+// // const downGrade = (wound) => {
+// //   if (wound.stadium > 0) {
+// //     wound.stadium--
+// //   }
 
-  if (wound.stadium < 1 && wound.grade > 0) {
-    wound.grade--
-    wound.stadium = 3
-  }
-}
+// //   if (wound.stadium < 1 && wound.grade > 0) {
+// //     wound.grade--
+// //     wound.stadium = 3
+// //   }
+// // }
 
 //Funcion para aumentar la devoción
-const devInsert = ref()
-const devotion = ref(0)
+// // const devInsert = ref()
+// // const devotion = ref(0)
 
-const devUpdate = (event) => {
-  const inputValue = Number(event.target.value) || 0
-  devInsert.value = inputValue
-  devotion.value += devInsert.value
-  devInsert.value = ''
+// // const devUpdate = (event) => {
+// //   const inputValue = Number(event.target.value) || 0
+// //   devInsert.value = inputValue
+// //   devotion.value += devInsert.value
+// //   devInsert.value = ''
 
-  if (devotion.value >= 100) {
-    dp.value++
-    devotion.value = devotion.value - 100
-  }
-}
+// //   if (devotion.value >= 100) {
+// //     dp.value++
+// //     devotion.value = devotion.value - 100
+// //   }
+// // }
 
 //abrir el menú de stats completo
-const isExpanded = ref(false)
-const openStats = () => {
-  isExpanded.value = !isExpanded.value
-}
+// // const isExpanded = ref(false)
+// // const openStats = () => {
+// //   isExpanded.value = !isExpanded.value
+// // }
 </script>
