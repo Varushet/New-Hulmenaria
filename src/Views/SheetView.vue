@@ -55,7 +55,7 @@ select {
 /*Manejo de la pestaña de stats */
 .stadistSlide-enter-active,
 .stadistSlide-leave-active {
-  transition: transform 0.5s;
+  transition: 0.5s;
 }
 .stadistSlide-enter-from,
 .stadistSlide-leave-to {
@@ -64,11 +64,11 @@ select {
 
 .atrSlide-enter-active,
 .atrSlide-leave-active {
-  transition: transform 0.5s;
+  transition: 0.5s;
 }
 .atrSlide-enter-from,
 .atrSlide-leave-to {
-  transform: translateX(25rem);
+  transform: translate(25rem);
 }
 </style>
 
@@ -82,7 +82,7 @@ select {
         <p>Lvl {{ level }}</p>
       </div>
       <div @click="openAtr">
-        <img v-bind:src="dmg" alt="Damage" class="dmg" />
+        <img v-bind:src="dmg" alt="DamaConcge" class="dmg" />
         <img v-bind:src="ini" alt="Initiative" class="ini" />
         <div class="arm">
           <img src="" alt="Armor" />
@@ -164,18 +164,18 @@ const handleClose = () => {
   }
 }
 
-// Abrir el menú de stats completo
-const openStats = () => {
-  sheetDataStore.openStats()
-}
+// // Abrir el menú de stats completo
+// const openStats = () => {
+//   sheetDataStore.openStats()
+// }
 
-// Guardar formulario completo
-const saveForm = () => {
-  sheetDataStore.saveFormData()
-}
+// // Guardar formulario completo
+// const saveForm = () => {
+//   sheetDataStore.saveFormData()
+// }
 
-// Cargar formulario completo
-const loadForm = () => {
-  sheetDataStore.loadFormData()
-}
+// // Cargar formulario completo
+// const loadForm = () => {
+//   sheetDataStore.loadFormData()
+// }
 </script>

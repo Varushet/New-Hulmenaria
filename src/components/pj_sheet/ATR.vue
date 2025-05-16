@@ -217,281 +217,283 @@ section .especial .luck select {
 
 <template>
   <form>
-    <section :class="{ expanded: sheetData.isExpanded }">
+    <section :class="{ expanded: sheetData.atr.isExpanded }">
       <div class="row-3">
-        <label> Lvl <input type="number" min="1" name="lvl" v-model="sheetData.level" /> </label>
+        <label>
+          Lvl <input type="number" min="1" name="lvl" v-model="sheetData.atr.level" />
+        </label>
         <label>
           E.P.
           <input
             type="number"
             min="1"
             name="ep"
-            v-model="sheetData.xpInsert"
+            v-model="sheetData.atr.xpInsert"
             @keyup.enter="xpUpdate"
           />
         </label>
         <label>
-          X.P.<input type="number" min="1" name="xp" :value="sheetData.xpReach" readonly />
+          X.P.<input type="number" min="1" name="xp" :value="sheetData.atr.xpReach" readonly />
         </label>
       </div>
-      <p class="atrPoints" v-if="atrPoints > 0">{{ sheetData.atrPoints }}</p>
+      <p class="atrPoints" v-if="sheetData.atr.atrPoints > 0">{{ sheetData.atr.atrPoints }}</p>
       <div class="con points">
         <p
-          :class="{ disabled: sheetData.capCon == sheetData.attributes.con }"
+          :class="{ disabled: sheetData.atr.capCon == sheetData.atr.attributes.con }"
           @click="addPoint('con')"
         >
           Con
         </p>
-        <label> <input type="number" name="con" v-model="sheetData.attributes.con" /> </label>
+        <label> <input type="number" name="con" v-model="sheetData.atr.attributes.con" /> </label>
         <label class="cap">
-          / <input type="number" name="capCon" v-model="sheetData.capCon" />
+          / <input type="number" name="capCon" v-model="sheetData.atr.capCon" />
         </label>
         <label class="buf">
-          <input type="number" name="plusCon" v-model="sheetData.plusCon" />
+          <input type="number" name="plusCon" v-model="sheetData.atr.plusCon" />
         </label>
         <div class="dt">
           <p @click="addDower('agil')">Agil</p>
-          <label> <input type="number" name="agil" v-model="sheetData.dower.agil" /></label>
+          <label> <input type="number" name="agil" v-model="sheetData.atr.dower.agil" /></label>
           <label class="cap">
-            /<input type="number" name="capAgil" v-model="sheetData.capAgil" />
+            /<input type="number" name="capAgil" v-model="sheetData.atr.capAgil" />
           </label>
           <label class="buf">
-            <input type="number" name="plusAgil" v-model="sheetData.plusAgil" />
+            <input type="number" name="plusAgil" v-model="sheetData.atr.plusAgil" />
           </label>
           <p @click="addDower('end')">End</p>
-          <label> <input type="number" name="end" v-model="sheetData.dower.end" /> </label>
+          <label> <input type="number" name="end" v-model="sheetData.atr.dower.end" /> </label>
           <label class="cap">
-            /<input type="number" name="capEnd" v-model="sheetData.capEnd" />
+            /<input type="number" name="capEnd" v-model="sheetData.atr.capEnd" />
           </label>
           <label class="buf">
-            <input type="number" name="plusEnd" v-model="sheetData.plusEnd" />
+            <input type="number" name="plusEnd" v-model="sheetData.atr.plusEnd" />
           </label>
           <p @click="addDower('strg')">Strg</p>
-          <label> <input type="number" name="strg" v-model="sheetData.dower.strg" /> </label>
+          <label> <input type="number" name="strg" v-model="sheetData.atr.dower.strg" /> </label>
           <label class="cap">
-            /<input type="number" name="capStrg" v-model="sheetData.capStrg" />
+            /<input type="number" name="capStrg" v-model="sheetData.atr.capStrg" />
           </label>
           <label class="buf">
-            <input type="number" name="plusStrg" v-model="sheetData.plusStrg" />
+            <input type="number" name="plusStrg" v-model="sheetData.atr.plusStrg" />
           </label>
           <p @click="addDower('rap')">Rap</p>
-          <label> <input type="number" name="rap" v-model="sheetData.dower.rap" /> </label>
+          <label> <input type="number" name="rap" v-model="sheetData.atr.dower.rap" /> </label>
           <label class="cap">
-            /<input type="number" name="capRap" v-model="sheetData.capRap" />
+            /<input type="number" name="capRap" v-model="sheetData.atr.capRap" />
           </label>
           <label class="buf">
-            <input type="number" name="plusRap" v-model="sheetData.plusRap" />
+            <input type="number" name="plusRap" v-model="sheetData.atr.plusRap" />
           </label>
-          <label> <input type="number" name="ref" v-model="sheetData.dower.ref" /> </label>
+          <label> <input type="number" name="ref" v-model="sheetData.atr.dower.ref" /> </label>
           <label class="cap">
-            /<input type="number" name="capRef" v-model="sheetData.capRef" />
+            /<input type="number" name="capRef" v-model="sheetData.atr.capRef" />
           </label>
           <label class="buf">
-            <input type="number" name="plusRef" v-model="sheetData.plusRef" />
+            <input type="number" name="plusRef" v-model="sheetData.atr.plusRef" />
           </label>
           <p @click="addDower('spd')">Spd</p>
-          <label> <input type="number" name="spd" v-model="sheetData.dower.spd" /> </label>
+          <label> <input type="number" name="spd" v-model="sheetData.atr.dower.spd" /> </label>
           <label class="cap">
-            /<input type="number" name="capSpd" v-model="sheetData.capSpd" />
+            /<input type="number" name="capSpd" v-model="sheetData.atr.capSpd" />
           </label>
           <label class="buf">
-            <input type="number" name="plusSpd" v-model="sheetData.plusSpd" />
+            <input type="number" name="plusSpd" v-model="sheetData.atr.plusSpd" />
           </label>
         </div>
       </div>
       <div class="int points">
         <p
-          :class="{ disabled: sheetData.capInt == sheetData.attributes.int }"
+          :class="{ disabled: sheetData.atr.capInt == sheetData.atr.attributes.int }"
           @click="addPoint('int')"
         >
           Int
         </p>
-        <label> <input type="number" name="int" v-model="sheetData.attributes.int" /> </label>
+        <label> <input type="number" name="int" v-model="sheetData.atr.attributes.int" /> </label>
         <label class="cap">
-          /<input type="number" name="capInt" v-model="sheetData.capInt" />
+          /<input type="number" name="capInt" v-model="sheetData.atr.capInt" />
         </label>
         <label class="buf">
-          <input type="number" name="plusInt" v-model="sheetData.plusInt" />
+          <input type="number" name="plusInt" v-model="sheetData.atr.plusInt" />
         </label>
         <div class="dt">
           <p @click="addDower('clev')">Clev</p>
-          <label> <input type="number" name="clev" v-model="sheetData.dower.clev" /> </label>
+          <label> <input type="number" name="clev" v-model="sheetData.atr.dower.clev" /> </label>
           <label class="cap">
-            /<input type="number" name="capClev" v-model="sheetData.capClev" />
+            /<input type="number" name="capClev" v-model="sheetData.atr.capClev" />
           </label>
           <label class="buf">
-            <input type="number" name="plusClev" v-model="sheetData.plusClev" />
+            <input type="number" name="plusClev" v-model="sheetData.atr.plusClev" />
           </label>
           <p @click="addDower('conc')">Conc</p>
-          <label> <input type="number" name="conc" v-model="sheetData.dower.conc" /> </label>
+          <label> <input type="number" name="conc" v-model="sheetData.atr.dower.conc" /> </label>
           <label class="cap">
-            /<input type="number" name="capConc" v-model="sheetData.capConc" />
+            /<input type="number" name="capConc" v-model="sheetData.atr.capConc" />
           </label>
           <label class="buf">
-            <input type="number" name="plusConc" v-model="sheetData.plusConc" />
+            <input type="number" name="plusConc" v-model="sheetData.atr.plusConc" />
           </label>
           <p @click="addDower('ing')">Ing</p>
-          <label><input type="number" name="ing" v-model="sheetData.dower.ing" /></label>
+          <label><input type="number" name="ing" v-model="sheetData.atr.dower.ing" /></label>
           <label class="cap">
-            /<input type="number" name="capIng" v-model="sheetData.capIng" />
+            /<input type="number" name="capIng" v-model="sheetData.atr.capIng" />
           </label>
           <label class="buf">
-            <input type="number" name="plusIng" v-model="sheetData.plusIng" />
+            <input type="number" name="plusIng" v-model="sheetData.atr.plusIng" />
           </label>
           <p @click="addDower('wisd')">Wisd</p>
-          <label><input type="number" name="wisd" v-model="sheetData.dower.wisd" /></label>
+          <label><input type="number" name="wisd" v-model="sheetData.atr.dower.wisd" /></label>
           <label class="cap">
-            /<input type="number" name="capWisd" v-model="sheetData.capWisd" />
+            /<input type="number" name="capWisd" v-model="sheetData.atr.capWisd" />
           </label>
           <label class="buf">
-            <input type="number" name="plusWisd" v-model="sheetData.plusWisd" />
+            <input type="number" name="plusWisd" v-model="sheetData.atr.plusWisd" />
           </label>
           <p @click="addDower('tem')">Tem</p>
-          <label><input type="number" name="tem" v-model="sheetData.dower.tem" /></label>
+          <label><input type="number" name="tem" v-model="sheetData.atr.dower.tem" /></label>
           <label class="cap">
-            /<input type="number" name="capTem" v-model="sheetData.capTem" />
+            /<input type="number" name="capTem" v-model="sheetData.atr.capTem" />
           </label>
           <label class="buf">
-            <input type="number" name="plusTem" v-model="sheetData.plusTem" />
+            <input type="number" name="plusTem" v-model="sheetData.atr.plusTem" />
           </label>
           <p @click="addDower('will')">Will</p>
-          <label><input type="number" name="will" v-model="sheetData.dower.will" /></label>
+          <label><input type="number" name="will" v-model="sheetData.atr.dower.will" /></label>
           <label class="cap">
-            /<input type="number" name="capWill" v-model="sheetData.capWill" />
+            /<input type="number" name="capWill" v-model="sheetData.atr.capWill" />
           </label>
           <label class="buf">
-            <input type="number" name="plusWill" v-model="sheetData.plusWill" />
+            <input type="number" name="plusWill" v-model="sheetData.atr.plusWill" />
           </label>
         </div>
       </div>
       <div class="per points">
         <p
-          :class="{ disabled: sheetData.capPer == sheetData.attributes.per }"
+          :class="{ disabled: sheetData.atr.capPer == sheetData.atr.attributes.per }"
           @click="addPoint('per')"
         >
           Per
         </p>
-        <label><input type="number" name="per" v-model="sheetData.attributes.per" /></label>
+        <label><input type="number" name="per" v-model="sheetData.atr.attributes.per" /></label>
         <label class="cap">
-          / <input type="number" name="capPer" v-model="sheetData.capPer" />
+          / <input type="number" name="capPer" v-model="sheetData.atr.capPer" />
         </label>
         <label class="buf">
-          <input type="number" name="plusPer" v-model="sheetData.plusPer" />
+          <input type="number" name="plusPer" v-model="sheetData.atr.plusPer" />
         </label>
         <div class="dt">
           <p @click="addDower('emp')">Emp</p>
-          <label><input type="number" name="emp" v-model="sheetData.dower.emp" /></label>
+          <label><input type="number" name="emp" v-model="sheetData.atr.dower.emp" /></label>
           <label class="cap">
-            /<input type="number" name="capEmp" v-model="sheetData.capEmp" />
+            /<input type="number" name="capEmp" v-model="sheetData.atr.capEmp" />
           </label>
           <label class="buf">
-            <input type="number" name="plusEmp" v-model="sheetData.plusEmp" />
+            <input type="number" name="plusEmp" v-model="sheetData.atr.plusEmp" />
           </label>
           <p @click="addDower('seek')">Seek</p>
-          <label><input type="number" name="seek" v-model="sheetData.dower.seek" /></label>
+          <label><input type="number" name="seek" v-model="sheetData.atr.dower.seek" /></label>
           <label class="cap">
-            /<input type="number" name="capSeek" v-model="sheetData.capSeek" />
+            /<input type="number" name="capSeek" v-model="sheetData.atr.capSeek" />
           </label>
           <label class="buf">
-            <input type="number" name="plusSeek" v-model="sheetData.plusSeek" />
+            <input type="number" name="plusSeek" v-model="sheetData.atr.plusSeek" />
           </label>
           <p @click="addDower('dizz')">Dizz</p>
-          <label><input type="number" name="dizz" v-model="sheetData.dower.dizz" /></label>
+          <label><input type="number" name="dizz" v-model="sheetData.atr.dower.dizz" /></label>
           <label class="cap">
-            /<input type="number" name="capDizz" v-model="sheetData.capDizz" />
+            /<input type="number" name="capDizz" v-model="sheetData.atr.capDizz" />
           </label>
           <label class="buf">
-            <input type="number" name="plusDizz" v-model="sheetData.plusDizz" />
+            <input type="number" name="plusDizz" v-model="sheetData.atr.plusDizz" />
           </label>
           <p @click="addDower('sigh')">Sigh</p>
-          <label><input type="number" name="sigh" v-model="sheetData.dower.sigh" /></label>
+          <label><input type="number" name="sigh" v-model="sheetData.atr.dower.sigh" /></label>
           <label class="cap">
-            /<input type="number" name="capSigh" v-model="sheetData.capSigh" />
+            /<input type="number" name="capSigh" v-model="sheetData.atr.capSigh" />
           </label>
           <label class="buf">
-            <input type="number" name="plusSigh" v-model="sheetData.plusSigh" />
+            <input type="number" name="plusSigh" v-model="sheetData.atr.plusSigh" />
           </label>
         </div>
       </div>
       <div class="car points">
         <p
-          :class="{ disabled: sheetData.capCar == sheetData.attributes.car }"
+          :class="{ disabled: sheetData.atr.capCar == sheetData.atr.attributes.car }"
           @click="addPoint('car')"
         >
           Car
         </p>
-        <label><input type="number" name="car" v-model="sheetData.attributes.car" /></label>
+        <label><input type="number" name="car" v-model="sheetData.atr.attributes.car" /></label>
         <label class="cap">
-          /<input type="number" name="capCar" v-model="sheetData.capCar" />
+          /<input type="number" name="capCar" v-model="sheetData.atr.capCar" />
         </label>
         <label class="buf">
-          <input type="number" name="plusCar" v-model="sheetData.plusCar" />
+          <input type="number" name="plusCar" v-model="sheetData.atr.plusCar" />
         </label>
         <div class="dt">
           <p @click="addDower('pret')">Pret</p>
-          <label><input type="number" name="pret" v-model="sheetData.dower.pret" /></label>
+          <label><input type="number" name="pret" v-model="sheetData.atr.dower.pret" /></label>
           <label class="cap">
-            /<input type="number" name="capPret" v-model="sheetData.capPret" />
+            /<input type="number" name="capPret" v-model="sheetData.atr.capPret" />
           </label>
           <label class="buf">
-            <input type="number" name="plusPret" v-model="sheetData.plusPret" />
+            <input type="number" name="plusPret" v-model="sheetData.atr.plusPret" />
           </label>
           <p @click="addDower('man')">Man</p>
-          <label><input type="number" name="man" v-model="sheetData.dower.man" /></label>
+          <label><input type="number" name="man" v-model="sheetData.atr.dower.man" /></label>
           <label class="cap">
-            /<input type="number" name="capMan" v-model="sheetData.capMan" />
+            /<input type="number" name="capMan" v-model="sheetData.atr.capMan" />
           </label>
           <label class="buf">
-            <input type="number" name="plusMan" v-model="sheetData.plusMan" />
+            <input type="number" name="plusMan" v-model="sheetData.atr.plusMan" />
           </label>
           <p @click="addDower('sec')">Sec</p>
-          <label><input type="number" name="sec" v-model="sheetData.dower.sec" /></label>
+          <label><input type="number" name="sec" v-model="sheetData.atr.dower.sec" /></label>
           <label class="cap">
-            /<input type="number" name="capSec" v-model="sheetData.capSec" />
+            /<input type="number" name="capSec" v-model="sheetData.atr.capSec" />
           </label>
           <label class="buf">
-            <input type="number" name="plusSec" v-model="sheetData.plusSec" />
+            <input type="number" name="plusSec" v-model="sheetData.atr.plusSec" />
           </label>
           <p @click="addDower('ac')">Ac</p>
-          <label><input type="number" name="ac" v-model="sheetData.dower.ac" /></label>
+          <label><input type="number" name="ac" v-model="sheetData.atr.dower.ac" /></label>
           <label class="cap">
-            /<input type="number" name="capAc" v-model="sheetData.capAc" />
+            /<input type="number" name="capAc" v-model="sheetData.atr.capAc" />
           </label>
           <label class="buf">
-            <input type="number" name="plusAc" v-model="sheetData.plusAc" />
+            <input type="number" name="plusAc" v-model="sheetData.atr.plusAc" />
           </label>
         </div>
       </div>
       <div class="hab points">
         <p
-          :class="{ disabled: sheetData.capHab == sheetData.attributes.hab }"
+          :class="{ disabled: sheetData.atr.capHab == sheetData.atr.attributes.hab }"
           @click="addPoint('hab')"
         >
           Hab
         </p>
-        <label><input type="number" name="hab" v-model="sheetData.attributes.hab" /></label>
+        <label><input type="number" name="hab" v-model="sheetData.atr.attributes.hab" /></label>
         <label class="cap">
-          /<input type="number" name="capHab" v-model="sheetData.capHab" />
+          /<input type="number" name="capHab" v-model="sheetData.atr.capHab" />
         </label>
         <label class="buf">
-          <input type="number" name="plusHab" v-model="sheetData.plusHab" />
+          <input type="number" name="plusHab" v-model="sheetData.atr.plusHab" />
         </label>
         <div class="dt">
           <p @click="addDower('art')">Art</p>
-          <label><input type="number" name="art" v-model="sheetData.dower.art" /></label>
+          <label><input type="number" name="art" v-model="sheetData.atr.dower.art" /></label>
           <label class="cap">
-            /<input type="number" name="capArt" v-model="sheetData.capArt" />
+            /<input type="number" name="capArt" v-model="sheetData.atr.capArt" />
           </label>
           <label class="buf">
-            <input type="number" name="plusArt" v-model="sheetData.plusArt" />
+            <input type="number" name="plusArt" v-model="sheetData.atr.plusArt" />
           </label>
           <p @click="addDower('des')">Des</p>
-          <label><input type="number" name="des" v-model="sheetData.dower.des" /></label>
+          <label><input type="number" name="des" v-model="sheetData.atr.dower.des" /></label>
           <label class="cap">
-            /<input type="number" name="capDes" v-model="sheetData.capDes" />
+            /<input type="number" name="capDes" v-model="sheetData.atr.capDes" />
           </label>
           <label class="buf">
-            <input type="number" name="plusDes" v-model="sheetData.plusDes" />
+            <input type="number" name="plusDes" v-model="sheetData.atr.plusDes" />
           </label>
         </div>
       </div>
@@ -499,7 +501,7 @@ section .especial .luck select {
         <div class="luck points">
           <p>Lk</p>
           <label class="luck">
-            <select name="luckSelect" v-model="sheetData.luckSelect">
+            <select name="luckSelect" v-model="sheetData.atr.luckSelect">
               <option>Choose</option>
               <option>Lucky</option>
               <option>Fortunate</option>
@@ -507,46 +509,48 @@ section .especial .luck select {
               <option>Unlucky</option>
             </select>
           </label>
-          <label class="buf"> <input type="number" name="luck" v-model="sheetData.luck" /></label>
+          <label class="buf">
+            <input type="number" name="luck" v-model="sheetData.atr.luck"
+          /></label>
         </div>
         <div class="psi points">
           <p
-            :class="{ disabled: sheetData.capPsi == sheetData.attributes.psi }"
+            :class="{ disabled: sheetData.atr.capPsi == sheetData.atr.attributes.psi }"
             @click="addPoint('psi')"
           >
             Psi
           </p>
-          <label><input type="number" name="psi" v-model="sheetData.attributes.psi" /></label>
+          <label><input type="number" name="psi" v-model="sheetData.atr.attributes.psi" /></label>
           <label class="cap">
-            /<input type="number" name="capPsi" v-model="sheetData.capPsi" />
+            /<input type="number" name="capPsi" v-model="sheetData.atr.capPsi" />
           </label>
           <label class="buf">
-            <input type="number" name="plusPsi" v-model="sheetData.plusPsi" />
+            <input type="number" name="plusPsi" v-model="sheetData.atr.plusPsi" />
           </label>
         </div>
         <div class="esp points">
           <p
-            :class="{ disabled: sheetData.capEsp == sheetData.attributes.esp }"
+            :class="{ disabled: sheetData.atr.capEsp == sheetData.atr.attributes.esp }"
             @click="addPoint('esp')"
           >
             Esp
           </p>
-          <label><input type="number" name="esp" v-model="sheetData.attributes.esp" /></label>
+          <label><input type="number" name="esp" v-model="sheetData.atr.attributes.esp" /></label>
           <label class="cap">
-            /<input type="number" name="capEsp" v-model="sheetData.capEsp" />
+            /<input type="number" name="capEsp" v-model="sheetData.atr.capEsp" />
           </label>
           <label class="buf">
-            <input type="number" name="plusEsp" v-model="sheetData.plusEsp" />
+            <input type="number" name="plusEsp" v-model="sheetData.atr.plusEsp" />
           </label>
         </div>
       </div>
       <div class="reg">
         <p>Reg</p>
         <label class="buf">
-          <input type="number" name="plusReg" v-model="sheetData.plusReg" />
+          <input type="number" name="plusReg" v-model="sheetData.atr.plusReg" />
         </label>
         <label>
-          <select name="regSelect" v-model="sheetData.regSelect">
+          <select name="regSelect" v-model="sheetData.atr.regSelect">
             <option>None</option>
             <option>Superficial</option>
             <option>Scarred</option>
@@ -557,7 +561,7 @@ section .especial .luck select {
           </select>
         </label>
       </div>
-      <div class="ill" v-for="(wound, index) in sheetData.wounds" :key="wound.id">
+      <div class="ill" v-for="(wound, index) in sheetData.atr.wounds" :key="wound.id">
         <img :src="woundDott" alt="Wound Icon" />
         <label class="wound">
           <input type="text" v-model="wound.name" @blur="newWound(index)" />
@@ -571,7 +575,7 @@ section .especial .luck select {
       <div class="deity">
         <p>Deity</p>
         <label>
-          <select name="deityType" v-model="sheetData.deityType">
+          <select name="deityType" v-model="sheetData.atr.deityType">
             <option>Heritage</option>
             <option>Idolic</option>
             <option>Elemental</option>
@@ -584,38 +588,43 @@ section .especial .luck select {
           <input
             type="text"
             name="deityName"
-            v-model="sheetData.deityName"
+            v-model="sheetData.atr.deityName"
             @input="updateDeityName"
           />
         </label>
         <label
-          >D.P.<input type="number" name="destinyPoints" v-model="sheetData.dp" @input="updateDP" />
+          >D.P.<input
+            type="number"
+            name="destinyPoints"
+            v-model="sheetData.atr.dp"
+            @input="updateDP"
+          />
         </label>
         <label>
           Devotion<input
             type="number"
             class="dev"
-            v-model="sheetData.devInsert"
+            v-model="sheetData.atr.devInsert"
             @keyup.enter="devUpdate"
           />
         </label>
         <label>
-          <input type="range" name="devotion" :value="sheetData.devotion" max="100" disabled />
+          <input type="range" name="devotion" :value="sheetData.atr.devotion" max="100" disabled />
         </label>
       </div>
       <div class="karma">
         <p>Karma</p>
         <label class="karma">
           <span>Good</span>
-          <input type="range" step="10" v-model="sheetData.karmaGood" name="karmaGood" />
+          <input type="range" step="10" v-model="sheetData.atr.karmaGood" name="karmaGood" />
         </label>
         <label class="karma">
           <span>Evil</span>
-          <input type="range" step="10" v-model="sheetData.karmaEvil" name="karmaEvil" />
+          <input type="range" step="10" v-model="sheetData.atr.karmaEvil" name="karmaEvil" />
         </label>
       </div>
       <button @click="openStats" class="expand-btn">
-        View {{ sheetData.isExpanded ? 'shorten' : 'expanded' }} stats
+        View {{ sheetData.atr.isExpanded ? 'shorten' : 'expanded' }} stats
       </button>
     </section>
   </form>
@@ -628,39 +637,30 @@ import { useSheetDataStore } from '@/stores/sheetDataStore'
 const sheetDataStore = useSheetDataStore()
 const sheetData = sheetDataStore.sheetData
 
-//exportar valores a la principal
-// // const deityName = defineModel('deityName')
-// // const level = defineModel('level')
-// // const dp = defineModel('dp')
-
-//Suma el XP y calcula el nivel
-// // const xpReach = ref(0)
-// // const xpInsert = ref()
-
 // Suma el XP y calcula el nivel
 const xpUpdate = (event) => {
   const inputValue = Number(event.target.value) || 0
-  const maxLvl = Number(sheetData.level) * 10 - 1
-  sheetData.xpInsert = inputValue
-  sheetData.xpReach += inputValue
+  const maxLvl = Number(sheetData.atr.level) * 10 - 1
+  sheetData.atr.xpInsert = inputValue
+  sheetData.atr.xpReach += inputValue
   // Restaura E.P. a su valor 0
-  sheetData.xpInsert = 0
+  sheetData.atr.xpInsert = 0
   // Sube el Nv y Restaura el XP a su valor inicial
-  if (sheetData.xpReach > maxLvl) {
-    sheetData.level++
-    sheetData.xpReach -= maxLvl + 1
+  if (sheetData.atr.xpReach > maxLvl) {
+    sheetData.atr.level++
+    sheetData.atr.xpReach -= maxLvl + 1
   }
 }
 
 //Función para añadir los puntos de atr
 // // const atrPoints = ref(0.3)
 
-watch(sheetData.level, (newLevel, oldLevel) => {
+watch(sheetData.atr.level, (newLevel, oldLevel) => {
   if (oldLevel) {
     const levelDifference = newLevel - oldLevel
-    sheetData.atrPoints = Number((sheetData.atrPoints + levelDifference * 0.3).toFixed(1))
+    sheetData.atr.atrPoints = Number((sheetData.atr.atrPoints + levelDifference * 0.3).toFixed(1))
   } else {
-    sheetData.atrPoints = Number((newLevel * 0.3).toFixed(1))
+    sheetData.atr.atrPoints = Number((newLevel * 0.3).toFixed(1))
   }
 })
 
@@ -708,93 +708,10 @@ const saveForm = () => {
 const loadForm = () => {
   sheetDataStore.loadFormData()
 }
-//Aplicar puntos de nivel a los ATR
 
-// // const attributes = ref({
-// //   con: 0,
-// //   int: 0,
-// //   per: 0,
-// //   car: 0,
-// //   hab: 0,
-// //   psi: 0,
-// //   esp: 0,
-// // })
-// // const dower = ref({
-// //   // Dotes de CON
-// //   agil: 0,
-// //   end: 0,
-// //   strg: 0,
-// //   rap: 0,
-// //   ref: 0,
-// //   spd: 0,
-// //   // Dotes de INT
-// //   clev: 0,
-// //   conc: 0,
-// //   ing: 0,
-// //   wisd: 0,
-// //   tem: 0,
-// //   will: 0,
-// //   // Dotes de PER
-// //   emp: 0,
-// //   seek: 0,
-// //   dizz: 0,
-// //   sigh: 0,
-// //   // Dotes de CAR
-// //   pret: 0,
-// //   man: 0,
-// //   sec: 0,
-// //   ac: 0,
-// //   // Dotes de HAB
-// //   art: 0,
-// //   des: 0,
-// // })
-const dowerMapping = {
-  con: ['agil', 'end', 'strg', 'rap', 'ref', 'spd'],
-  int: ['clev', 'conc', 'ing', 'wisd', 'tem', 'will'],
-  per: ['emp', 'seek', 'dizz', 'sigh'],
-  car: ['pret', 'man', 'sec', 'ac'],
-  hab: ['art', 'des'],
-}
-
-// // const addPoint = (attributeName) => {
-// //   if (atrPoints.value >= 0.1) {
-// //     attributes.value[attributeName] = Number((attributes.value[attributeName] + 0.1).toFixed(1))
-// //     atrPoints.value = Number((atrPoints.value - 0.1).toFixed(1))
-// //   }
-// // }
-
-//añadir puntos 3p de dote por cada ATR
-const dtPoints = ref({
-  con: 0,
-  int: 0,
-  per: 0,
-  car: 0,
-  hab: 0,
-})
-
-// // const addDower = (dowerName) => {
-// //   // convierte el mapa en un array claves,valor y busca la coincidencia del segundo elemento, por eso _,
-// //   const attribute = Object.entries(dowerMapping).find(
-// //     ([_, dowers]) =>
-// //       //busca en dowers el argumento de la función inicial y así saca a qué atr pertenece esta dt (para cada una)
-// //       dowers.includes(dowerName),
-// //     //obtiene la clave de la dt dada
-// //   )?.[0]
-
-// //   if (attribute && dtPoints.value[attribute] > 0) {
-// //     // Verifica que la suma de dotes no exceda el límite
-// //     const currentSum = getDowerSum(attribute)
-// //     const attributeValue = attributes.value[attribute]
-// //     //No permite agregar puntos si ya hay repartidos esa máxima cantidad de puntos
-// //     if (currentSum < attributeValue * 3) {
-// //       dower.value[dowerName]++
-// //       dtPoints.value[attribute]--
-// //     }
-// //   }
-// // }
 //devolver los dtPoints cuando son borrados manualmente
 watch(
-  () => ({ ...dower.value }),
+  () => ({ ...sheetData.atr.dower }),
   (newDower, oldDower) => {
     Object.keys(dower.value).forEach((dot) => {
       const newValue = newDower[dot]
@@ -814,86 +731,4 @@ watch(
   //watch si cualquier propiedad del objeto cambia
   { deep: true },
 )
-
-// // const getDowerSum = (attribute) => {
-// //   const dowers = dowerMapping[attribute] || []
-// //   return dowers.reduce((sum, dowerName) => sum + dower.value[dowerName], 0)
-// // }
-
-// // const watchAttributes = () => {
-// //   //Object. keys es para el objeto attributes cada clave -> atr y que para clave se ejecute con el forEach
-// //   Object.keys(attributes.value).forEach((atr) => {
-// //     watch(
-// //       () => attributes.value[atr],
-// //       (newValue, oldValue) => {
-// //         const newLvl = Math.floor(newValue)
-// //         const oldLvl = Math.floor(oldValue || 0)
-
-// //         if (newLvl > oldLvl && getDowerSum(atr) < newLvl * 3) {
-// //           dtPoints.value[atr] += (newLvl - oldLvl) * 3
-// //         }
-// //       },
-// //     )
-// //   })
-// // }
-
-watchAttributes()
-
-//funcion para añadir nueva herida
-// // const wounds = ref([{ id: 1, name: '', stadium: 0, grade: 1 }])
-
-// // const newWound = (index) => {
-// //   // Verificamos si el campo de nombre no está vacío
-// //   if (
-// //     wounds.value[index].name == '' &&
-// //     wounds.value.length > 1 &&
-// //     index != wounds.value.length - 1
-// //   ) {
-// //     wounds.value.splice(index, 1)
-// //   } else if (index === wounds.value.length - 1 && wounds.value[index].name != '') {
-// //     const newId = wounds.value.length + 1
-// //     wounds.value.push({ id: newId, name: '', stadium: 0, grade: 0 })
-// //   }
-// // }
-// // //Funcion para aumentar el grade de la herida
-// // const upGrade = (wound) => {
-// //   wound.stadium++
-
-// //   if (wound.stadium > 3) {
-// //     wound.grade++
-// //     wound.stadium = 1
-// //   }
-// // }
-// // const downGrade = (wound) => {
-// //   if (wound.stadium > 0) {
-// //     wound.stadium--
-// //   }
-
-// //   if (wound.stadium < 1 && wound.grade > 0) {
-// //     wound.grade--
-// //     wound.stadium = 3
-// //   }
-// // }
-
-//Funcion para aumentar la devoción
-// // const devInsert = ref()
-// // const devotion = ref(0)
-
-// // const devUpdate = (event) => {
-// //   const inputValue = Number(event.target.value) || 0
-// //   devInsert.value = inputValue
-// //   devotion.value += devInsert.value
-// //   devInsert.value = ''
-
-// //   if (devotion.value >= 100) {
-// //     dp.value++
-// //     devotion.value = devotion.value - 100
-// //   }
-// // }
-
-//abrir el menú de stats completo
-// // const isExpanded = ref(false)
-// // const openStats = () => {
-// //   isExpanded.value = !isExpanded.value
-// // }
 </script>

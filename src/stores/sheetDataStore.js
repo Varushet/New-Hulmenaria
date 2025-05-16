@@ -1,5 +1,14 @@
 import { defineStore } from 'pinia'
+import { watch } from 'vue'
 import { loadSheetData, saveSheetData } from '@/utils/indexedDB'
+
+const dowerMapping = {
+  con: ['agil', 'end', 'strg', 'rap', 'ref', 'spd'],
+  int: ['clev', 'conc', 'ing', 'wisd', 'tem', 'will'],
+  per: ['emp', 'seek', 'dizz', 'sigh'],
+  car: ['pret', 'man', 'sec', 'ac'],
+  hab: ['art', 'des'],
+}
 
 export const useSheetDataStore = defineStore('sheetData', {
   state: () => ({
@@ -69,6 +78,13 @@ export const useSheetDataStore = defineStore('sheetData', {
         karmaGood: 0,
         karmaEvil: 0,
       },
+      dtPoints: {
+        con: 0,
+        int: 0,
+        per: 0,
+        car: 0,
+        hab: 0,
+      },
     },
   }),
 
@@ -85,11 +101,11 @@ export const useSheetDataStore = defineStore('sheetData', {
     // // //Funciones//
     //Añade un punto a un atributo si hay puntos disponibles
     addPoint(attributeName) {
-      if (this.sheetData.atrPoints >= 0.1) {
-        this.sheetData.attributes[attributeName] = Number(
-          (athis.sheetData.attributes[attributeName] + 0.1).toFixed(1),
+      if (this.sheetData.atr.atrPoints >= 0.1) {
+        this.sheetData.atr.attributes[attributeName] = Number(
+          (this.sheetData.atr.attributes[attributeName] + 0.1).toFixed(1),
         )
-        this.sheetData.atrPoints = Number((this.sheetData.atrPoints.value - 0.1).toFixed(1))
+        this.sheetData.atr.atrPoints = Number((this.sheetData.atr.atrPoints - 0.1).toFixed(1))
       }
     },
 
@@ -105,31 +121,31 @@ export const useSheetDataStore = defineStore('sheetData', {
       if (attribute && this.dtPoints[attribute] > 0) {
         // Verifica que la suma de dotes no exceda el límite
         const currentSum = this.getDowerSum(attribute)
-        const attributeValue = this.sheetData.attributes[attribute]
+        const attributeValue = this.sheetData.atr.attributes[attribute]
         //No permite agregar puntos si ya hay repartidos esa máxima cantidad de puntos
         if (currentSum < attributeValue * 3) {
-          this.sheetData.dower[dowerName]++
+          this.sheetData.atr.dower[dowerName]++
           this.sheetData.dtPoints[attribute]--
         }
       }
     },
 
     getDowerSum(attribute) {
-      const dowers = this.dowerMapping[attribute] || []
-      return dowers.reduce((sum, dowerName) => sum + this.sheetData.dower[dowerName], 0)
+      const dowers = dowerMapping[attribute] || []
+      return dowers.reduce((sum, dowerName) => sum + this.sheetData.atr.dower[dowerName], 0)
     },
 
     watchAttributes() {
       //Object. keys es para el objeto attributes cada clave -> atr y que para clave se ejecute con el forEach
-      Object.keys(this.sheetData.attributes).forEach((atr) => {
+      Object.keys(this.sheetData.atr.attributes).forEach((atr) => {
         watch(
-          () => this.sheetData.attributes[atr],
+          () => this.sheetData.atr.attributes[atr],
           (newValue, oldValue) => {
             const newLvl = Math.floor(newValue)
             const oldLvl = Math.floor(oldValue || 0)
 
-            if (newLvl > oldLvl && getDowerSum(atr) < newLvl * 3) {
-              this.dtPoints[atr] += (newLvl - oldLvl) * 3
+            if (newLvl > oldLvl && this.getDowerSum(atr) < newLvl * 3) {
+              this.sheetData.dtPoints[atr] += (newLvl - oldLvl) * 3
             }
           },
         )
@@ -139,17 +155,17 @@ export const useSheetDataStore = defineStore('sheetData', {
     newWound(index) {
       // Verificamos si el campo de nombre no está vacío
       if (
-        this.sheetData.wounds[index].name == '' &&
-        this.sheetData.wounds.length > 1 &&
-        index != this.sheetData.wounds.length - 1
+        this.sheetData.atr.wounds[index].name == '' &&
+        this.sheetData.atr.wounds.length > 1 &&
+        index != this.sheetData.atr.wounds.length - 1
       ) {
-        this.sheetData.wounds.splice(index, 1)
+        this.sheetData.atr.wounds.splice(index, 1)
       } else if (
-        index === this.sheetData.wounds.length - 1 &&
-        this.sheetData.wounds[index].name != ''
+        index === this.sheetData.atr.wounds.length - 1 &&
+        this.sheetData.atr.wounds[index].name != ''
       ) {
-        const newId = this.sheetData.wounds.length + 1
-        this.sheetData.wounds.push({ id: newId, name: '', stadium: 0, grade: 0 })
+        const newId = this.sheetData.atr.wounds.length + 1
+        this.sheetData.atr.wounds.push({ id: newId, name: '', stadium: 0, grade: 0 })
       }
     },
 
@@ -174,18 +190,18 @@ export const useSheetDataStore = defineStore('sheetData', {
 
     devUpdate(event) {
       const inputValue = Number(event.target.value) || 0
-      this.sheetData.devInsert = inputValue
-      this.sheetData.devotion += devInsert.value
-      this.sheetData.devInsert = ''
+      this.sheetData.atr.devInsert = inputValue
+      this.sheetData.atr.devotion += this.sheetData.atr.devInsert
+      this.sheetData.atr.devInsert = ''
 
-      if (this.sheetData.devotion >= 100) {
-        this.sheetData.dp++
-        this.sheetData.devotion = this.sheetData.devotion - 100
+      if (this.sheetData.atr.devotion >= 100) {
+        this.sheetData.atr.dp++
+        this.sheetData.atr.devotion = this.sheetData.atr.devotion - 100
       }
     },
 
     openStats() {
-      this.sheetData.isExpanded = !this.sheetData.isExpanded
+      this.sheetData.atr.isExpanded = !this.sheetData.atr.isExpanded
     },
     // // //Funciones//
 
@@ -212,6 +228,9 @@ export const useSheetDataStore = defineStore('sheetData', {
       }
     },
 
+    created() {
+      this.watchAttributes()
+    },
     // // //IndexedDB//
   },
 })
