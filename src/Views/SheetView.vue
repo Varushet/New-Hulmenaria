@@ -68,12 +68,12 @@ select {
 }
 .atrSlide-enter-from,
 .atrSlide-leave-to {
-  transform: translate(25rem);
+  transform: translateX(25rem);
 }
 </style>
 
 <template>
-  <main class="inv">
+  <form class="inv">
     <div class="overlay" v-if="isStadistOpen || isAtrOpen" @click="handleClose"></div>
     <section>
       <div @click="openStad">
@@ -109,16 +109,14 @@ select {
     <transition name="stadistSlide">
       <Stadist class="stadist" v-if="isStadistOpen" v-model:name="namePJ" v-model:race="race" />
     </transition>
-    <transition name="atrSlide">
-      <ATR
-        class="atr"
-        v-if="isAtrOpen"
-        v-model:deityName="deityName"
-        v-model:level="level"
-        v-model:dp="dp"
-      />
-    </transition>
-  </main>
+    <ATR
+      class="atr"
+      v-if="isAtrOpen"
+      v-model:deityName="sheetData.deityName"
+      v-model:level="sheetData.level"
+      v-model:dp="sheetData.dp"
+    />
+  </form>
 </template>
 
 <script setup>
@@ -128,6 +126,10 @@ import Stadist from '@/components/pj_sheet/Stadist.vue'
 import ATR from '../components/pj_sheet/ATR.vue'
 
 import { ref } from 'vue'
+import { useSheetDataStore } from '@/stores/sheetDataStore'
+
+const sheetDataStore = useSheetDataStore()
+const sheetData = sheetDataStore.sheetData
 
 //Importar y cambiar el nombre
 //Stadist
@@ -160,5 +162,20 @@ const handleClose = () => {
   if (isAtrOpen.value) {
     isAtrOpen.value = false
   }
+}
+
+// Abrir el menú de stats completo
+const openStats = () => {
+  sheetDataStore.openStats()
+}
+
+// Guardar formulario completo
+const saveForm = () => {
+  sheetDataStore.saveFormData()
+}
+
+// Cargar formulario completo
+const loadForm = () => {
+  sheetDataStore.loadFormData()
 }
 </script>
