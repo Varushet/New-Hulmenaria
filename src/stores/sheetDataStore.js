@@ -90,39 +90,29 @@ export const useSheetDataStore = defineStore('sheetData', {
 
   actions: {
     updateField(section, field, value) {
-      this.sheetData[section] = this.sheetData[section] || {}
-      this.sheetData[section][field] = value
+      if (this.sheetData[section]) {
+        this.sheetData[section][field] = value
+      }
     },
 
-    updateFieldDirect(field, value) {
-      this.sheetData[field] = value
-    },
-
-    // // //Funciones//
-    //Añade un punto a un atributo si hay puntos disponibles
     addPoint(attributeName) {
       if (this.sheetData.atr.atrPoints >= 0.1) {
         this.sheetData.atr.attributes[attributeName] = Number(
-          (this.sheetData.atr.attributes[attributeName] + 0.1).toFixed(1),
+          (this.sheetData.atr.attributes[attributeName] + 0.1).toFixed(1)
         )
         this.sheetData.atr.atrPoints = Number((this.sheetData.atr.atrPoints - 0.1).toFixed(1))
       }
     },
 
     addDower(dowerName) {
-      // convierte el mapa en un array claves,valor y busca la coincidencia del segundo elemento, por eso _,
-      const attribute = Object.entries(this.dowerMapping).find(
-        ([_, dowers]) =>
-          //busca en dowers el argumento de la función inicial y así saca a qué atr pertenece esta dt (para cada una)
-          dowers.includes(dowerName),
-        //obtiene la clave de la dt dada
+      const attribute = Object.entries(dowerMapping).find(([_, dowers]) =>
+        dowers.includes(dowerName)
       )?.[0]
 
-      if (attribute && this.dtPoints[attribute] > 0) {
-        // Verifica que la suma de dotes no exceda el límite
+      if (attribute && this.sheetData.dtPoints[attribute] > 0) {
         const currentSum = this.getDowerSum(attribute)
         const attributeValue = this.sheetData.atr.attributes[attribute]
-        //No permite agregar puntos si ya hay repartidos esa máxima cantidad de puntos
+        
         if (currentSum < attributeValue * 3) {
           this.sheetData.atr.dower[dowerName]++
           this.sheetData.dtPoints[attribute]--
@@ -136,7 +126,6 @@ export const useSheetDataStore = defineStore('sheetData', {
     },
 
     watchAttributes() {
-      //Object. keys es para el objeto attributes cada clave -> atr y que para clave se ejecute con el forEach
       Object.keys(this.sheetData.atr.attributes).forEach((atr) => {
         watch(
           () => this.sheetData.atr.attributes[atr],
@@ -147,29 +136,27 @@ export const useSheetDataStore = defineStore('sheetData', {
             if (newLvl > oldLvl && this.getDowerSum(atr) < newLvl * 3) {
               this.sheetData.dtPoints[atr] += (newLvl - oldLvl) * 3
             }
-          },
+          }
         )
       })
     },
 
     newWound(index) {
-      // Verificamos si el campo de nombre no está vacío
       if (
-        this.sheetData.atr.wounds[index].name == '' &&
+        this.sheetData.atr.wounds[index].name === '' &&
         this.sheetData.atr.wounds.length > 1 &&
-        index != this.sheetData.atr.wounds.length - 1
+        index !== this.sheetData.atr.wounds.length - 1
       ) {
         this.sheetData.atr.wounds.splice(index, 1)
       } else if (
         index === this.sheetData.atr.wounds.length - 1 &&
-        this.sheetData.atr.wounds[index].name != ''
+        this.sheetData.atr.wounds[index].name !== ''
       ) {
         const newId = this.sheetData.atr.wounds.length + 1
         this.sheetData.atr.wounds.push({ id: newId, name: '', stadium: 0, grade: 0 })
       }
     },
 
-    //Funcion para aumentar el grade de la herida
     upGrade(wound) {
       wound.stadium++
       if (wound.stadium > 3) {
@@ -191,7 +178,7 @@ export const useSheetDataStore = defineStore('sheetData', {
     devUpdate(event) {
       const inputValue = Number(event.target.value) || 0
       this.sheetData.atr.devInsert = inputValue
-      this.sheetData.atr.devotion += this.sheetData.atr.devInsert
+      this.sheetData.atr.devotion += inputValue
       this.sheetData.atr.devInsert = ''
 
       if (this.sheetData.atr.devotion >= 100) {
@@ -203,34 +190,26 @@ export const useSheetDataStore = defineStore('sheetData', {
     openStats() {
       this.sheetData.atr.isExpanded = !this.sheetData.atr.isExpanded
     },
-    // // //Funciones//
-
-    // // //IndexedDB//
 
     async loadSheetIndexedDB() {
       try {
         const data = await loadSheetData(1)
         if (data) {
           this.sheetData = data
-          console.log('Datos del PJ cargados con éxito')
+          console.log('Sheet data loaded successfully')
         }
       } catch (error) {
-        console.error('Error al cargar los datos del PJ:', error)
+        console.error('Error loading sheet data:', error)
       }
     },
 
     async saveSheetIndexedDB() {
       try {
         await saveSheetData(1, this.sheetData)
-        console.log('Datos del PJ guardados con éxito')
+        console.log('Sheet data saved successfully')
       } catch (error) {
-        console.error('Error al guardar los datos del PJ:', error)
+        console.error('Error saving sheet data:', error)
       }
     },
-
-    created() {
-      this.watchAttributes()
-    },
-    // // //IndexedDB//
   },
 })

@@ -52,7 +52,6 @@ select {
   z-index: 1;
   cursor: pointer;
 }
-/*Manejo de la pestaña de stats */
 .stadistSlide-enter-active,
 .stadistSlide-leave-active {
   transition: 0.5s;
@@ -79,103 +78,76 @@ select {
       <div @click="openStad">
         <p class="name">{{ namePJ }}</p>
         <p>{{ race }}</p>
-        <p>Lvl {{ level }}</p>
+        <p>Lvl {{ store.sheetData.atr.level }}</p>
       </div>
       <div @click="openAtr">
-        <img v-bind:src="dmg" alt="DamaConcge" class="dmg" />
-        <img v-bind:src="ini" alt="Initiative" class="ini" />
+        <img :src="dmg" alt="Damage" class="dmg" />
+        <img :src="ini" alt="Initiative" class="ini" />
         <div class="arm">
           <img src="" alt="Armor" />
-          <p v-bind="pjArmor">{{ armor }}</p>
+          <p>{{ armor }}</p>
         </div>
       </div>
       <div @click="openAtr">
-        <p>{{ deityName }}</p>
+        <p>{{ store.sheetData.atr.deityName }}</p>
         <img src="" alt="Deity" />
-        <p>Destiny {{ dp }}</p>
+        <p>Destiny {{ store.sheetData.atr.dp }}</p>
       </div>
     </section>
     <div class="energy">
-      <p v-bind="pjRes" class="res">Res: {{ res }}</p>
-      <select name="energy" id="energy">
+      <p class="res">Res: {{ res }}</p>
+      <select v-model="selectedEnergy">
         <option value="mistyc">Mistyc</option>
         <option value="inner">Inner</option>
         <option value="natural">Natural</option>
       </select>
-      <p v-bind="pjEnergy">{{ energy }}</p>
+      <p>{{ energy }}</p>
     </div>
     <Equip />
     <Inv />
     <transition name="stadistSlide">
-      <Stadist class="stadist" v-if="isStadistOpen" v-model:name="namePJ" v-model:race="race" />
+      <Stadist 
+        v-if="isStadistOpen" 
+        v-model:name="namePJ" 
+        v-model:race="race" 
+      />
     </transition>
-    <ATR
-      class="atr"
-      v-if="isAtrOpen"
-      v-model:deityName="sheetData.deityName"
-      v-model:level="sheetData.level"
-      v-model:dp="sheetData.dp"
-    />
+    <ATR v-if="isAtrOpen" />
   </form>
 </template>
 
 <script setup>
+import { ref } from 'vue'
+import { useSheetDataStore } from '@/stores/sheetDataStore'
 import Equip from '../components/pj_sheet/Equip.vue'
 import Inv from '../components/pj_sheet/Inv.vue'
 import Stadist from '@/components/pj_sheet/Stadist.vue'
 import ATR from '../components/pj_sheet/ATR.vue'
 
-import { ref } from 'vue'
-import { useSheetDataStore } from '@/stores/sheetDataStore'
+const store = useSheetDataStore()
 
-const sheetDataStore = useSheetDataStore()
-const sheetData = sheetDataStore.sheetData
-
-//Importar y cambiar el nombre
-//Stadist
 const namePJ = ref('Select a Name')
 const race = ref('Select a Race')
-const level = ref(1)
-//ATR
-const deityName = ref('Atheist')
-const dp = ref(0)
+const armor = ref(0)
+const res = ref(0)
+const energy = ref(0)
+const selectedEnergy = ref('mistyc')
+const dmg = ref('')
+const ini = ref('')
 
-// Abrir y cerrar el panel stadist
 const isStadistOpen = ref(false)
+const isAtrOpen = ref(false)
 
 const openStad = () => {
   isStadistOpen.value = !isStadistOpen.value
 }
 
-//abrir y cerrar atr panel
-const isAtrOpen = ref(false)
-
 const openAtr = () => {
   isAtrOpen.value = !isAtrOpen.value
 }
 
-//cerrar los paneles
 const handleClose = () => {
-  if (isStadistOpen.value) {
-    isStadistOpen.value = false
-  }
-  if (isAtrOpen.value) {
-    isAtrOpen.value = false
-  }
+  isStadistOpen.value = false
+  isAtrOpen.value = false
 }
-
-// // Abrir el menú de stats completo
-// const openStats = () => {
-//   sheetDataStore.openStats()
-// }
-
-// // Guardar formulario completo
-// const saveForm = () => {
-//   sheetDataStore.saveFormData()
-// }
-
-// // Cargar formulario completo
-// const loadForm = () => {
-//   sheetDataStore.loadFormData()
-// }
 </script>
